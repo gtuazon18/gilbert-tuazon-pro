@@ -132,7 +132,7 @@ const Footer = ({ footerData, links }) => {
         <a href="#">
           <LogoImg src={logo} alt="Logo" />
         </a>
-        <Logo>Sibi Siddharth S</Logo>
+        <Logo>Gilbert Tuazon</Logo>
         <Nav>
           {links.map((link, index) => (
             <NavLink href={`#${link.toLowerCase()}`} key={index} aria-label={`${link} section`}>
@@ -169,7 +169,7 @@ const Footer = ({ footerData, links }) => {
           )}
         </SocialMediaIcons>
         <Copyright>
-          &copy; {new Date().getFullYear()} Sibi Siddharth S. All rights reserved.
+          &copy; {new Date().getFullYear()} Gilbert Tuazon All rights reserved.
         </Copyright>
       </FooterWrapper>
     </FooterContainer>

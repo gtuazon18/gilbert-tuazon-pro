@@ -4,4 +4,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://sibisiddharth8.github.io/portfolio-react/sitemap.xml
+Sitemap: https://gilbert-tuazon-pro.vercel.app/gilbert-tuazon-pro/sitemap.xml

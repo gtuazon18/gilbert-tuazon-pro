@@ -1,14 +1,14 @@
 {
-  "name": "My Mind - Sibi's Portfolio",
-  "short_name": "Sibi's Portfolio",
-  "start_url": "/portfolio-react/",
+  "name": "Gilbert Tuazon",
+  "short_name": "Gilbert Pro",
+  "start_url": "/gilbert-tuazon-pro/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "id": "Sibi-Siddharth-S",
+  "id": "gilbert-tuazon-pro",
   "lang": "en-US",
-  "description": "MyMind - Sibi Siddharth S Portfolio, showcasing Web, Machine Learning, Deep Learning and Python projects.",
+  "description": "Gilbert Tuazon",
   "icons": [
     {
       "src": "Icons/MyLogo-144x144.png",
