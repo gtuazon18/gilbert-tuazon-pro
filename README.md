@@ -1,8 +1,20 @@
+## Responsive Portfolio Website ✨
 
-## 🔧 Technologies Used
-- **ReactJS**: Frontend framework for building the user interface.
-- **Tailwind CSS**: Utility-first CSS framework for styling and responsive design.
-- **Firebase**: Backend service for authentication, database, and hosting.
-- **EmailJS**: Service for integrating the contact form (currently disabled).
+Responsive Portfolio Website Using HTML, CSS and JavaScript, with a beautiful user interface. 
+Website contains: 
+- Header 
+- Home
+- About
+- Skills
+- Qualification
+- Services
+- Portfolio
+- Project in mind
+- Testimonial
+- Contact
+- Footer 
 
+If u liked my website and the code was useful to you, <br>
+feel free to leave a star (much appreciated) fork it and customize as you like! :)
 
+- Inspired design by Bedimcode-Alexa design 🙌

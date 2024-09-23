@@ -1,7 +1,0 @@
-User-agent: *
-
-# Allow full site access (optional)
-Allow: /
-
-# Sitemap location
-Sitemap: https://gilbert-tuazon-pro.vercel.app/gilbert-tuazon-pro/sitemap.xml
