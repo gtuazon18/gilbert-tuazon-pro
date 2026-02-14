@@ -1,105 +1,133 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
-import { Button } from "./ui/button";
+import { ExternalLink, Github } from "lucide-react";
 
 const galleryProjects = [
   {
     title: "GigaKnows E-Commerce",
     description: "Fully responsive and scalable e-commerce platform",
     tech: ["React", "Laravel", "MySQL", "AWS"],
+    color: "from-violet-500/20 to-purple-500/20",
   },
   {
     title: "AgentCo AI Agent",
     description: "Intelligent AI agent with LangChain and LangGraph",
     tech: ["Python", "LangChain", "LangGraph", "LLaMA"],
+    color: "from-cyan-500/20 to-blue-500/20",
   },
   {
     title: "Health Fitness App",
     description: "Comprehensive health and fitness tracking platform",
     tech: ["React", "Laravel", "MySQL", "Charts"],
+    color: "from-green-500/20 to-emerald-500/20",
   },
   {
     title: "Remarkable Vid AI",
     description: "AI-powered video generation and enhancement",
     tech: ["React", "TypeScript", "Python", "LangChain"],
+    color: "from-pink-500/20 to-rose-500/20",
   },
   {
     title: "Health Booking System",
     description: "Doctor and patient management platform",
     tech: ["React", "Laravel", "PostgreSQL", "WebSocket"],
+    color: "from-red-500/20 to-rose-500/20",
   },
   {
     title: "Flight Booking System",
     description: "Integrated booking platform with airline APIs",
     tech: ["React", "Node.js", "Express", "REST APIs"],
+    color: "from-sky-500/20 to-indigo-500/20",
   },
   {
     title: "FootBaller Life",
     description: "Social media platform for football fans",
     tech: ["React", "Laravel", "Algolia", "Redux Saga"],
+    color: "from-fuchsia-500/20 to-pink-500/20",
   },
   {
     title: "Accounting System",
     description: "Financial management with invoice tracking",
     tech: ["Vue.js", "Laravel", "PostgreSQL", "Stripe"],
+    color: "from-yellow-500/20 to-orange-500/20",
   },
   {
     title: "Landing Page Builder",
     description: "AI-powered prompt-based page generator",
     tech: ["React", "Next.js", "TypeScript", "AI"],
+    color: "from-lime-500/20 to-green-500/20",
   },
   {
     title: "Teko Aircon Booking",
     description: "Fast online booking for aircon, appliances & electrician services",
     tech: ["Laravel", "React", "RabbitMQ", "Elasticsearch"],
+    color: "from-blue-500/20 to-cyan-500/20",
   },
   {
     title: "Staycation Booking",
     description: "Hotel and accommodation booking platform",
     tech: ["Vue.js", "Laravel", "MySQL", "Elasticsearch"],
+    color: "from-teal-500/20 to-cyan-500/20",
   },
   {
     title: "Game of Thrones Chess",
     description: "Themed chess game with multiplayer support",
     tech: ["React", "TypeScript", "WebSocket", "Canvas"],
+    color: "from-purple-500/20 to-violet-500/20",
   },
   {
     title: "Earthquake Tracker",
     description: "Real-time tracking with location notifications",
     tech: ["React", "Node.js", "WebSocket", "Geolocation"],
+    color: "from-orange-500/20 to-red-500/20",
   },
   {
     title: "Lead Generation Platform",
     description: "Comprehensive CRM with lead scoring and automation",
     tech: ["React", "Laravel", "MySQL", "Elasticsearch"],
+    color: "from-indigo-500/20 to-purple-500/20",
   },
   {
     title: "LMS Lab Management",
     description: "Lab Management System with lab resource tracking",
     tech: ["React", "Laravel", "PostgreSQL", "WebSocket"],
+    color: "from-emerald-500/20 to-teal-500/20",
+  },
+  {
+    title: "Voice AI Assistant",
+    description: "Intelligent voice assistant with VAPI, ElevenLabs TTS, and Whisper STT",
+    tech: ["VAPI", "ElevenLabs", "Whisper", "React", "TypeScript"],
+    color: "from-blue-500/20 to-indigo-500/20",
+  },
+  {
+    title: "AI Voice Clone Platform",
+    description: "Voice cloning and synthesis platform using ElevenLabs API",
+    tech: ["ElevenLabs", "React", "Node.js", "PostgreSQL"],
+    color: "from-purple-500/20 to-pink-500/20",
+  },
+  {
+    title: "Real-time Transcription",
+    description: "Live audio transcription service powered by Whisper",
+    tech: ["Whisper", "Python", "FastAPI", "WebSocket"],
+    color: "from-cyan-500/20 to-blue-500/20",
   },
 ];
 
 const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
   <motion.div
     whileHover={{ y: -8, scale: 1.02 }}
-    className="flex-shrink-0 w-72 bg-black rounded-xl overflow-hidden group cursor-pointer"
+    className="flex-shrink-0 w-72 glass-card rounded-xl overflow-hidden group cursor-pointer"
   >
     {/* Image/Icon Area */}
-    <div className="h-40 bg-black flex items-center justify-center relative overflow-hidden border-b border-gray-800">
-      <span className="text-6xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-        {project.title.charAt(0).toUpperCase()}
-      </span>
+    <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+      <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
         <motion.a
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           href="https://github.com/gtuazon18/gtuazon18"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+          className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
           onClick={(e) => e.stopPropagation()}
         >
           <Github className="w-5 h-5" />
@@ -110,7 +138,7 @@ const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
           href="https://example.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+          className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
           onClick={(e) => e.stopPropagation()}
         >
           <ExternalLink className="w-5 h-5" />
@@ -119,18 +147,18 @@ const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
     </div>
 
     {/* Content */}
-    <div className="p-5 bg-black">
-      <h3 className="font-bold text-lg mb-2 text-white group-hover:text-gray-300 transition-colors">
+    <div className="p-5">
+      <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
         {project.title}
       </h3>
-      <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
         {project.description}
       </p>
       <div className="flex flex-wrap gap-2">
         {project.tech.map((tech) => (
           <span
             key={tech}
-            className="text-xs font-mono text-white bg-gray-900 border border-gray-700 px-2 py-1 rounded"
+            className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
           >
             {tech}
           </span>
@@ -141,14 +169,8 @@ const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
 );
 
 const ProjectGallery = () => {
-  const [showAllProjects, setShowAllProjects] = useState(false);
-  const initialProjectCount = 6;
-  const displayedProjects = showAllProjects ? galleryProjects : galleryProjects.slice(0, initialProjectCount);
-  
   // Duplicate projects for seamless infinite scroll
-  const duplicatedProjects = showAllProjects 
-    ? [...galleryProjects, ...galleryProjects]
-    : [...displayedProjects, ...displayedProjects];
+  const duplicatedProjects = [...galleryProjects, ...galleryProjects];
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden">
@@ -222,29 +244,6 @@ const ProjectGallery = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* See More Button */}
-      {galleryProjects.length > initialProjectCount && (
-        <div className="flex justify-center mt-12">
-          <Button
-            variant="outline"
-            onClick={() => setShowAllProjects(!showAllProjects)}
-            className="font-mono border-primary/50 text-foreground hover:bg-primary/10"
-          >
-            {showAllProjects ? (
-              <>
-                <ChevronUp className="w-4 h-4" />
-                See Less
-              </>
-            ) : (
-              <>
-                <ChevronDown className="w-4 h-4" />
-                See More ({galleryProjects.length - initialProjectCount} more)
-              </>
-            )}
-          </Button>
-        </div>
-      )}
     </section>
   );
 };

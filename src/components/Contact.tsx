@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Github, Linkedin, Twitter, Phone } from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "./ui/button";
 const Contact = () => {
   return <section id="contact" className="py-24 md:py-32 relative">
       <div className="container px-6">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{
           opacity: 0,
           y: 30
@@ -37,45 +37,33 @@ const Contact = () => {
         }} transition={{
           duration: 0.6,
           delay: 0.2
-        }} className="glass-card rounded-2xl p-10 md:p-16 glow-card">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16 mb-12">
-              <div className="flex items-center gap-5 md:gap-6 justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+        }} className="glass-card rounded-2xl p-8 md:p-12 glow-card">
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div className="flex items-center gap-4 justify-center md:justify-start">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-left min-w-0">
-                  <p className="text-sm text-muted-foreground mb-1">Email</p>
-                  <a className="font-mono text-foreground hover:text-primary transition-colors whitespace-nowrap block" href="mailto:tuazon548@gmail.com">
+                <div className="text-left">
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <a className="font-mono text-foreground hover:text-primary transition-colors" href="mailto:tuazon548@gmail.com">
                     tuazon548@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-5 md:gap-6 justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div className="text-left min-w-0">
-                  <p className="text-sm text-muted-foreground mb-1">Call me</p>
-                  <a className="font-mono text-foreground hover:text-primary transition-colors whitespace-nowrap block" href="tel:+639479654440">
-                    (+63) 9479654440
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-5 md:gap-6 justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-4 justify-center md:justify-start">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-left min-w-0">
-                  <p className="text-sm text-muted-foreground mb-1">Location</p>
-                  <p className="font-mono text-foreground whitespace-nowrap">Philippines, Cavite</p>
+                <div className="text-left">
+                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="font-mono text-foreground">Philippines, Cavite</p>
                 </div>
               </div>
             </div>
 
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 glow-primary font-mono px-10" asChild>
-              <a href="mailto:tuazon548@gmail.com">
+              <a href="mailto:hello@alexchen.dev">
                 <Send className="w-4 h-4 mr-2" />
                 Say Hello
               </a>
@@ -95,11 +83,11 @@ const Contact = () => {
         }} className="mt-12 flex items-center justify-center gap-6">
             {[{
             icon: Github,
-            href: "https://github.com/gtuazon18/gtuazon18",
+            href: "https://github.com",
             label: "GitHub"
           }, {
             icon: Linkedin,
-            href: "https://www.linkedin.com/in/gilbert-t-20a96213a/",
+            href: "https://linkedin.com",
             label: "LinkedIn"
           }, {
             icon: Twitter,

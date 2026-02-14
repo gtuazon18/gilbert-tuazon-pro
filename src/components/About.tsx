@@ -86,7 +86,8 @@ const About = () => {
                 platforms handling high-traffic transactions, implemented real-time systems with 
                 asynchronous messaging, and optimized databases for performance at scale. My expertise 
                 spans modern frontend frameworks, robust backend systems, cloud infrastructure, 
-                and AI-powered automation solutions.
+                AI-powered automation solutions, and voice AI technologies including ElevenLabs for 
+                text-to-speech, Whisper for speech-to-text, and VAPI for building conversational AI assistants.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
@@ -100,7 +101,8 @@ const About = () => {
                 <p className="font-mono text-sm text-primary mb-2">{"// Current focus"}</p>
                 <p className="text-muted-foreground">
                   Leading full-stack development initiatives, architecting scalable systems, 
-                  and building AI-powered automation solutions that transform business processes.
+                  building AI-powered automation solutions, and developing voice AI applications 
+                  with ElevenLabs, Whisper, and VAPI that enable natural human-computer interactions.
                 </p>
               </div>
             </motion.div>

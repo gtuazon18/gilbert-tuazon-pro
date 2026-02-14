@@ -194,7 +194,6 @@ const Hero = () => {
               </motion.a>)}
           </motion.div>
         </div>
-
         {/* Scroll indicator */}
         <motion.div initial={{
         opacity: 0

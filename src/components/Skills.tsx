@@ -38,6 +38,15 @@ const skills = [{
 }, {
   name: "Python",
   category: "Language"
+}, {
+  name: "ElevenLabs",
+  category: "AI/Voice"
+}, {
+  name: "Whisper",
+  category: "AI/Voice"
+}, {
+  name: "VAPI",
+  category: "AI/Voice"
 }];
 const container = {
   hidden: {

@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ProjectGallery from "@/components/ProjectGallery";
-import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -26,12 +25,11 @@ const Index = () => {
       {/* Content */}
       <div className="relative z-10">
         <Navbar />
-        <main>
+        <main className="pb-20 md:pb-0">
           <Hero />
           <Skills />
           <Projects />
           <ProjectGallery />
-          <Testimonials />
           <About />
           <Contact />
         </main>
