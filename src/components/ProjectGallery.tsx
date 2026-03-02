@@ -9,6 +9,13 @@ const galleryProjects = [
     color: "from-violet-500/20 to-purple-500/20",
   },
   {
+    title: "Serenité",
+    description: "Luxury spa e-commerce — curated manicure, pedicure & spa products crafted with botanical ingredients for radiant results.",
+    tech: ["React", "E-commerce", "Vercel"],
+    color: "from-rose-400/20 to-amber-500/20",
+    live: "https://bloom-glow-boutique.vercel.app/",
+  },
+  {
     title: "AgentCo AI Agent",
     description: "Intelligent AI agent with LangChain and LangGraph",
     tech: ["Python", "LangChain", "LangGraph", "LLaMA"],
@@ -121,28 +128,58 @@ const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
     <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-        <motion.a
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          href="https://github.com/gtuazon18/gtuazon18"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <Github className="w-5 h-5" />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          href="https://example.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <ExternalLink className="w-5 h-5" />
-        </motion.a>
+        {"github" in project && project.github && (
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Github className="w-5 h-5" />
+          </motion.a>
+        )}
+        {"live" in project && project.live && (
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ExternalLink className="w-5 h-5" />
+          </motion.a>
+        )}
+        {!(("github" in project && project.github) || ("live" in project && project.live)) && (
+          <>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://github.com/gtuazon18/gtuazon18"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Github className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ExternalLink className="w-5 h-5" />
+            </motion.a>
+          </>
+        )}
       </div>
     </div>
 

@@ -3,6 +3,13 @@ import { ExternalLink, Github, Folder } from "lucide-react";
 
 const projects = [
   {
+    title: "Serenité",
+    description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.",
+    tech: ["React", "E-commerce", "Vercel"],
+    live: "https://bloom-glow-boutique.vercel.app/",
+    featured: true,
+  },
+  {
     title: "Voice AI Assistant",
     description: "Intelligent voice assistant powered by VAPI with ElevenLabs TTS and Whisper STT for natural conversations and real-time transcription.",
     tech: ["VAPI", "ElevenLabs", "Whisper", "React", "TypeScript"],
