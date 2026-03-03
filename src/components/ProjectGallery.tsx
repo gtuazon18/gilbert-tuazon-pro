@@ -1,18 +1,31 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const galleryProjects = [
+interface GalleryProject {
+  title: string;
+  description: string;
+  tech: string[];
+  color: string;
+  icon: LucideIcon;
+  github?: string;
+  live?: string;
+}
+
+const galleryProjects: GalleryProject[] = [
   {
     title: "GigaKnows E-Commerce",
     description: "Fully responsive and scalable e-commerce platform",
     tech: ["React", "Laravel", "MySQL", "AWS"],
     color: "from-violet-500/20 to-purple-500/20",
+    icon: ShoppingBag,
   },
   {
     title: "Serenité",
     description: "Luxury spa e-commerce — curated manicure, pedicure & spa products crafted with botanical ingredients for radiant results.",
     tech: ["React", "E-commerce", "Vercel"],
     color: "from-rose-400/20 to-amber-500/20",
+    icon: ShoppingBag,
     live: "https://bloom-glow-boutique.vercel.app/",
   },
   {
@@ -20,66 +33,77 @@ const galleryProjects = [
     description: "Intelligent AI agent with LangChain and LangGraph",
     tech: ["Python", "LangChain", "LangGraph", "LLaMA"],
     color: "from-cyan-500/20 to-blue-500/20",
+    icon: Bot,
   },
   {
     title: "Health Fitness App",
     description: "Comprehensive health and fitness tracking platform",
     tech: ["React", "Laravel", "MySQL", "Charts"],
     color: "from-green-500/20 to-emerald-500/20",
+    icon: Activity,
   },
   {
     title: "Remarkable Vid AI",
     description: "AI-powered video generation and enhancement",
     tech: ["React", "TypeScript", "Python", "LangChain"],
     color: "from-pink-500/20 to-rose-500/20",
+    icon: Video,
   },
   {
     title: "Health Booking System",
     description: "Doctor and patient management platform",
     tech: ["React", "Laravel", "PostgreSQL", "WebSocket"],
     color: "from-red-500/20 to-rose-500/20",
+    icon: Calendar,
   },
   {
     title: "Flight Booking System",
     description: "Integrated booking platform with airline APIs",
     tech: ["React", "Node.js", "Express", "REST APIs"],
     color: "from-sky-500/20 to-indigo-500/20",
+    icon: Plane,
   },
   {
     title: "FootBaller Life",
     description: "Social media platform for football fans",
     tech: ["React", "Laravel", "Algolia", "Redux Saga"],
     color: "from-fuchsia-500/20 to-pink-500/20",
+    icon: Trophy,
   },
   {
     title: "Accounting System",
     description: "Financial management with invoice tracking",
     tech: ["Vue.js", "Laravel", "PostgreSQL", "Stripe"],
     color: "from-yellow-500/20 to-orange-500/20",
+    icon: Calculator,
   },
   {
     title: "Landing Page Builder",
     description: "AI-powered prompt-based page generator",
     tech: ["React", "Next.js", "TypeScript", "AI"],
     color: "from-lime-500/20 to-green-500/20",
+    icon: Layout,
   },
   {
     title: "Teko Aircon Booking",
     description: "Fast online booking for aircon, appliances & electrician services",
     tech: ["Laravel", "React", "RabbitMQ", "Elasticsearch"],
     color: "from-blue-500/20 to-cyan-500/20",
+    icon: Wind,
   },
   {
     title: "Staycation Booking",
     description: "Hotel and accommodation booking platform",
     tech: ["Vue.js", "Laravel", "MySQL", "Elasticsearch"],
     color: "from-teal-500/20 to-cyan-500/20",
+    icon: Hotel,
   },
   {
     title: "Game of Thrones Chess",
     description: "Themed chess game with multiplayer support",
     tech: ["React", "TypeScript", "WebSocket", "Canvas"],
     color: "from-purple-500/20 to-violet-500/20",
+    icon: Sword,
     live: "https://chess.of.throne.agentco.cloud/",
   },
   {
@@ -87,76 +111,97 @@ const galleryProjects = [
     description: "Real-time tracking with location notifications",
     tech: ["React", "Node.js", "WebSocket", "Geolocation"],
     color: "from-orange-500/20 to-red-500/20",
+    icon: AlertTriangle,
   },
   {
     title: "Lead Generation Platform",
     description: "Comprehensive CRM with lead scoring and automation",
     tech: ["React", "Laravel", "MySQL", "Elasticsearch"],
     color: "from-indigo-500/20 to-purple-500/20",
+    icon: Users,
   },
   {
     title: "LMS Lab Management",
     description: "Lab Management System with lab resource tracking",
     tech: ["React", "Laravel", "PostgreSQL", "WebSocket"],
     color: "from-emerald-500/20 to-teal-500/20",
+    icon: FlaskConical,
   },
   {
     title: "Voice AI Assistant",
     description: "Intelligent voice assistant with VAPI, ElevenLabs TTS, and Whisper STT",
     tech: ["VAPI", "ElevenLabs", "Whisper", "React", "TypeScript"],
     color: "from-blue-500/20 to-indigo-500/20",
+    icon: Mic,
   },
   {
     title: "AI Voice Clone Platform",
     description: "Voice cloning and synthesis platform using ElevenLabs API",
     tech: ["ElevenLabs", "React", "Node.js", "PostgreSQL"],
     color: "from-purple-500/20 to-pink-500/20",
+    icon: AudioLines,
   },
   {
     title: "Real-time Transcription",
     description: "Live audio transcription service powered by Whisper",
     tech: ["Whisper", "Python", "FastAPI", "WebSocket"],
     color: "from-cyan-500/20 to-blue-500/20",
+    icon: FileText,
   },
 ];
 
-const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
-  <motion.div
-    whileHover={{ y: -8, scale: 1.02 }}
-    className="flex-shrink-0 w-72 glass-card rounded-xl overflow-hidden group cursor-pointer"
-  >
-    {/* Image/Icon Area */}
-    <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-      {/* Hover overlay */}
-      <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-        {"github" in project && project.github && (
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Github className="w-5 h-5" />
-          </motion.a>
-        )}
-        {"live" in project && project.live && (
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <ExternalLink className="w-5 h-5" />
-          </motion.a>
-        )}
-        {!(("github" in project && project.github) || ("live" in project && project.live)) && (
-          <>
+const ProjectCard = ({ project }: { project: GalleryProject }) => {
+  const Icon = project.icon;
+
+  return (
+    <motion.div
+      whileHover={{ y: -8, scale: 1.02 }}
+      className="flex-shrink-0 w-72 glass-card rounded-xl overflow-hidden group cursor-pointer"
+    >
+      {/* Illustration area */}
+      <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "20px 20px",
+          }}
+        />
+
+        {/* Fallback icon illustration */}
+        <div className="relative flex flex-col items-center gap-2 opacity-60 group-hover:opacity-30 transition-opacity duration-300">
+          <Icon className="w-14 h-14 text-white" strokeWidth={1.2} />
+        </div>
+
+        {/* Hover overlay with links */}
+        <div className="absolute inset-0 bg-background/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+          {"github" in project && project.github && (
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Github className="w-5 h-5" />
+            </motion.a>
+          )}
+          {"live" in project && project.live && (
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ExternalLink className="w-5 h-5" />
+            </motion.a>
+          )}
+          {!(project.github || project.live) && (
             <motion.a
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -168,46 +213,34 @@ const ProjectCard = ({ project }: { project: typeof galleryProjects[0] }) => (
             >
               <Github className="w-5 h-5" />
             </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://example.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ExternalLink className="w-5 h-5" />
-            </motion.a>
-          </>
-        )}
+          )}
+        </div>
       </div>
-    </div>
 
-    {/* Content */}
-    <div className="p-5">
-      <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
-        {project.title}
-      </h3>
-      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-        {project.description}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {project.tech.map((tech) => (
-          <span
-            key={tech}
-            className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
-          >
-            {tech}
-          </span>
-        ))}
+      {/* Content */}
+      <div className="p-5">
+        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 const ProjectGallery = () => {
-  // Duplicate projects for seamless infinite scroll
   const duplicatedProjects = [...galleryProjects, ...galleryProjects];
 
   return (
@@ -230,26 +263,15 @@ const ProjectGallery = () => {
         </motion.div>
       </div>
 
-      {/* Auto-scrolling carousel */}
+      {/* Auto-scrolling carousel — row 1 */}
       <div className="relative">
-        {/* Gradient overlays for fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        {/* Scrolling container */}
         <motion.div
           className="flex gap-6 py-4"
-          animate={{
-            x: [0, -50 * galleryProjects.length * 6],
-          }}
-          transition={{
-            x: {
-              duration: 40,
-              repeat: Infinity,
-              ease: "linear",
-            },
-          }}
-          whileHover={{ animationPlayState: "paused" }}
+          animate={{ x: [0, -50 * galleryProjects.length * 6] }}
+          transition={{ x: { duration: 40, repeat: Infinity, ease: "linear" } }}
           style={{ width: "fit-content" }}
         >
           {duplicatedProjects.map((project, index) => (
@@ -258,23 +280,15 @@ const ProjectGallery = () => {
         </motion.div>
       </div>
 
-      {/* Bottom row - scrolling opposite direction */}
+      {/* Auto-scrolling carousel — row 2 (reversed) */}
       <div className="relative mt-6">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
         <motion.div
           className="flex gap-6 py-4"
-          animate={{
-            x: [-50 * galleryProjects.length * 6, 0],
-          }}
-          transition={{
-            x: {
-              duration: 40,
-              repeat: Infinity,
-              ease: "linear",
-            },
-          }}
+          animate={{ x: [-50 * galleryProjects.length * 6, 0] }}
+          transition={{ x: { duration: 40, repeat: Infinity, ease: "linear" } }}
           style={{ width: "fit-content" }}
         >
           {[...duplicatedProjects].reverse().map((project, index) => (

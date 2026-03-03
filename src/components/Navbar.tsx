@@ -1,20 +1,19 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const navLinks = [{
-  name: "About",
-  href: "#about"
-}, {
-  name: "Projects",
-  href: "#projects"
-}, {
-  name: "Contact",
-  href: "#contact"
-}];
+const navLinks = [
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,16 +78,28 @@ const Navbar = () => {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map(link => (
-                <motion.button 
-                  key={link.name} 
+              {isHome && navLinks.map(link => (
+                <motion.button
+                  key={link.name}
                   whileHover={{ y: -2 }}
-                  onClick={() => handleNavClick(link.href)} 
+                  onClick={() => handleNavClick(link.href)}
                   className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   {link.name}
                 </motion.button>
               ))}
+              <motion.div whileHover={{ y: -2 }}>
+                <Link
+                  to="/blog"
+                  className={`font-mono text-sm transition-colors ${
+                    location.pathname === "/blog"
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  Blog
+                </Link>
+              </motion.div>
             </div>
           </div>
         </nav>
@@ -98,15 +109,15 @@ const Navbar = () => {
       <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
         <div className="glass-card border-t border-border">
           <div className="container px-4 py-3">
-            <div className="flex items-center justify-around gap-2">
-              {navLinks.map((link) => {
+            <div className="flex items-center justify-around gap-1">
+              {isHome && navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
                   <motion.button
                     key={link.name}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleNavClick(link.href)}
-                    className={`font-mono text-xs sm:text-sm px-4 py-2 rounded-full transition-all ${
+                    className={`font-mono text-xs px-3 py-2 rounded-full transition-all ${
                       isActive
                         ? "bg-primary/20 text-primary font-semibold"
                         : "text-muted-foreground hover:text-primary hover:bg-primary/10"
@@ -116,6 +127,18 @@ const Navbar = () => {
                   </motion.button>
                 );
               })}
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/blog"
+                  className={`font-mono text-xs px-3 py-2 rounded-full transition-all block ${
+                    location.pathname === "/blog"
+                      ? "bg-primary/20 text-primary font-semibold"
+                      : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                  }`}
+                >
+                  Blog
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
