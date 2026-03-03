@@ -80,6 +80,7 @@ const galleryProjects = [
     description: "Themed chess game with multiplayer support",
     tech: ["React", "TypeScript", "WebSocket", "Canvas"],
     color: "from-purple-500/20 to-violet-500/20",
+    live: "https://chess.of.throne.agentco.cloud/",
   },
   {
     title: "Earthquake Tracker",
