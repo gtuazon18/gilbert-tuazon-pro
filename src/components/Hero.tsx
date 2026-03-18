@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
+import { MapPin, Calendar, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 
@@ -47,187 +47,151 @@ const TypingText = ({ words, typingSpeed = 100, deletingSpeed = 50, pauseTime = 
   return (
     <span className="inline-block">
       {currentText}
-      <span className="animate-pulse text-primary">|</span>
+      <span className="animate-pulse text-muted-foreground">|</span>
     </span>
   );
 };
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle gradient overlay for content readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/70" />
-
-      {/* Floating accent orbs */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-1/5 w-56 h-56 bg-cyan-500/10 rounded-full blur-3xl"
-        animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
-
-      <div className="container relative z-10 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Status badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
-          >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
-            </span>
-            <span className="font-mono text-xs text-muted-foreground">
-              Available for opportunities
-            </span>
-          </motion.div>
-
-          {/* Code comment intro */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-mono text-primary/80 mb-4 text-sm md:text-base"
-          >
-            {"// Hello World, I'm"}
-          </motion.p>
-
-          {/* Name with gradient */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
-          >
-            <span className="gradient-text">Gilbert Tuazon</span>
-          </motion.h1>
-
-          {/* Title with typing effect */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-xl md:text-2xl lg:text-3xl mb-8 font-mono text-foreground/90"
-          >
-            Full-Stack Developer &{" "}
-            <span className="text-primary">
-              <TypingText
-                words={[
-                  "Software Engineer",
-                  "AI Systems Engineer",
-                  "SaaS Architect",
-                  "Product Engineer",
-                  "Tech Innovator",
-                ]}
-              />
-            </span>
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
-          >
-            I craft elegant digital experiences with clean code and thoughtful design.
-            Specializing in React, TypeScript, AI automations, and fullstack webapp development.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-primary font-mono px-8 group"
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+    <section className="pt-28 pb-12 md:pt-32 md:pb-16">
+      <div className="container px-6">
+        <div className="max-w-4xl mx-auto">
+          {/* Profile Header */}
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+            {/* Profile Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex-shrink-0"
             >
-              View Projects
-              <motion.span
-                className="ml-2 inline-block"
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/50 text-foreground hover:bg-primary/10 font-mono px-8"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Get in Touch
-            </Button>
-          </motion.div>
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                <img
+                  src="/gt-pic.png"
+                  alt="Gilbert Tuazon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="flex items-center justify-center gap-4"
-          >
-            {[
-              {
-                icon: Github,
-                href: "https://github.com/gtuazon18/gtuazon18",
-                label: "GitHub",
-              },
-              {
-                icon: Linkedin,
-                href: "https://www.linkedin.com/in/gilbert-t-20a96213a/",
-                label: "LinkedIn",
-              },
-              {
-                icon: Mail,
-                href: "mailto:tuazon548@gmail.com",
-                label: "Email",
-              },
-            ].map(({ icon: Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.15, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full glass-card text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
-                aria-label={label}
+            {/* Name & Info */}
+            <div className="flex-1 text-center md:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            ))}
-          </motion.div>
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-1">
+                  Gilbert Tuazon
+                </h1>
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-muted-foreground mb-3">
+                  <MapPin className="w-4 h-4" />
+                  <span className="text-sm">Cavite, Philippines</span>
+                </div>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="text-muted-foreground mb-1"
+              >
+                Full-Stack Developer &{" "}
+                <span className="text-foreground font-medium">
+                  <TypingText
+                    words={[
+                      "Software Engineer",
+                      "AI Systems Engineer",
+                      "SaaS Architect",
+                      "Product Engineer",
+                      "Tech Innovator",
+                    ]}
+                  />
+                </span>
+              </motion.p>
+
+              {/* Tags */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-4"
+              >
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-200">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                  </span>
+                  Available for opportunities
+                </span>
+                <span className="tag-pill text-xs">10+ Years Experience</span>
+                <span className="tag-pill text-xs">50+ Projects</span>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-6"
+              >
+                <Button
+                  size="sm"
+                  className="bg-foreground text-white hover:bg-foreground/90 rounded-full px-5"
+                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Schedule a Call
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-full px-5"
+                  asChild
+                >
+                  <a href="mailto:tuazon548@gmail.com">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Send Email
+                  </a>
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="rounded-full px-5"
+                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  View Projects
+                </Button>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex items-center justify-center md:justify-start gap-3 mt-5"
+              >
+                {[
+                  { icon: Github, href: "https://github.com/gtuazon18/gtuazon18", label: "GitHub" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/gilbert-t-20a96213a/", label: "LinkedIn" },
+                  { icon: Mail, href: "mailto:tuazon548@gmail.com", label: "Email" },
+                ].map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-secondary transition-all"
+                    aria-label={label}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2"
-          >
-            <span className="font-mono text-xs text-muted-foreground/60">scroll</span>
-            <ArrowDown className="w-4 h-4 text-muted-foreground/60" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

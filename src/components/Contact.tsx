@@ -1,112 +1,93 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Github, Linkedin } from "lucide-react";
-import { Button } from "./ui/button";
+import { Github, Linkedin, Calendar, BookOpen } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-12 md:py-16">
       <div className="container px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
+            className="section-card"
           >
-            <p className="font-mono text-primary mb-3 text-sm">{"// Contact"}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Let's Connect
-            </h2>
-            <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto leading-relaxed">
-              I'm always open to discussing new projects, creative ideas,
-              or opportunities to be part of something amazing.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card rounded-2xl p-8 md:p-12 glow-card"
-          >
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              <div className="flex items-center gap-4 justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div className="text-left">
-                  <p className="text-sm text-muted-foreground mb-0.5">Email</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Social Links */}
+              <div>
+                <h3 className="font-semibold text-sm mb-4">Social Links</h3>
+                <div className="space-y-3">
                   <a
-                    className="font-mono text-foreground hover:text-primary transition-colors text-sm"
-                    href="mailto:tuazon548@gmail.com"
+                    href="https://www.linkedin.com/in/gilbert-t-20a96213a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    tuazon548@gmail.com
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://github.com/gtuazon18/gtuazon18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 justify-center md:justify-start">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div className="text-left">
-                  <p className="text-sm text-muted-foreground mb-0.5">Location</p>
-                  <p className="font-mono text-foreground text-sm">Cavite, Philippines</p>
-                </div>
+              {/* Speaking */}
+              <div>
+                <h3 className="font-semibold text-sm mb-4">Speaking</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Available for speaking at events about software development and emerging technologies.
+                </p>
+                <a
+                  href="mailto:tuazon548@gmail.com?subject=Speaking Inquiry"
+                  className="inline-flex items-center gap-1.5 text-sm text-foreground font-medium mt-3 hover:underline"
+                >
+                  Get in touch
+                  <span>&rarr;</span>
+                </a>
+              </div>
+
+              {/* Email */}
+              <div>
+                <h3 className="font-semibold text-sm mb-4">Email</h3>
+                <a
+                  href="mailto:tuazon548@gmail.com"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  tuazon548@gmail.com
+                </a>
+
+                <h3 className="font-semibold text-sm mt-6 mb-3">Let's Talk</h3>
+                <a
+                  href="mailto:tuazon548@gmail.com?subject=Let's Talk"
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Schedule a Call
+                  <span>&rarr;</span>
+                </a>
+              </div>
+
+              {/* Blog */}
+              <div>
+                <h3 className="font-semibold text-sm mb-4">Blog</h3>
+                <a
+                  href="/blog"
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  Read my blog
+                  <span>&rarr;</span>
+                </a>
               </div>
             </div>
-
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-primary font-mono px-10"
-              asChild
-            >
-              <a href="mailto:tuazon548@gmail.com">
-                <Send className="w-4 h-4 mr-2" />
-                Say Hello
-              </a>
-            </Button>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 flex items-center justify-center gap-6"
-          >
-            {[
-              {
-                icon: Github,
-                href: "https://github.com/gtuazon18/gtuazon18",
-                label: "GitHub",
-              },
-              {
-                icon: Linkedin,
-                href: "https://www.linkedin.com/in/gilbert-t-20a96213a/",
-                label: "LinkedIn",
-              },
-              {
-                icon: Mail,
-                href: "mailto:tuazon548@gmail.com",
-                label: "Email",
-              },
-            ].map(({ icon: Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full glass-card text-muted-foreground hover:text-primary transition-colors"
-                aria-label={label}
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            ))}
           </motion.div>
         </div>
       </div>

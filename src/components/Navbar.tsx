@@ -18,8 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Determine active section based on scroll position
+
       const sections = navLinks.map(link => ({
         id: link.href.substring(1),
         element: document.querySelector(link.href)
@@ -39,62 +38,64 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({
-      behavior: "smooth"
-    });
+    element?.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <>
-      <motion.header 
+      <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-card border-b border-border" : ""}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/80 backdrop-blur-lg border-b border-border shadow-sm"
+            : "bg-transparent"
+        }`}
       >
         <nav className="container px-6 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.a 
-              href="#" 
+            <motion.a
+              href="#"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="font-mono text-xl font-bold text-primary" 
+              className="text-xl font-bold text-foreground"
               onClick={e => {
                 e.preventDefault();
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth"
-                });
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
-              {"<GT />"}
+              GT
             </motion.a>
 
-            {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               {isHome && navLinks.map(link => (
                 <motion.button
                   key={link.name}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -1 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className={`text-sm font-medium transition-colors ${
+                    activeSection === link.href.substring(1)
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.name}
                 </motion.button>
               ))}
-              <motion.div whileHover={{ y: -2 }}>
+              <motion.div whileHover={{ y: -1 }}>
                 <Link
                   to="/blog"
-                  className={`font-mono text-sm transition-colors ${
+                  className={`text-sm font-medium transition-colors ${
                     location.pathname === "/blog"
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   Blog
@@ -107,7 +108,7 @@ const Navbar = () => {
 
       {/* Mobile Bottom Tab Bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-        <div className="glass-card border-t border-border">
+        <div className="bg-white/90 backdrop-blur-lg border-t border-border">
           <div className="container px-4 py-3">
             <div className="flex items-center justify-around gap-1">
               {isHome && navLinks.map((link) => {
@@ -117,10 +118,10 @@ const Navbar = () => {
                     key={link.name}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleNavClick(link.href)}
-                    className={`font-mono text-xs px-3 py-2 rounded-full transition-all ${
+                    className={`text-xs px-3 py-2 rounded-full transition-all font-medium ${
                       isActive
-                        ? "bg-primary/20 text-primary font-semibold"
-                        : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                        ? "bg-foreground text-white"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {link.name}
@@ -130,10 +131,10 @@ const Navbar = () => {
               <motion.div whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/blog"
-                  className={`font-mono text-xs px-3 py-2 rounded-full transition-all block ${
+                  className={`text-xs px-3 py-2 rounded-full transition-all block font-medium ${
                     location.pathname === "/blog"
-                      ? "bg-primary/20 text-primary font-semibold"
-                      : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                      ? "bg-foreground text-white"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   Blog
@@ -146,4 +147,5 @@ const Navbar = () => {
     </>
   );
 };
+
 export default Navbar;
