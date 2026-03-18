@@ -450,9 +450,38 @@ const useDarkMode = () => {
   return [isDark, () => setIsDark(prev => !prev)] as const;
 };
 
+/* ─── Card Color Themes ─── */
+interface CardTheme {
+  name: string;
+  gradient: string;
+  gradientBack: string;
+  button: string;
+  buttonHover: string;
+  swatch: string;
+}
+
+const cardThemes: CardTheme[] = [
+  { name: "Teal", gradient: "linear-gradient(135deg, #0d4f4f 0%, #0a7373 25%, #11998e 50%, #0d6b6b 75%, #064040 100%)", gradientBack: "linear-gradient(135deg, #064040 0%, #0a7373 30%, #11998e 60%, #0d6b6b 85%, #0d4f4f 100%)", button: "#0a7373", buttonHover: "#0d5f5f", swatch: "#0a7373" },
+  { name: "Black", gradient: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #3a3a3a 50%, #2d2d2d 75%, #111111 100%)", gradientBack: "linear-gradient(135deg, #111111 0%, #2d2d2d 30%, #3a3a3a 60%, #2d2d2d 85%, #1a1a1a 100%)", button: "#2d2d2d", buttonHover: "#1a1a1a", swatch: "#2d2d2d" },
+  { name: "Red", gradient: "linear-gradient(135deg, #4a0e0e 0%, #8b1a1a 25%, #c0392b 50%, #8b1a1a 75%, #3d0c0c 100%)", gradientBack: "linear-gradient(135deg, #3d0c0c 0%, #8b1a1a 30%, #c0392b 60%, #8b1a1a 85%, #4a0e0e 100%)", button: "#8b1a1a", buttonHover: "#6b1414", swatch: "#8b1a1a" },
+  { name: "Purple", gradient: "linear-gradient(135deg, #2d1052 0%, #5b2d8e 25%, #8e44ad 50%, #5b2d8e 75%, #1f0a38 100%)", gradientBack: "linear-gradient(135deg, #1f0a38 0%, #5b2d8e 30%, #8e44ad 60%, #5b2d8e 85%, #2d1052 100%)", button: "#5b2d8e", buttonHover: "#4a2474", swatch: "#5b2d8e" },
+  { name: "Blue", gradient: "linear-gradient(135deg, #0a1a4a 0%, #1a3a8a 25%, #2563eb 50%, #1a3a8a 75%, #071240 100%)", gradientBack: "linear-gradient(135deg, #071240 0%, #1a3a8a 30%, #2563eb 60%, #1a3a8a 85%, #0a1a4a 100%)", button: "#1a3a8a", buttonHover: "#142d6e", swatch: "#1a3a8a" },
+  { name: "Silver", gradient: "linear-gradient(135deg, #6b6b6b 0%, #9e9e9e 25%, #bdbdbd 50%, #9e9e9e 75%, #5a5a5a 100%)", gradientBack: "linear-gradient(135deg, #5a5a5a 0%, #9e9e9e 30%, #bdbdbd 60%, #9e9e9e 85%, #6b6b6b 100%)", button: "#6b6b6b", buttonHover: "#555555", swatch: "#9e9e9e" },
+];
+
 /* ─── Main Page ─── */
 const Index = () => {
   const [isDark, toggleDark] = useDarkMode();
+  const [cardThemeIndex, setCardThemeIndex] = useState(() => {
+    const saved = localStorage.getItem("card-theme");
+    return saved ? parseInt(saved, 10) : 4;
+  });
+  const theme = cardThemes[cardThemeIndex];
+
+  const cycleTheme = (index: number) => {
+    setCardThemeIndex(index);
+    localStorage.setItem("card-theme", String(index));
+  };
 
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
@@ -504,7 +533,7 @@ const Index = () => {
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-4">
-                      <Button size="sm" className="bg-[#0a7373] text-white hover:bg-[#0d5f5f] rounded-full px-5" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+                      <Button size="sm" className="text-white rounded-full px-5 transition-colors duration-300" style={{ backgroundColor: theme.button }} onMouseEnter={e => (e.currentTarget.style.backgroundColor = theme.buttonHover)} onMouseLeave={e => (e.currentTarget.style.backgroundColor = theme.button)} onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
                         <Calendar className="w-4 h-4 mr-2" />Schedule a Call
                       </Button>
                       <Button size="sm" variant="outline" className="rounded-full px-5" asChild>
@@ -556,7 +585,7 @@ const Index = () => {
                 >
                   <div className="relative w-96 aspect-[16/10] transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(180deg)]" style={{ transformStyle: "preserve-3d" }}>
                     {/* Front */}
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden text-white shadow-2xl" style={{ backfaceVisibility: "hidden", background: "linear-gradient(135deg, #0d4f4f 0%, #0a7373 25%, #11998e 50%, #0d6b6b 75%, #064040 100%)" }}>
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden text-white shadow-2xl transition-all duration-500" style={{ backfaceVisibility: "hidden", background: theme.gradient }}>
                       {/* Zigzag polygon shapes */}
                       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 250" preserveAspectRatio="none">
                         {/* Large zigzag band — top left to bottom right */}
@@ -590,7 +619,7 @@ const Index = () => {
                     </div>
 
                     {/* Back */}
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden text-white shadow-2xl flex flex-col items-center justify-center" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", background: "linear-gradient(135deg, #064040 0%, #0a7373 30%, #11998e 60%, #0d6b6b 85%, #0d4f4f 100%)" }}>
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden text-white shadow-2xl flex flex-col items-center justify-center transition-all duration-500" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", background: theme.gradientBack }}>
                       {/* Zigzag polygon shapes (mirrored) */}
                       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 250" preserveAspectRatio="none">
                         <polygon points="400,0 340,0 300,40 340,80 300,120 340,160 300,200 340,240 400,250 400,200 360,160 400,120 360,80 400,40" fill="rgba(255,255,255,0.05)" />
@@ -609,6 +638,20 @@ const Index = () => {
                         <p className="text-[10px] text-white/40 mt-4 font-mono tracking-wider uppercase">— Cory House</p>
                       </div>
                     </div>
+                  </div>
+                  {/* Color swatches */}
+                  <div className="flex items-center justify-center gap-2 mt-3">
+                    {cardThemes.map((t, i) => (
+                      <button
+                        key={t.name}
+                        onClick={() => cycleTheme(i)}
+                        title={t.name}
+                        className={`w-5 h-5 rounded-full transition-all duration-200 ${
+                          i === cardThemeIndex ? "ring-2 ring-offset-2 ring-offset-background ring-foreground/30 scale-110" : "hover:scale-110 opacity-70 hover:opacity-100"
+                        }`}
+                        style={{ background: t.swatch }}
+                      />
+                    ))}
                   </div>
                 </motion.div>
               </div>
