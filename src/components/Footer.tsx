@@ -17,14 +17,15 @@ const Footer = () => {
         .then((data) => {
           setViews(data.count);
           sessionStorage.setItem("counted", "true");
+          sessionStorage.setItem("view-count", String(data.count));
         })
         .catch(() => setViews(null));
     } else {
-      // Already counted this session, just get current count
-      fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}`)
-        .then((res) => res.json())
-        .then((data) => setViews(data.count))
-        .catch(() => setViews(null));
+      // Already counted this session, show cached count
+      const cached = sessionStorage.getItem("view-count");
+      if (cached) {
+        setViews(parseInt(cached, 10));
+      }
     }
   }, []);
 
