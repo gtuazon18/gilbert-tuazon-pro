@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
-const COUNTER_API_NAMESPACE = "gilbert-tuazon-pro";
-const COUNTER_API_KEY = "portfolio-views";
+const NAMESPACE = "gilbert-tuazon-pro";
+const KEY = "portfolio-views";
 
 const Footer = () => {
   const [views, setViews] = useState<number | null>(null);
@@ -12,24 +12,18 @@ const Footer = () => {
 
     if (!hasVisited) {
       // Increment and get count for new session
-      fetch(`https://api.countapi.xyz/hit/${COUNTER_API_NAMESPACE}/${COUNTER_API_KEY}`)
+      fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`)
         .then((res) => res.json())
         .then((data) => {
-          setViews(data.value);
+          setViews(data.count);
           sessionStorage.setItem("counted", "true");
         })
-        .catch(() => {
-          // Fallback: just get current count
-          fetch(`https://api.countapi.xyz/get/${COUNTER_API_NAMESPACE}/${COUNTER_API_KEY}`)
-            .then((res) => res.json())
-            .then((data) => setViews(data.value))
-            .catch(() => setViews(null));
-        });
+        .catch(() => setViews(null));
     } else {
       // Already counted this session, just get current count
-      fetch(`https://api.countapi.xyz/get/${COUNTER_API_NAMESPACE}/${COUNTER_API_KEY}`)
+      fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}`)
         .then((res) => res.json())
-        .then((data) => setViews(data.value))
+        .then((data) => setViews(data.count))
         .catch(() => setViews(null));
     }
   }, []);
