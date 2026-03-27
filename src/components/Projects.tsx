@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -13,6 +13,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "MyMoovz",
+    description: "Full-service cloud platform for Property Managers, Tenants & Landlords — connect utilities, complete forms, and discover local services all in one place.",
+    tech: ["React", "Cloud Platform", "SaaS"],
+    icon: Home,
+    live: "https://www.muval.com.au/partners/mymoovz",
+    featured: true,
+  },
   {
     title: "Waal",
     description: "Agentic InsightRun platform that captures stakeholder perspectives and turns signals into clear decisions.",
