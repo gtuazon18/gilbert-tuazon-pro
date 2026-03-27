@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface GalleryProject {
@@ -13,6 +13,14 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
+  {
+    title: "Waal",
+    description: "Agentic InsightRun platform — capture stakeholder perspectives and turn signals into clear decisions.",
+    tech: ["AI", "Agentic", "InsightRun"],
+    color: "bg-amber-50",
+    icon: Search,
+    live: "https://waal.ai/",
+  },
   {
     title: "GigaKnows E-Commerce",
     description: "Fully responsive and scalable e-commerce platform",

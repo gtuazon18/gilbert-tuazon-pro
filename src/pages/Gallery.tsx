@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane,
   Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users,
-  FlaskConical, Mic, AudioLines, FileText, ArrowLeft,
+  FlaskConical, Mic, AudioLines, FileText, ArrowLeft, Search,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -19,6 +19,7 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
+  { title: "Waal", description: "Agentic InsightRun platform — capture stakeholder perspectives and turn signals into clear decisions.", tech: ["AI", "Agentic", "InsightRun"], color: "bg-amber-50", icon: Search, live: "https://waal.ai/" },
   { title: "GigaKnows E-Commerce", description: "Fully responsive and scalable e-commerce platform", tech: ["React", "Laravel", "MySQL", "AWS"], color: "bg-violet-50", icon: ShoppingBag },
   { title: "Serenite", description: "Luxury spa e-commerce — curated manicure, pedicure & spa products.", tech: ["React", "E-commerce", "Vercel"], color: "bg-rose-50", icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/" },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent with LangChain and LangGraph", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], color: "bg-cyan-50", icon: Bot, live: "https://www.agentco.cloud/" },

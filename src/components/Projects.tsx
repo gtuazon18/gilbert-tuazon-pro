@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -13,6 +13,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "Waal",
+    description: "Agentic InsightRun platform that captures stakeholder perspectives and turns signals into clear decisions.",
+    tech: ["AI", "Agentic", "InsightRun"],
+    icon: Search,
+    live: "https://waal.ai/",
+    featured: true,
+  },
   {
     title: "Serenite",
     description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.",
