@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -13,6 +13,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "IntelHouse",
+    description: "Trusted partner in lead generation, bridging traditional and cutting-edge approaches with cost-effective solutions for home improvement sales teams.",
+    tech: ["React", "Laravel", "MySQL", "Elasticsearch"],
+    icon: Users,
+    live: "https://www.intelhouse.net/",
+    featured: true,
+  },
   {
     title: "MyMoovz",
     description: "Full-service cloud platform for Property Managers, Tenants & Landlords — connect utilities, complete forms, and discover local services all in one place.",
@@ -86,6 +94,7 @@ const projects: Project[] = [
     icon: Palette,
     github: "https://github.com",
     live: "https://example.com",
+    featured: true,
   },
   {
     title: "Code Canvas",
@@ -94,6 +103,7 @@ const projects: Project[] = [
     icon: Code2,
     github: "https://github.com",
     live: "https://example.com",
+    featured: true,
   },
   {
     title: "Voice Transcription Service",
@@ -109,6 +119,7 @@ const projects: Project[] = [
     icon: AudioLines,
     github: "https://github.com",
     live: "https://example.com",
+    featured: true,
   },
 ];
 

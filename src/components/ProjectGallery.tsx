@@ -130,8 +130,8 @@ const galleryProjects: GalleryProject[] = [
     icon: AlertTriangle,
   },
   {
-    title: "Lead Generation Platform",
-    description: "Comprehensive CRM with lead scoring and automation",
+    title: "IntelHouse",
+    description: "Trusted partner in lead generation with cost-effective solutions for home improvement sales teams.",
     tech: ["React", "Laravel", "MySQL", "Elasticsearch"],
     color: "bg-indigo-50",
     icon: Users,
