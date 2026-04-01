@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "@/components/Footer";
-import { Mic, Code2, Brain, Database, Smartphone, Container } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +16,7 @@ const posts = [
     readTime: "8 min read",
     tags: ["AI", "VAPI", "ElevenLabs", "Voice"],
     featured: true,
-    icon: Mic,
-    gradient: "from-blue-100 to-indigo-100",
+    image: "/blog/voice-ai.jpg",
   },
   {
     slug: "next-js-app-router-patterns",
@@ -29,8 +27,7 @@ const posts = [
     readTime: "6 min read",
     tags: ["Next.js", "React", "TypeScript"],
     featured: false,
-    icon: Code2,
-    gradient: "from-emerald-100 to-teal-100",
+    image: "/blog/nextjs.jpg",
   },
   {
     slug: "langchain-rag-production",
@@ -41,8 +38,7 @@ const posts = [
     readTime: "10 min read",
     tags: ["LangChain", "AI", "RAG", "Pinecone"],
     featured: false,
-    icon: Brain,
-    gradient: "from-purple-100 to-pink-100",
+    image: "/blog/rag.jpg",
   },
   {
     slug: "postgres-performance",
@@ -53,8 +49,7 @@ const posts = [
     readTime: "7 min read",
     tags: ["PostgreSQL", "Database", "Performance"],
     featured: false,
-    icon: Database,
-    gradient: "from-orange-100 to-amber-100",
+    image: "/blog/postgres.jpg",
   },
   {
     slug: "react-native-ai",
@@ -65,8 +60,7 @@ const posts = [
     readTime: "9 min read",
     tags: ["React Native", "AI", "Mobile"],
     featured: false,
-    icon: Smartphone,
-    gradient: "from-cyan-100 to-sky-100",
+    image: "/blog/react-native.jpg",
   },
   {
     slug: "docker-monorepo",
@@ -77,8 +71,7 @@ const posts = [
     readTime: "5 min read",
     tags: ["Docker", "DevOps", "Monorepo"],
     featured: false,
-    icon: Container,
-    gradient: "from-slate-100 to-gray-200",
+    image: "/blog/docker.jpg",
   },
 ];
 
@@ -168,7 +161,6 @@ const Blog = () => {
             {posts
               .filter((p) => p.featured)
               .map((post) => {
-                const Icon = post.icon;
                 return (
                   <Link
                     key={post.slug}
@@ -176,8 +168,8 @@ const Blog = () => {
                     className="blog-card block bg-card rounded-2xl border border-border overflow-hidden group hover:shadow-md transition-all duration-300"
                   >
                     {/* Cover image */}
-                    <div className={`h-48 md:h-64 bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
-                      <Icon className="w-16 h-16 text-muted-foreground/25" strokeWidth={1} />
+                    <div className="h-48 md:h-64 overflow-hidden">
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className="p-8 md:p-10">
                       <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -214,7 +206,6 @@ const Blog = () => {
           {filtered
             .filter((p) => activeTag !== "All" || !p.featured)
             .map((post) => {
-              const Icon = post.icon;
               return (
                 <Link
                   key={post.slug}
@@ -222,8 +213,8 @@ const Blog = () => {
                   className="blog-card block bg-card rounded-xl border border-border overflow-hidden group hover:shadow-md transition-all duration-300"
                 >
                   {/* Cover image */}
-                  <div className={`h-36 bg-gradient-to-br ${post.gradient} flex items-center justify-center`}>
-                    <Icon className="w-10 h-10 text-muted-foreground/25" strokeWidth={1} />
+                  <div className="h-36 overflow-hidden">
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
                     <div className="flex flex-wrap gap-1.5 mb-3">

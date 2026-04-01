@@ -10,6 +10,7 @@ interface BlogPostData {
   date: string;
   readTime: string;
   tags: string[];
+  image: string;
   content: string;
 }
 
@@ -20,6 +21,7 @@ const blogPosts: BlogPostData[] = [
     date: "Feb 20, 2026",
     readTime: "8 min read",
     tags: ["AI", "VAPI", "ElevenLabs", "Voice"],
+    image: "/blog/voice-ai.jpg",
     content: `
 ## The Rise of Voice AI
 
@@ -79,6 +81,7 @@ The key is building robust infrastructure now that can adapt as these models imp
     date: "Jan 15, 2026",
     readTime: "6 min read",
     tags: ["Next.js", "React", "TypeScript"],
+    image: "/blog/nextjs.jpg",
     content: `
 ## Beyond Basic Routing
 
@@ -144,6 +147,7 @@ Each group can have its own layout, error boundary, and loading state.
     date: "Dec 10, 2025",
     readTime: "10 min read",
     tags: ["LangChain", "AI", "RAG", "Pinecone"],
+    image: "/blog/rag.jpg",
     content: `
 ## The RAG Reality Check
 
@@ -206,6 +210,7 @@ The best RAG system isn't the most complex one — it's the one that reliably an
     date: "Nov 5, 2025",
     readTime: "7 min read",
     tags: ["PostgreSQL", "Database", "Performance"],
+    image: "/blog/postgres.jpg",
     content: `
 ## When Postgres Gets Slow
 
@@ -277,6 +282,7 @@ PostgreSQL creates a process per connection. At 500+ connections, you'll feel th
     date: "Oct 1, 2025",
     readTime: "9 min read",
     tags: ["React Native", "AI", "Mobile"],
+    image: "/blog/react-native.jpg",
     content: `
 ## Why On-Device AI?
 
@@ -344,6 +350,7 @@ With Apple's MLX framework and Google's MediaPipe advancing rapidly, on-device A
     date: "Sep 12, 2025",
     readTime: "5 min read",
     tags: ["Docker", "DevOps", "Monorepo"],
+    image: "/blog/docker.jpg",
     content: `
 ## The Monorepo Advantage
 
@@ -448,6 +455,11 @@ const BlogPost = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
+            {/* Banner */}
+            <div className="rounded-2xl overflow-hidden mb-8">
+              <img src={post.image} alt={post.title} className="w-full h-48 md:h-72 object-cover" />
+            </div>
+
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map((tag) => (
