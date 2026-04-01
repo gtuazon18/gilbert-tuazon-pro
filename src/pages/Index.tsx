@@ -689,7 +689,7 @@ const Index = () => {
                       <Link to="/tech-stack" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">View All &rsaquo;</Link>
                     </div>
                     <div className="space-y-4">
-                      {skillCategories.slice(0, 3).map((category, index) => (
+                      {skillCategories.slice(0, 5).map((category, index) => (
                         <motion.div key={category.label} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: index * 0.05 }}>
                           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">{category.label}</p>
                           <div className="flex flex-wrap gap-1.5">
