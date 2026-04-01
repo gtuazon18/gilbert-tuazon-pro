@@ -21,6 +21,7 @@ const skillCategories = [
   { label: "Voice AI", skills: ["ElevenLabs", "Whisper", "VAPI", "OpenVoice"] },
   { label: "Database & Cloud", skills: ["PostgreSQL", "MySQL", "MongoDB", "AWS", "Docker", "Git", "Redis"] },
   { label: "Mobile", skills: ["React Native", "Expo", "iOS", "Android"] },
+  { label: "Integrations", skills: ["OpenClaw", "WhatsApp Business API", "Twilio", "Stripe", "Google Calendar", "Webhooks"] },
   { label: "Design & Tools", skills: ["Figma", "Storybook", "Vitest", "Jest", "CI/CD"] },
 ];
 

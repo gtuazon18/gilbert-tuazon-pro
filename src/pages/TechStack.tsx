@@ -10,6 +10,7 @@ const skillCategories = [
   { label: "AI & LLM", skills: ["LangChain", "LangGraph", "RAG", "OpenAI", "Groq", "Ollama", "Grok AI", "ChromaDB", "Pinecone", "HuggingFace"] },
   { label: "Voice AI", skills: ["ElevenLabs", "Whisper", "VAPI", "OpenVoice"] },
   { label: "Mobile", skills: ["React Native", "Expo", "iOS", "Android"] },
+  { label: "Integrations", skills: ["OpenClaw", "WhatsApp Business API", "Twilio", "Stripe", "Google Calendar", "Webhooks"] },
   { label: "Design & Tools", skills: ["Figma", "Storybook", "Vitest", "Jest", "CI/CD"] },
 ];
 

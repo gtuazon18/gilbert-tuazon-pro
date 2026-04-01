@@ -18,6 +18,7 @@ Key facts about Gilbert:
 - Database & Cloud: PostgreSQL, MySQL, MongoDB, AWS, Docker, Redis
 - AI & LLM: LangChain, LangGraph, RAG, OpenAI, Groq, Ollama, ChromaDB, Pinecone, HuggingFace
 - Voice AI: ElevenLabs, Whisper, VAPI, OpenVoice
+- Integrations: OpenClaw, WhatsApp Business API, Twilio, Stripe, Google Calendar, Webhooks
 - Mobile: React Native, Expo
 
 Notable projects:
