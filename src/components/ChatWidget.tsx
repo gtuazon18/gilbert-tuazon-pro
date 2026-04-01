@@ -93,17 +93,33 @@ const ChatWidget = () => {
       {/* Floating button */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-2 ring-foreground/10 hover:ring-foreground/30 transition-all"
-          >
-            <img src="/starai.png" alt="AI Assistant" className="w-full h-full object-cover" />
-          </motion.button>
+          <div className="fixed bottom-6 right-6 z-50 group">
+            {/* Tooltip */}
+            <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.5, duration: 0.4 }}
+              className="absolute bottom-16 right-0 mb-1"
+            >
+              <div className="relative bg-foreground text-background text-xs font-medium px-3 py-2 rounded-xl shadow-lg whitespace-nowrap">
+                <p>Hi there! 👋</p>
+                <p className="text-[10px] opacity-80">Want to know more about Gilbert?</p>
+                <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-foreground rotate-45 rounded-sm" />
+              </div>
+            </motion.div>
+
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsOpen(true)}
+              className="w-14 h-14 rounded-full shadow-lg overflow-hidden ring-2 ring-foreground/10 hover:ring-foreground/30 transition-all"
+            >
+              <img src="/starai.png" alt="AI Assistant" className="w-full h-full object-cover" />
+            </motion.button>
+          </div>
         )}
       </AnimatePresence>
 
