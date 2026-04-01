@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, User } from "lucide-react";
+import { X, Send, User } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -99,9 +99,9 @@ const ChatWidget = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-foreground text-background shadow-lg flex items-center justify-center hover:bg-foreground/90 transition-colors"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg overflow-hidden ring-2 ring-foreground/10 hover:ring-foreground/30 transition-all"
           >
-            <MessageCircle className="w-6 h-6" />
+            <img src="/starai.png" alt="AI Assistant" className="w-full h-full object-cover" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -119,8 +119,8 @@ const ChatWidget = () => {
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-card">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-foreground text-background flex items-center justify-center">
-                  <Bot className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                  <img src="/starai.png" alt="AI Assistant" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Gilbert's AI Assistant</p>
@@ -140,8 +140,8 @@ const ChatWidget = () => {
               {messages.map((msg, i) => (
                 <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   {msg.role === "assistant" && (
-                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Bot className="w-3 h-3 text-muted-foreground" />
+                    <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 mt-0.5">
+                      <img src="/starai.png" alt="AI" className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div
@@ -163,8 +163,8 @@ const ChatWidget = () => {
 
               {isLoading && (
                 <div className="flex gap-2 justify-start">
-                  <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Bot className="w-3 h-3 text-muted-foreground" />
+                  <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 mt-0.5">
+                    <img src="/starai.png" alt="AI" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-secondary px-3 py-2 rounded-2xl rounded-bl-md">
                     <div className="flex gap-1">
