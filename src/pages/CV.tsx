@@ -5,7 +5,20 @@ import Footer from "@/components/Footer";
 
 const experience = [
   {
-    role: "Fullstack Software Developer",
+    role: "Senior Full Stack AI Software Engineer",
+    company: "Fintelligence - AI-Powered Fintech Platform",
+    period: "Dec 2025 – Present",
+    bullets: [
+      "Building AI-driven financial tools for broker management and client advisory using LangChain, RAG pipelines, and LLM integrations.",
+      "Developing full-stack features for the fintech platform with React, TypeScript, and Python backend services.",
+      "Implementing AI-powered financial analysis and decision-support systems for brokers and financial advisors.",
+      "Integrating machine learning models for risk assessment, portfolio optimization, and market insights.",
+      "Designing scalable APIs and data pipelines to process real-time financial data and generate actionable insights.",
+      "Collaborating with domain experts to translate complex financial workflows into intuitive AI-assisted user experiences.",
+    ],
+  },
+  {
+    role: "Senior Fullstack Software Developer",
     company: "RXN3D - Digital Dental Lab Case Management Platform",
     period: "May 2025 – Present",
     bullets: [
@@ -19,7 +32,7 @@ const experience = [
     ],
   },
   {
-    role: "Software Engineer",
+    role: "Senior Fullstack Software Engineer",
     company: "Teko Philippines",
     period: "May 2024 – Present",
     bullets: [
@@ -153,6 +166,7 @@ const skills = {
 };
 
 const projects = [
+  { name: "Fintelligence", desc: "AI-powered fintech platform for broker management and financial advisory", tech: "React, TypeScript, Python, LangChain, AI/ML", url: "fintelligence.com.au" },
   { name: "AgentCo AI Agent", desc: "AI agent platform with LangChain & LangGraph", tech: "Python, LangChain, LangGraph, LLaMA", url: "agentco.cloud" },
   { name: "Waal.ai", desc: "Conversation-to-insight SaaS platform with AI-powered interview guides", tech: "React, TypeScript, Python, LangChain, Azure", url: "waal.ai" },
   { name: "RXN3D", desc: "Digital dental lab case management platform", tech: "React, Vue, Next.js, Laravel 10, RabbitMQ", url: "rxn3d.com" },
@@ -263,6 +277,27 @@ const CV = () => {
               </p>
             </section>
 
+            {/* Education */}
+            <section className="mb-8">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Education</h2>
+              <div className="p-4 rounded-xl border border-border bg-secondary/30">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 mb-3">
+                  <div>
+                    <h3 className="font-semibold text-sm">Bachelor of Science in Computer Science</h3>
+                    <p className="text-xs text-muted-foreground">University of Muntinlupa</p>
+                  </div>
+                  <span className="text-xs text-muted-foreground flex-shrink-0">Graduated 2014</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-foreground text-background">Best Application on Thesis</span>
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-foreground text-background">Dean's Lister 2012</span>
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-foreground text-background">Dean's Lister 2013</span>
+                  <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-foreground text-background">Dean's Lister 2014</span>
+                  <span className="text-[10px] px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">Choir Member of UM</span>
+                </div>
+              </div>
+            </section>
+
             {/* Work Experience */}
             <section className="mb-8">
               <h2 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Work Experience</h2>
@@ -353,22 +388,6 @@ const CV = () => {
                     <p className="text-[11px] text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
-              </div>
-            </section>
-
-            {/* Education */}
-            <section>
-              <h2 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">Education</h2>
-              <div>
-                <h3 className="font-semibold text-sm">Bachelor of Science in Computer Science</h3>
-                <p className="text-xs text-muted-foreground mb-2">University of Muntinlupa — Graduated 2014</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">Best Application on Thesis</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">Dean's Lister 2012</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">Dean's Lister 2013</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">Dean's Lister 2014</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">Choir Member of UM</span>
-                </div>
               </div>
             </section>
           </motion.div>

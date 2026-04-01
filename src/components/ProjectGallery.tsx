@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface GalleryProject {
@@ -13,6 +13,14 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
+  {
+    title: "Fintelligence",
+    description: "AI-powered fintech platform for broker management and financial advisory.",
+    tech: ["React", "Python", "LangChain", "AI/ML"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+  },
   {
     title: "MyMoovz",
     description: "Full-service cloud platform for Property Managers, Tenants & Landlords — connect utilities and discover local services.",

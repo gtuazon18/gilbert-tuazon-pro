@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -13,6 +13,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "Fintelligence",
+    description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.",
+    tech: ["React", "Python", "LangChain", "AI/ML"],
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    featured: true,
+  },
   {
     title: "IntelHouse",
     description: "Trusted partner in lead generation, bridging traditional and cutting-edge approaches with cost-effective solutions for home improvement sales teams.",

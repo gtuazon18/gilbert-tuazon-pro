@@ -5,7 +5,7 @@ import {
   Briefcase, ShoppingBag, Mic, Paintbrush,
   Cpu, Palette, Code2, AudioLines, FileText, Bot, Activity, Video,
   Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle,
-  Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer,
+  Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer, TrendingUp,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -26,7 +26,8 @@ const skillCategories = [
 ];
 
 const timeline = [
-  { year: "2024", role: "Full-Stack Software Engineer", company: "Teko Philippines", period: "May 2024 – Present" },
+  { year: "2025", role: "Senior Full Stack AI Software Engineer", company: "Fintelligence", period: "Dec 2025 – Present" },
+  { year: "2024", role: "Senior Fullstack Software Engineer", company: "Teko Philippines", period: "May 2024 – Present" },
   { year: "2020", role: "Full-Stack Backend Software Engineer", company: "Multisys Technologies Corporation", period: "May 2020 – May 2024" },
   { year: "2018", role: "Mid Full-Stack Software Engineer", company: "W-Tech Solutions", period: "April 2018 – May 2020" },
   { year: "2014", role: "Junior Full-Stack Software Engineer", company: "Ingram Micro", period: "April 2014 – May 2018" },
@@ -43,6 +44,7 @@ interface Project {
 }
 
 const projects: Project[] = [
+  { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], icon: TrendingUp, live: "https://fintelligence.com.au/", featured: true },
   { title: "Serenite", description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.", tech: ["React", "E-commerce", "Vercel"], icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/", featured: true },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], icon: Bot, live: "https://www.agentco.cloud/", featured: true },
   { title: "LMS Lab Management", description: "Lab Management System with resource tracking and experiment workflows.", tech: ["React", "Laravel", "PostgreSQL", "WebSocket"], icon: FlaskConical, live: "https://frontend.rxn3d.com/login", featured: true },
@@ -66,6 +68,7 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
+  { title: "Fintelligence", description: "AI-powered fintech platform for broker management and financial advisory.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "GigaKnows E-Commerce", description: "Fully responsive and scalable e-commerce platform", tech: ["React", "Laravel", "MySQL", "AWS"], color: "bg-violet-50", icon: ShoppingBag },
   { title: "Serenite", description: "Luxury spa e-commerce — curated manicure, pedicure & spa products.", tech: ["React", "E-commerce", "Vercel"], color: "bg-rose-50", icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/" },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent with LangChain and LangGraph", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], color: "bg-cyan-50", icon: Bot, live: "https://www.agentco.cloud/" },

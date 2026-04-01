@@ -3,8 +3,22 @@ import { Briefcase } from "lucide-react";
 
 const timeline = [
   {
+    year: "2025",
+    role: "Senior Full Stack AI Software Engineer",
+    company: "Fintelligence",
+    period: "Dec 2025 – Present",
+    bullets: [
+      "Building AI-driven financial tools for broker management and client advisory using LangChain, RAG pipelines, and LLM integrations.",
+      "Developing full-stack features for the fintech platform with React, TypeScript, and Python backend services.",
+      "Implementing AI-powered financial analysis and decision-support systems for brokers and financial advisors.",
+      "Integrating machine learning models for risk assessment, portfolio optimization, and market insights.",
+      "Designing scalable APIs and data pipelines to process real-time financial data and generate actionable insights.",
+    ],
+    tags: ["React", "TypeScript", "Python", "LangChain", "RAG", "AI/ML", "Fintech"],
+  },
+  {
     year: "2024",
-    role: "Full-Stack Software Engineer",
+    role: "Senior Fullstack Software Engineer",
     company: "Teko Philippines",
     period: "May 2024 – Present",
     bullets: [

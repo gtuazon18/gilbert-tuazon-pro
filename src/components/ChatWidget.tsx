@@ -11,7 +11,8 @@ interface Message {
 const SYSTEM_PROMPT = `You are Gilbert Tuazon's portfolio AI assistant. You help visitors learn about Gilbert — a Full-Stack Software Engineer with 10+ years of experience.
 
 Key facts about Gilbert:
-- Current role: Full-Stack Software Engineer at Teko Philippines (May 2024 – Present)
+- Current role: Senior Full Stack AI Software Engineer at Fintelligence (Dec 2025 – Present)
+- Also: Senior Fullstack Software Engineer at Teko Philippines (May 2024 – Present)
 - Previous: Multisys Technologies (2020–2024), W-Tech Solutions (2018–2020), Ingram Micro (2014–2018)
 - Frontend: React, Next.js, TypeScript, Tailwind CSS, Vue.js, Redux
 - Backend: Node.js, Laravel, Python, GraphQL, REST APIs, FastAPI
@@ -23,6 +24,7 @@ Key facts about Gilbert:
 
 Notable projects:
 - AgentCo AI Agent — AI agent platform with LangChain & LangGraph (agentco.cloud)
+- Fintelligence — AI-powered fintech platform for broker management (fintelligence.com.au)
 - Waal — Agentic InsightRun platform for stakeholder decisions (waal.ai)
 - MyMoovz — Cloud platform for property managers & tenants (muval.com.au/partners/mymoovz)
 - IntelHouse — Lead generation platform (intelhouse.net)
@@ -90,7 +92,7 @@ const ChatWidget = () => {
   };
 
   return (
-    <>
+    <div className="print:hidden">
       {/* Floating button */}
       <AnimatePresence>
         {!isOpen && (
@@ -248,7 +250,7 @@ const ChatWidget = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 
