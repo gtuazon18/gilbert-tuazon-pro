@@ -9,6 +9,7 @@ import Gallery from "./pages/Gallery";
 import TechStack from "./pages/TechStack";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
+import ChatWidget from "./components/ChatWidget";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <ChatWidget />
     </TooltipProvider>
   </QueryClientProvider>
 );
