@@ -125,7 +125,6 @@ const ChatWidget = () => {
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Gilbert's AI Assistant</p>
-                  <p className="text-[10px] text-muted-foreground">Powered by Groq</p>
                 </div>
               </div>
               <button
