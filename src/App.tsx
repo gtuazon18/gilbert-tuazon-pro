@@ -8,6 +8,7 @@ import Blog from "./pages/Blog";
 import Gallery from "./pages/Gallery";
 import TechStack from "./pages/TechStack";
 import Community from "./pages/Community";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -22,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/tech-stack" element={<TechStack />} />
           <Route path="/community" element={<Community />} />
