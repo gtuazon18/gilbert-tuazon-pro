@@ -27,7 +27,7 @@ const skillCategories = [
 
 const timeline = [
   { year: "2025", role: "Senior Full Stack AI Software Engineer", company: "Fintelligence", period: "Dec 2025 – Present" },
-  { year: "2024", role: "Senior Fullstack Software Engineer", company: "Teko Philippines", period: "May 2024 – Present" },
+  { year: "2024", role: "Senior Fullstack Software Engineer", company: "Teko Philippines", period: "May 2024 – May 2025" },
   { year: "2020", role: "Full-Stack Backend Software Engineer", company: "Multisys Technologies Corporation", period: "May 2020 – May 2024" },
   { year: "2018", role: "Mid Full-Stack Software Engineer", company: "W-Tech Solutions", period: "April 2018 – May 2020" },
   { year: "2014", role: "Junior Full-Stack Software Engineer", company: "Ingram Micro", period: "April 2014 – May 2018" },

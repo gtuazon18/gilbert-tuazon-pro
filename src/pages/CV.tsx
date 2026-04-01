@@ -20,7 +20,7 @@ const experience = [
   {
     role: "Senior Fullstack Software Developer",
     company: "RXN3D - Digital Dental Lab Case Management Platform",
-    period: "May 2025 – Present",
+    period: "May 2025 – Nov 2025",
     bullets: [
       "Developed full-stack features using React, Vue, Next.js, and Laravel 10, delivering a smooth and intuitive user experience for dental labs and offices.",
       "Built and maintained backend modules in Laravel 10, ensuring robust case management workflows and secure data processing.",
@@ -34,7 +34,7 @@ const experience = [
   {
     role: "Senior Fullstack Software Engineer",
     company: "Teko Philippines",
-    period: "May 2024 – Present",
+    period: "May 2024 – May 2025",
     bullets: [
       "Led the backend development of a fast, scalable online booking system using Laravel.",
       "Integrated AMQP (RabbitMQ) for asynchronous messaging to enhance booking processing and notifications.",

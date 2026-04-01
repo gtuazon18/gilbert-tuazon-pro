@@ -20,7 +20,7 @@ const timeline = [
     year: "2024",
     role: "Senior Fullstack Software Engineer",
     company: "Teko Philippines",
-    period: "May 2024 – Present",
+    period: "May 2024 – May 2025",
     bullets: [
       "Led backend development of the Teko booking system using CodeIgniter and Laravel.",
       "Integrated AMQP (RabbitMQ) for asynchronous messaging to enhance booking processing and notifications.",
