@@ -265,16 +265,30 @@ const CV = () => {
             {/* About Me */}
             <section className="mb-8">
               <h2 className="text-sm font-bold uppercase tracking-wider text-foreground mb-3">About Me</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                I am a skilled full-stack software developer with 10+ years of experience in building and maintaining
-                high-quality web and mobile applications. Specializing in both frontend and backend development, I
-                work with modern frameworks such as Vue.js, React, and Next.js, alongside backend technologies
-                like PHP, CodeIgniter, Laravel, Node.js, Python, and databases including MySQL and PostgreSQL.
-                I have collaborated with clients across various industries to deliver custom, scalable, and user-friendly
-                software solutions tailored to their needs. With strong problem-solving skills, attention to detail, and a
-                commitment to clean, functional code, I am confident in my ability to help you achieve your goals
-                through innovative and reliable technology.
-              </p>
+              <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
+                <p>
+                  I'm a senior full-stack software engineer with over 10 years of experience architecting and delivering
+                  enterprise-grade applications. Based in the Philippines, I specialize in building scalable, high-performance
+                  systems that drive business value and enhance user experiences.
+                </p>
+                <p>
+                  Throughout my career I've led development teams, designed system architectures, and delivered complex
+                  solutions for clients across multiple industries — from high-traffic e-commerce to real-time booking systems
+                  and AI-powered voice applications. My expertise covers modern frontend frameworks, robust backend systems,
+                  cloud infrastructure, and AI/voice technologies including ElevenLabs, Whisper, and VAPI.
+                </p>
+                <p>
+                  I'm passionate about mentoring developers, establishing best practices, and contributing to technical
+                  excellence. When I'm not architecting systems I enjoy exploring new technologies and staying current
+                  with industry trends.
+                </p>
+                <p>
+                  Lately, I've been diving deeper into the world of artificial intelligence, focusing on integrating AI tools
+                  and techniques into modern applications. My work now includes developing AI-powered solutions, creating
+                  intelligent applications, and leveraging generative AI to optimize development workflows and deliver
+                  cutting-edge technology.
+                </p>
+              </div>
             </section>
 
             {/* Education */}
