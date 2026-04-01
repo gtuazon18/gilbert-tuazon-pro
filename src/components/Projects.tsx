@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -46,29 +46,35 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Voice AI Assistant",
-    description: "Intelligent voice assistant powered by VAPI with ElevenLabs TTS and Whisper STT for natural conversations and real-time transcription.",
-    tech: ["VAPI", "ElevenLabs", "Whisper", "React", "TypeScript"],
-    icon: Mic,
-    github: "https://github.com",
-    live: "https://example.com",
+    title: "AgentCo AI Agent",
+    description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.",
+    tech: ["Python", "LangChain", "LangGraph", "LLaMA"],
+    icon: Bot,
+    live: "https://www.agentco.cloud/",
     featured: true,
   },
   {
-    title: "CloudSync Dashboard",
-    description: "A real-time cloud infrastructure monitoring dashboard with live metrics, alerts, and team collaboration features.",
-    tech: ["React", "TypeScript", "GraphQL", "AWS"],
-    icon: BarChart2,
-    github: "https://github.com",
-    live: "https://example.com",
+    title: "Teko Aircon Booking",
+    description: "Fast online booking for aircon, appliances & electrician services with real-time scheduling and service management.",
+    tech: ["Laravel", "React", "RabbitMQ", "Elasticsearch"],
+    icon: Wind,
+    live: "https://www.teko.ph",
     featured: true,
   },
   {
-    title: "DevFlow CLI",
-    description: "Command-line tool for automating development workflows, from project scaffolding to deployment pipelines.",
-    tech: ["Node.js", "TypeScript", "Commander.js"],
-    icon: Terminal,
-    github: "https://github.com",
+    title: "FootBaller Life",
+    description: "Social media platform for football fans with real-time feeds, community features, and content sharing.",
+    tech: ["React", "Laravel", "Algolia", "Redux Saga"],
+    icon: Trophy,
+    live: "https://footballerlife.com/",
+    featured: true,
+  },
+  {
+    title: "LMS Lab Management",
+    description: "Lab Management System with resource tracking, experiment workflows, and team collaboration tools.",
+    tech: ["React", "Laravel", "PostgreSQL", "WebSocket"],
+    icon: FlaskConical,
+    live: "https://frontend.rxn3d.com/login",
     featured: true,
   },
   {

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
   MapPin, Calendar, Mail, Github, Linkedin, ExternalLink, BookOpen,
-  Briefcase, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush,
+  Briefcase, ShoppingBag, Mic, Paintbrush,
   Cpu, Palette, Code2, AudioLines, FileText, Bot, Activity, Video,
   Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle,
   Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer,
@@ -18,7 +18,8 @@ const skillCategories = [
   { label: "Frontend", skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js", "Redux"] },
   { label: "Backend", skills: ["Node.js", "Laravel", "Python", "GraphQL", "REST APIs", "Fastify"] },
   { label: "Database & Cloud", skills: ["PostgreSQL", "MySQL", "MongoDB", "AWS", "Docker", "Git", "Redis"] },
-  { label: "AI & Voice", skills: ["ElevenLabs", "Whisper", "VAPI", "LangChain", "OpenAI", "Pinecone"] },
+  { label: "AI & LLM", skills: ["LangChain", "LangGraph", "RAG", "OpenAI", "Groq", "Ollama", "Grok AI", "ChromaDB", "Pinecone", "HuggingFace"] },
+  { label: "Voice AI", skills: ["ElevenLabs", "Whisper", "VAPI", "OpenVoice"] },
   { label: "Mobile", skills: ["React Native", "Expo", "iOS", "Android"] },
   { label: "Design & Tools", skills: ["Figma", "Storybook", "Vitest", "Jest", "CI/CD"] },
 ];
@@ -42,9 +43,10 @@ interface Project {
 
 const projects: Project[] = [
   { title: "Serenite", description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.", tech: ["React", "E-commerce", "Vercel"], icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/", featured: true },
-  { title: "Voice AI Assistant", description: "Intelligent voice assistant powered by VAPI with ElevenLabs TTS and Whisper STT for natural conversations and real-time transcription.", tech: ["VAPI", "ElevenLabs", "Whisper", "React", "TypeScript"], icon: Mic, github: "https://github.com", live: "https://example.com", featured: true },
-  { title: "CloudSync Dashboard", description: "A real-time cloud infrastructure monitoring dashboard with live metrics, alerts, and team collaboration features.", tech: ["React", "TypeScript", "GraphQL", "AWS"], icon: BarChart2, github: "https://github.com", live: "https://example.com", featured: true },
-  { title: "DevFlow CLI", description: "Command-line tool for automating development workflows, from project scaffolding to deployment pipelines.", tech: ["Node.js", "TypeScript", "Commander.js"], icon: Terminal, github: "https://github.com", featured: true },
+  { title: "AgentCo AI Agent", description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], icon: Bot, live: "https://www.agentco.cloud/", featured: true },
+  { title: "Teko Aircon Booking", description: "Fast online booking for aircon, appliances & electrician services with real-time scheduling.", tech: ["Laravel", "React", "RabbitMQ", "Elasticsearch"], icon: Wind, live: "https://www.teko.ph", featured: true },
+  { title: "FootBaller Life", description: "Social media platform for football fans with real-time feeds and community features.", tech: ["React", "Laravel", "Algolia", "Redux Saga"], icon: Trophy, live: "https://footballerlife.com/", featured: true },
+  { title: "LMS Lab Management", description: "Lab Management System with resource tracking and experiment workflows.", tech: ["React", "Laravel", "PostgreSQL", "WebSocket"], icon: FlaskConical, live: "https://frontend.rxn3d.com/login", featured: true },
   { title: "Pixel Perfect", description: "Design-to-code comparison tool that overlays designs on live sites for pixel-perfect implementation.", tech: ["React", "Canvas API", "Chrome Extension"], icon: Paintbrush, github: "https://github.com", live: "https://example.com", featured: true },
   { title: "API Forge", description: "REST API generator that creates fully documented endpoints from database schemas.", tech: ["Python", "FastAPI", "PostgreSQL"], icon: Cpu, github: "https://github.com" },
   { title: "Theme Lab", description: "Interactive theme builder for developers to create and export custom color schemes.", tech: ["Next.js", "Tailwind", "Framer Motion"], icon: Palette, github: "https://github.com", live: "https://example.com" },

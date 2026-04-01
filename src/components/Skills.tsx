@@ -14,8 +14,12 @@ const skillCategories = [
     skills: ["PostgreSQL", "MySQL", "MongoDB", "AWS", "Docker", "Git", "Redis"],
   },
   {
-    label: "AI & Voice",
-    skills: ["ElevenLabs", "Whisper", "VAPI", "LangChain", "OpenAI", "Pinecone"],
+    label: "AI & LLM",
+    skills: ["LangChain", "LangGraph", "RAG", "OpenAI", "Groq", "Ollama", "Grok AI", "ChromaDB", "Pinecone", "HuggingFace"],
+  },
+  {
+    label: "Voice AI",
+    skills: ["ElevenLabs", "Whisper", "VAPI", "OpenVoice"],
   },
   {
     label: "Mobile",

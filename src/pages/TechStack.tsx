@@ -7,7 +7,8 @@ const skillCategories = [
   { label: "Frontend", skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js", "Redux"] },
   { label: "Backend", skills: ["Node.js", "Laravel", "Python", "GraphQL", "REST APIs", "Fastify"] },
   { label: "Database & Cloud", skills: ["PostgreSQL", "MySQL", "MongoDB", "AWS", "Docker", "Git", "Redis"] },
-  { label: "AI & Voice", skills: ["ElevenLabs", "Whisper", "VAPI", "LangChain", "OpenAI", "Pinecone"] },
+  { label: "AI & LLM", skills: ["LangChain", "LangGraph", "RAG", "OpenAI", "Groq", "Ollama", "Grok AI", "ChromaDB", "Pinecone", "HuggingFace"] },
+  { label: "Voice AI", skills: ["ElevenLabs", "Whisper", "VAPI", "OpenVoice"] },
   { label: "Mobile", skills: ["React Native", "Expo", "iOS", "Android"] },
   { label: "Design & Tools", skills: ["Figma", "Storybook", "Vitest", "Jest", "CI/CD"] },
 ];
