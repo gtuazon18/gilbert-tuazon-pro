@@ -826,6 +826,12 @@ const Index = () => {
                       <BookOpen className="w-4 h-4" />Read my blog &rarr;
                     </a>
                   </div>
+                  <div>
+                    <h3 className="font-semibold text-sm mb-3">Resume</h3>
+                    <a href="/cv" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      <FileText className="w-4 h-4" />View my CV &rarr;
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             </div>

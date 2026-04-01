@@ -151,3 +151,21 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground));
 }
+
+/* Print styles for CV */
+@media print {
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    margin: 0.5in;
+    size: A4;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+}
