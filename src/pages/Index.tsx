@@ -44,12 +44,14 @@ interface Project {
 }
 
 const projects: Project[] = [
-  { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], icon: TrendingUp, live: "https://fintelligence.com.au/", featured: true },
+  { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Serenite", description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.", tech: ["React", "E-commerce", "Vercel"], icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/", featured: true },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], icon: Bot, live: "https://www.agentco.cloud/", featured: true },
   { title: "LMS Lab Management", description: "Lab Management System with resource tracking and experiment workflows.", tech: ["React", "Laravel", "PostgreSQL", "WebSocket"], icon: FlaskConical, live: "https://frontend.rxn3d.com/login", featured: true },
-  { title: "FootBaller Life", description: "Social media platform for football fans with real-time feeds and community features.", tech: ["React", "Laravel", "Algolia", "Redux Saga"], icon: Trophy, live: "https://footballerlife.com/", featured: true },
-  { title: "Pixel Perfect", description: "Design-to-code comparison tool that overlays designs on live sites for pixel-perfect implementation.", tech: ["React", "Canvas API", "Chrome Extension"], icon: Paintbrush, github: "https://github.com", live: "https://example.com", featured: true },
+  { title: "Zafari Booking", description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.", tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"], icon: MapPin, live: "https://zafari-booking.vercel.app/", featured: true },
+  { title: "Listify", description: "AI platform for Etsy sellers — surfaces winning product ideas and generates SEO-optimized listings in minutes.", tech: ["React", "TypeScript", "AI", "SEO"], icon: Tag, live: "https://listify.agentco.cloud/", featured: true },
+  { title: "FootBaller Life", description: "Social media platform for football fans with real-time feeds and community features.", tech: ["React", "Laravel", "Algolia", "Redux Saga"], icon: Trophy, live: "https://footballerlife.com/" },
+  { title: "Pixel Perfect", description: "Design-to-code comparison tool that overlays designs on live sites for pixel-perfect implementation.", tech: ["React", "Canvas API", "Chrome Extension"], icon: Paintbrush, github: "https://github.com", live: "https://example.com" },
   { title: "API Forge", description: "REST API generator that creates fully documented endpoints from database schemas.", tech: ["Python", "FastAPI", "PostgreSQL"], icon: Cpu, github: "https://github.com" },
   { title: "Theme Lab", description: "Interactive theme builder for developers to create and export custom color schemes.", tech: ["Next.js", "Tailwind", "Framer Motion"], icon: Palette, github: "https://github.com", live: "https://example.com" },
   { title: "Code Canvas", description: "Beautiful code snippet generator with syntax highlighting and export to image.", tech: ["React", "Prism.js", "html2canvas"], icon: Code2, github: "https://github.com", live: "https://example.com" },
@@ -749,9 +751,9 @@ const Index = () => {
                 </div>
 
                 <div>
-                  {Array.from({ length: Math.ceil(projects.slice(0, 4).length / 2) }).map((_, rowIndex) => (
-                    <div key={rowIndex} className={`grid md:grid-cols-2 gap-3 py-3 ${rowIndex !== Math.ceil(projects.slice(0, 4).length / 2) - 1 ? "border-b border-border" : ""}`}>
-                      {projects.slice(0, 4).slice(rowIndex * 2, rowIndex * 2 + 2).map((project, index) => {
+                  {Array.from({ length: Math.ceil(projects.filter(p => p.featured).slice(0, 6).length / 2) }).map((_, rowIndex) => (
+                    <div key={rowIndex} className={`grid md:grid-cols-2 gap-3 py-3 ${rowIndex !== Math.ceil(projects.filter(p => p.featured).slice(0, 6).length / 2) - 1 ? "border-b border-border" : ""}`}>
+                      {projects.filter(p => p.featured).slice(0, 6).slice(rowIndex * 2, rowIndex * 2 + 2).map((project, index) => {
                         const Icon = project.icon;
                         return (
                           <motion.div key={project.title} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: (rowIndex * 2 + index) * 0.05 }} className="group p-4 rounded-xl hover:bg-secondary/50 transition-all">
