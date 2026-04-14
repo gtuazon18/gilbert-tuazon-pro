@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp, BookOpen } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface GalleryProject {
@@ -101,6 +101,14 @@ const galleryProjects: GalleryProject[] = [
     tech: ["Vue.js", "Laravel", "PostgreSQL", "Stripe"],
     color: "bg-yellow-50",
     icon: Calculator,
+  },
+  {
+    title: "Earn-Books",
+    description: "SaaS accounting platform with invoicing, billing, and Stripe payment integration.",
+    tech: ["Vue.js", "Laravel", "Stripe", "PostgreSQL"],
+    color: "bg-emerald-50",
+    icon: BookOpen,
+    live: "https://v0-page-replica-tan.vercel.app/",
   },
   {
     title: "Landing Page Builder",

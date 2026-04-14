@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane,
   Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users,
-  FlaskConical, Mic, AudioLines, FileText, ArrowLeft, Search, Home, TrendingUp,
+  FlaskConical, Mic, AudioLines, FileText, ArrowLeft, Search, Home, TrendingUp, BookOpen,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -31,6 +31,7 @@ const galleryProjects: GalleryProject[] = [
   { title: "Flight Booking System", description: "Integrated booking platform with airline APIs", tech: ["React", "Node.js", "Express", "REST APIs"], color: "bg-sky-50", icon: Plane },
   { title: "FootBaller Life", description: "Social media platform for football fans", tech: ["React", "Laravel", "Algolia", "Redux Saga"], color: "bg-fuchsia-50", icon: Trophy, live: "https://footballerlife.com/" },
   { title: "Accounting System", description: "Financial management with invoice tracking", tech: ["Vue.js", "Laravel", "PostgreSQL", "Stripe"], color: "bg-yellow-50", icon: Calculator },
+  { title: "Earn-Books", description: "SaaS accounting platform with invoicing, billing, and Stripe payment integration.", tech: ["Vue.js", "Laravel", "Stripe", "PostgreSQL"], color: "bg-emerald-50", icon: BookOpen, live: "https://v0-page-replica-tan.vercel.app/" },
   { title: "Landing Page Builder", description: "AI-powered prompt-based page generator", tech: ["React", "Next.js", "TypeScript", "AI"], color: "bg-lime-50", icon: Layout },
   { title: "Teko Aircon Booking", description: "Fast online booking for aircon, appliances & electrician services", tech: ["Laravel", "React", "RabbitMQ", "Elasticsearch"], color: "bg-blue-50", icon: Wind, live: "https://www.teko.ph" },
   { title: "Staycation Booking", description: "Hotel and accommodation booking platform", tech: ["Vue.js", "Laravel", "MySQL", "Elasticsearch"], color: "bg-teal-50", icon: Hotel },
