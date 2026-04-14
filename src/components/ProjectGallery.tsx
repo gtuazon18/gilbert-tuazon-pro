@@ -35,7 +35,7 @@ const galleryProjects: GalleryProject[] = [
     tech: ["React", "TypeScript", "AI", "SEO"],
     color: "bg-green-50",
     icon: Tag,
-    live: "https://listify-virid.vercel.app/",
+    live: "https://listify.agentco.cloud/",
   },
   {
     title: "MyMoovz",
