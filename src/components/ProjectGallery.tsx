@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp, BookOpen, Wallet, Tag } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp, BookOpen, Wallet, Tag, MapPin } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface GalleryProject {
@@ -20,6 +20,14 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
+  },
+  {
+    title: "Zafari Booking",
+    description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"],
+    color: "bg-stone-50",
+    icon: MapPin,
+    live: "https://zafari-booking.vercel.app/",
   },
   {
     title: "OneKita PH",

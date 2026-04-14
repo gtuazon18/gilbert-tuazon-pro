@@ -69,6 +69,7 @@ interface GalleryProject {
 
 const galleryProjects: GalleryProject[] = [
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management and financial advisory.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
+  { title: "Zafari Booking", description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.", tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"], color: "bg-stone-50", icon: MapPin, live: "https://zafari-booking.vercel.app/" },
   { title: "OneKita PH", description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.", tech: ["React", "TypeScript", "Laravel", "Fintech"], color: "bg-orange-50", icon: Wallet, live: "https://onekitaph.vercel.app/" },
   { title: "Listify", description: "AI platform for Etsy sellers — surfaces winning product ideas and generates SEO-optimized listings in minutes.", tech: ["React", "TypeScript", "AI", "SEO"], color: "bg-green-50", icon: Tag, live: "https://listify.agentco.cloud/" },
   { title: "GigaKnows E-Commerce", description: "Fully responsive and scalable e-commerce platform", tech: ["React", "Laravel", "MySQL", "AWS"], color: "bg-violet-50", icon: ShoppingBag },
