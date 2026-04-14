@@ -26,7 +26,7 @@ const galleryProjects: GalleryProject[] = [
   { title: "Serenite", description: "Luxury spa e-commerce — curated manicure, pedicure & spa products.", tech: ["React", "E-commerce", "Vercel"], color: "bg-rose-50", icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/" },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent with LangChain and LangGraph", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], color: "bg-cyan-50", icon: Bot, live: "https://www.agentco.cloud/" },
   { title: "Health Fitness App", description: "Comprehensive health and fitness tracking platform", tech: ["React", "Laravel", "MySQL", "Charts"], color: "bg-green-50", icon: Activity },
-  { title: "Remarkable Vid AI", description: "AI-powered video generation and enhancement", tech: ["React", "TypeScript", "Python", "LangChain"], color: "bg-pink-50", icon: Video },
+  { title: "Remarkable Vid AI", description: "AI-powered video generation and enhancement", tech: ["React", "TypeScript", "Python", "LangChain"], color: "bg-pink-50", icon: Video, live: "https://remarkablevid-gtuazon18s-projects.vercel.app/" },
   { title: "Health Booking System", description: "Doctor and patient management platform", tech: ["React", "Laravel", "PostgreSQL", "WebSocket"], color: "bg-red-50", icon: Calendar },
   { title: "Flight Booking System", description: "Integrated booking platform with airline APIs", tech: ["React", "Node.js", "Express", "REST APIs"], color: "bg-sky-50", icon: Plane },
   { title: "FootBaller Life", description: "Social media platform for football fans", tech: ["React", "Laravel", "Algolia", "Redux Saga"], color: "bg-fuchsia-50", icon: Trophy, live: "https://footballerlife.com/" },

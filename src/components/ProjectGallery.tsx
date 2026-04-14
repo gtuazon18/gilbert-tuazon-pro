@@ -72,6 +72,7 @@ const galleryProjects: GalleryProject[] = [
     tech: ["React", "TypeScript", "Python", "LangChain"],
     color: "bg-pink-50",
     icon: Video,
+    live: "https://remarkablevid-gtuazon18s-projects.vercel.app/",
   },
   {
     title: "Health Booking System",
