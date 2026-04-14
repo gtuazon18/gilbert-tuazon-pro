@@ -5,7 +5,7 @@ import {
   Briefcase, ShoppingBag, Mic, Paintbrush,
   Cpu, Palette, Code2, AudioLines, FileText, Bot, Activity, Video,
   Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle,
-  Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer, TrendingUp,
+  Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer, TrendingUp, Wallet, Tag,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -69,6 +69,8 @@ interface GalleryProject {
 
 const galleryProjects: GalleryProject[] = [
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management and financial advisory.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
+  { title: "OneKita PH", description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.", tech: ["React", "TypeScript", "Laravel", "Fintech"], color: "bg-orange-50", icon: Wallet, live: "https://onekitaph.vercel.app/" },
+  { title: "Listify", description: "AI platform for Etsy sellers — surfaces winning product ideas and generates SEO-optimized listings in minutes.", tech: ["React", "TypeScript", "AI", "SEO"], color: "bg-green-50", icon: Tag, live: "https://listify-virid.vercel.app/" },
   { title: "GigaKnows E-Commerce", description: "Fully responsive and scalable e-commerce platform", tech: ["React", "Laravel", "MySQL", "AWS"], color: "bg-violet-50", icon: ShoppingBag },
   { title: "Serenite", description: "Luxury spa e-commerce — curated manicure, pedicure & spa products.", tech: ["React", "E-commerce", "Vercel"], color: "bg-rose-50", icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/" },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent with LangChain and LangGraph", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], color: "bg-cyan-50", icon: Bot, live: "https://www.agentco.cloud/" },

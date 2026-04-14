@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp, BookOpen } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users, FlaskConical, Mic, AudioLines, FileText, Search, Home, TrendingUp, BookOpen, Wallet, Tag } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface GalleryProject {
@@ -20,6 +20,22 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
+  },
+  {
+    title: "OneKita PH",
+    description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.",
+    tech: ["React", "TypeScript", "Laravel", "Fintech"],
+    color: "bg-orange-50",
+    icon: Wallet,
+    live: "https://onekitaph.vercel.app/",
+  },
+  {
+    title: "Listify",
+    description: "AI platform for Etsy sellers — surfaces winning product ideas and generates SEO-optimized listings in minutes.",
+    tech: ["React", "TypeScript", "AI", "SEO"],
+    color: "bg-green-50",
+    icon: Tag,
+    live: "https://listify-virid.vercel.app/",
   },
   {
     title: "MyMoovz",
