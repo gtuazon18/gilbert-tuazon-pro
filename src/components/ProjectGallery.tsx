@@ -10,6 +10,7 @@ interface GalleryProject {
   icon: LucideIcon;
   github?: string;
   live?: string;
+  image?: string;
 }
 
 const galleryProjects: GalleryProject[] = [
@@ -20,6 +21,70 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
+    image: "/Fintel/download.jpeg",
+  },
+  {
+    title: "Fintelligence — Dashboard",
+    description: "Broker management dashboard with real-time AI-driven financial analytics.",
+    tech: ["React", "TypeScript", "AI/ML"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (1).jpeg",
+  },
+  {
+    title: "Fintelligence — Advisory",
+    description: "Client advisory tools with LangChain RAG pipelines and LLM integrations.",
+    tech: ["LangChain", "RAG", "Python"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (2).jpeg",
+  },
+  {
+    title: "Fintelligence — Portfolio",
+    description: "Portfolio optimization and risk assessment powered by machine learning models.",
+    tech: ["Python", "AI/ML", "React"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (3).jpeg",
+  },
+  {
+    title: "Fintelligence — Market Insights",
+    description: "Real-time market data pipelines and AI-generated actionable insights for brokers.",
+    tech: ["Python", "FastAPI", "LangChain"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (4).jpeg",
+  },
+  {
+    title: "Fintelligence — Reports",
+    description: "Automated financial reporting with AI-assisted data visualization and export.",
+    tech: ["React", "TypeScript", "Python"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (5).jpeg",
+  },
+  {
+    title: "Fintelligence — CRM",
+    description: "Client relationship management module for financial advisors and broker teams.",
+    tech: ["React", "PostgreSQL", "REST APIs"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (6).jpeg",
+  },
+  {
+    title: "Fintelligence — Analytics",
+    description: "Advanced analytics and decision-support systems for financial advisors.",
+    tech: ["Python", "LangChain", "AI/ML"],
+    color: "bg-green-50",
+    icon: TrendingUp,
+    live: "https://fintelligence.com.au/",
+    image: "/Fintel/download (7).jpeg",
   },
   {
     title: "Zafari Booking",
@@ -212,9 +277,13 @@ const ProjectCard = ({ project }: { project: GalleryProject }) => {
 
   return (
     <div className="flex-shrink-0 w-64 rounded-xl border border-border overflow-hidden bg-white hover:shadow-md transition-shadow group">
-      {/* Icon area */}
-      <div className={`h-36 ${project.color} flex items-center justify-center relative`}>
-        <Icon className="w-12 h-12 text-muted-foreground/40" strokeWidth={1.2} />
+      {/* Image or icon area */}
+      <div className={`h-36 ${project.image ? "" : project.color} flex items-center justify-center relative overflow-hidden`}>
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+        ) : (
+          <Icon className="w-12 h-12 text-muted-foreground/40" strokeWidth={1.2} />
+        )}
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
