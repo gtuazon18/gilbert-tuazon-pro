@@ -26,8 +26,12 @@ const skillCategories = [
     skills: ["React Native", "Expo", "iOS", "Android"],
   },
   {
+    label: "Automation",
+    skills: ["N8n", "Workflow Automation", "AI Agents", "Chatbot Flows", "Webhooks", "SMTP/SendGrid", "Airtable"],
+  },
+  {
     label: "Integrations",
-    skills: ["OpenClaw", "WhatsApp Business API", "Twilio", "Stripe", "Google Calendar", "Webhooks"],
+    skills: ["OpenClaw", "WhatsApp Business API", "Twilio", "Stripe", "Google Calendar", "Webhooks", "Jira API", "Slack API"],
   },
   {
     label: "Design & Tools",

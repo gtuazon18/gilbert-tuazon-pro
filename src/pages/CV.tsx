@@ -85,6 +85,32 @@ const experience = [
 
 const freelance = [
   {
+    role: "Founder & Full Stack AI Engineer",
+    company: "BestLeadPH — AI-Powered Lead Generation & CRM Platform",
+    period: "2025 – Present",
+    bullets: [
+      "Built BestLeadPH (bestleadph.com) — a SaaS platform where autonomous AI agents discover, qualify, and organize local business leads without manual prospecting.",
+      "Designed and developed the AI agent layer that scrapes, enriches, and scores local business data, surfacing high-intent leads directly into a built-in CRM workspace.",
+      "Implemented an automated lead qualification pipeline using OpenAI function-calling to assess business fit, extract contact details, and assign lead scores based on configurable criteria.",
+      "Built the full-stack application with React and TypeScript on the frontend, and a Python/FastAPI backend handling agent orchestration, data ingestion, and CRM operations.",
+      "Developed the built-in CRM module with pipeline views, lead status tracking, notes, and team collaboration features — designed as a quiet, distraction-free sales workspace.",
+      "Integrated N8n workflows for automated outreach sequences, lead status update triggers, and daily digest emails to sales team members.",
+    ],
+  },
+  {
+    role: "N8n Workflow Automation Engineer",
+    company: "Freelance / Consulting",
+    period: "Jan 2025 – Present",
+    bullets: [
+      "Designed and deployed a lead generation chatbot workflow in N8n: integrated an OpenAI GPT-4 conversational AI node to qualify website leads, extracted structured contact data via JSON parsing nodes, stored records in Airtable and Google Sheets, and triggered real-time Slack notifications to the sales team on every new qualified lead.",
+      "Built an AI-powered booking workflow with N8n: a multi-step AI agent node collects booking intent and service preferences through conversational prompts, queries Google Calendar API to surface real-time availability, confirms the booking slot, and executes parallel email-send branches — dispatching a branded confirmation email to the client and an admin notification with full booking details via SendGrid SMTP nodes.",
+      "Developed a ticketing tool automation system in N8n that ingests support requests from email (IMAP trigger), embedded web forms (webhook trigger), and WhatsApp (Twilio node) — routes all inputs into a unified normalization branch, applies an OpenAI classification node to assign priority (critical/high/medium/low) and category, creates a ticket in Jira or Trello via REST API nodes, assigns it to the correct team queue, and sends the customer a templated acknowledgment email with a ticket ID and SLA-based estimated resolution time.",
+      "Implemented robust error-handling branches, retry logic with exponential back-off, and execution logging across all workflows using N8n's IF, Switch, Wait, and Error Trigger nodes to guarantee reliability and full auditability.",
+      "Connected N8n to external platforms using webhooks, HTTP Request nodes, and OAuth2/API key authentication: Google Calendar, SendGrid, Twilio, Airtable, Slack, Jira, Trello, and WhatsApp Business API.",
+      "Maintained workflow versioning and documented each automation with inline N8n notes and external runbooks, enabling non-technical stakeholders to monitor and hand off workflows confidently.",
+    ],
+  },
+  {
     role: "Full Stack AI Software Engineer",
     company: "Waal.ai",
     period: "Sept 2025 – Nov 2025",
@@ -158,6 +184,7 @@ const skills = {
   "AI & LLM": "LangChain, LangGraph, RAG, OpenAI, Groq, Ollama, ChromaDB, Pinecone, HuggingFace, Vertex",
   "Voice AI": "ElevenLabs, Whisper, VAPI, OpenVoice",
   "Database & Cloud": "PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch, AWS (S3), Docker, Kubernetes",
+  "Automation & Workflows": "N8n, Workflow Automation, AI Agent Nodes, Webhook Triggers, HTTP Request Nodes, Email Automation, Lead Gen Chatbots, Booking Workflows, Ticketing Automation",
   "API & Integration": "REST APIs, WebSocket, Socket.IO, RabbitMQ (AMQP), Azure Web PubSub",
   "Mobile": "React Native, Expo",
   "Integrations": "OpenClaw, WhatsApp Business API, Twilio, Stripe, Google Calendar, Supabase",
@@ -166,6 +193,7 @@ const skills = {
 };
 
 const projects = [
+  { name: "BestLeadPH", desc: "Autonomous AI agents that discover, qualify, and organize local business leads with a built-in CRM — the quiet sales workspace for modern teams", tech: "AI Agents, CRM, Lead Generation, N8n, OpenAI", url: "bestleadph.com" },
   { name: "Fintelligence", desc: "AI-powered fintech platform for broker management and financial advisory", tech: "React, TypeScript, Python, LangChain, AI/ML", url: "fintelligence.com.au" },
   { name: "AgentCo AI Agent", desc: "AI agent platform with LangChain & LangGraph", tech: "Python, LangChain, LangGraph, LLaMA", url: "agentco.cloud" },
   { name: "Waal.ai", desc: "Conversation-to-insight SaaS platform with AI-powered interview guides", tech: "React, TypeScript, Python, LangChain, Azure", url: "waal.ai" },

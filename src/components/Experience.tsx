@@ -4,6 +4,20 @@ import { Briefcase } from "lucide-react";
 const timeline = [
   {
     year: "2025",
+    role: "N8n Workflow Automation Engineer",
+    company: "Freelance / Consulting",
+    period: "Jan 2025 – Present",
+    bullets: [
+      "Designed and deployed a lead generation chatbot workflow using N8n, integrating OpenAI GPT-4 for conversational AI, capturing qualified leads from website chat, and storing them in Airtable/Google Sheets with instant Slack alerts to the sales team.",
+      "Built an AI-powered booking workflow with N8n: a conversational AI agent collects booking details, checks Google Calendar availability via API, confirms appointments in real time, and automatically sends branded confirmation emails to both the client and admin using SendGrid/SMTP nodes.",
+      "Developed a ticketing tool automation system in N8n that ingests support requests from email, web forms, and WhatsApp — auto-classifies tickets by priority using an AI classification node, creates tickets in Jira/Trello, assigns them to the right team, and sends acknowledgment emails to customers with estimated resolution times.",
+      "Implemented multi-step conditional logic, error handling branches, and retry mechanisms across all workflows to ensure reliability and auditability.",
+      "Integrated webhooks, HTTP Request nodes, and OAuth2 authentication to connect N8n with external APIs including Google Calendar, SendGrid, Twilio, Airtable, Slack, and Jira.",
+    ],
+    tags: ["N8n", "Workflow Automation", "OpenAI", "GPT-4", "Google Calendar API", "SendGrid", "Twilio", "Airtable", "Jira", "Webhooks", "AI Agents"],
+  },
+  {
+    year: "2025",
     role: "Senior Full Stack AI Software Engineer",
     company: "Fintelligence",
     period: "Dec 2025 – Present",

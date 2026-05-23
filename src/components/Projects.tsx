@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical, TrendingUp } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical, TrendingUp, Target } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -13,6 +13,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "BestLeadPH",
+    description: "AI agents that find your next customers automatically. Discover, qualify, and organize local business leads using autonomous AI agents and a built-in CRM.",
+    tech: ["AI Agents", "CRM", "Lead Generation"],
+    icon: Target,
+    live: "https://www.bestleadph.com/",
+    featured: true,
+  },
   {
     title: "Fintelligence",
     description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.",
