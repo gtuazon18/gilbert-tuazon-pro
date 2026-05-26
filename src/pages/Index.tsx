@@ -10,6 +10,13 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import BadgeVerifiedIcon from "@/components/BadgeVerifiedIcon";
 import QRCode from "react-qr-code";
 
@@ -59,41 +66,15 @@ const projects: Project[] = [
   { title: "AI Voice Clone Platform", description: "Platform for creating and managing AI voice clones using ElevenLabs API with custom voice training and synthesis.", tech: ["ElevenLabs", "React", "Node.js", "PostgreSQL"], icon: AudioLines, github: "https://github.com", live: "https://example.com" },
 ];
 
-interface GalleryProject {
-  title: string;
-  description: string;
-  tech: string[];
-  color: string;
-  icon: LucideIcon;
-  github?: string;
-  live?: string;
-}
-
-const galleryProjects: GalleryProject[] = [
-  { title: "Fintelligence", description: "AI-powered fintech platform for broker management and financial advisory.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
-  { title: "Zafari Booking", description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.", tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"], color: "bg-stone-50", icon: MapPin, live: "https://zafari-booking.vercel.app/" },
-  { title: "OneKita PH", description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.", tech: ["React", "TypeScript", "Laravel", "Fintech"], color: "bg-orange-50", icon: Wallet, live: "https://onekitaph.vercel.app/" },
-  { title: "Listify", description: "AI platform for Etsy sellers — surfaces winning product ideas and generates SEO-optimized listings in minutes.", tech: ["React", "TypeScript", "AI", "SEO"], color: "bg-green-50", icon: Tag, live: "https://listify.agentco.cloud/" },
-  { title: "GigaKnows E-Commerce", description: "Fully responsive and scalable e-commerce platform", tech: ["React", "Laravel", "MySQL", "AWS"], color: "bg-violet-50", icon: ShoppingBag },
-  { title: "Serenite", description: "Luxury spa e-commerce — curated manicure, pedicure & spa products.", tech: ["React", "E-commerce", "Vercel"], color: "bg-rose-50", icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/" },
-  { title: "AgentCo AI Agent", description: "Intelligent AI agent with LangChain and LangGraph", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], color: "bg-cyan-50", icon: Bot, live: "https://www.agentco.cloud/" },
-  { title: "Health Fitness App", description: "Comprehensive health and fitness tracking platform", tech: ["React", "Laravel", "MySQL", "Charts"], color: "bg-green-50", icon: Activity },
-  { title: "Remarkable Vid AI", description: "AI-powered video generation and enhancement", tech: ["React", "TypeScript", "Python", "LangChain"], color: "bg-pink-50", icon: Video, live: "https://remarkablevid-gtuazon18s-projects.vercel.app/" },
-  { title: "Health Booking System", description: "Doctor and patient management platform", tech: ["React", "Laravel", "PostgreSQL", "WebSocket"], color: "bg-red-50", icon: Calendar },
-  { title: "Flight Booking System", description: "Integrated booking platform with airline APIs", tech: ["React", "Node.js", "Express", "REST APIs"], color: "bg-sky-50", icon: Plane },
-  { title: "FootBaller Life", description: "Social media platform for football fans", tech: ["React", "Laravel", "Algolia", "Redux Saga"], color: "bg-fuchsia-50", icon: Trophy, live: "https://footballerlife.com/" },
-  { title: "Accounting System", description: "Financial management with invoice tracking", tech: ["Vue.js", "Laravel", "PostgreSQL", "Stripe"], color: "bg-yellow-50", icon: Calculator },
-  { title: "Earn-Books", description: "SaaS accounting platform with invoicing, billing, and Stripe payment integration.", tech: ["Vue.js", "Laravel", "Stripe", "PostgreSQL"], color: "bg-emerald-50", icon: BookOpen, live: "https://v0-page-replica-tan.vercel.app/" },
-  { title: "Landing Page Builder", description: "AI-powered prompt-based page generator", tech: ["React", "Next.js", "TypeScript", "AI"], color: "bg-lime-50", icon: Layout },
-  { title: "Teko Aircon Booking", description: "Fast online booking for aircon, appliances & electrician services", tech: ["Laravel", "React", "RabbitMQ", "Elasticsearch"], color: "bg-blue-50", icon: Wind, live: "https://www.teko.ph" },
-  { title: "Staycation Booking", description: "Hotel and accommodation booking platform", tech: ["Vue.js", "Laravel", "MySQL", "Elasticsearch"], color: "bg-teal-50", icon: Hotel },
-  { title: "Game of Thrones Chess", description: "Themed chess game with multiplayer support", tech: ["React", "TypeScript", "WebSocket", "Canvas"], color: "bg-purple-50", icon: Sword, live: "https://chess.of.throne.agentco.cloud/" },
-  { title: "Earthquake Tracker", description: "Real-time tracking with location notifications", tech: ["React", "Node.js", "WebSocket", "Geolocation"], color: "bg-orange-50", icon: AlertTriangle },
-  { title: "IntelHouse", description: "Trusted partner in lead generation with cost-effective solutions for home improvement sales teams.", tech: ["React", "Laravel", "MySQL", "Elasticsearch"], color: "bg-indigo-50", icon: Users, live: "https://www.intelhouse.net/" },
-  { title: "LMS Lab Management", description: "Lab Management System with lab resource tracking", tech: ["React", "Laravel", "PostgreSQL", "WebSocket"], color: "bg-emerald-50", icon: FlaskConical, live: "https://frontend.rxn3d.com/login" },
-  { title: "Voice AI Assistant", description: "Intelligent voice assistant with VAPI, ElevenLabs TTS, and Whisper STT", tech: ["VAPI", "ElevenLabs", "Whisper", "React", "TypeScript"], color: "bg-blue-50", icon: Mic },
-  { title: "AI Voice Clone Platform", description: "Voice cloning and synthesis platform using ElevenLabs API", tech: ["ElevenLabs", "React", "Node.js", "PostgreSQL"], color: "bg-purple-50", icon: AudioLines },
-  { title: "Real-time Transcription", description: "Live audio transcription service powered by Whisper", tech: ["Whisper", "Python", "FastAPI", "WebSocket"], color: "bg-cyan-50", icon: FileText },
+const fintelGalleryImages = [
+  { src: "/Fintel/download.jpeg", alt: "Fintelligence gallery image 1" },
+  { src: "/Fintel/download (1).jpeg", alt: "Fintelligence gallery image 2" },
+  { src: "/Fintel/download (2).jpeg", alt: "Fintelligence gallery image 3" },
+  { src: "/Fintel/download (3).jpeg", alt: "Fintelligence gallery image 4" },
+  { src: "/Fintel/download (4).jpeg", alt: "Fintelligence gallery image 5" },
+  { src: "/Fintel/download (5).jpeg", alt: "Fintelligence gallery image 6" },
+  { src: "/Fintel/download (6).jpeg", alt: "Fintelligence gallery image 7" },
+  { src: "/Fintel/download (7).jpeg", alt: "Fintelligence gallery image 8" },
 ];
 
 const recommendations = [
@@ -162,63 +143,49 @@ const RecommendationsCarousel = () => {
 };
 
 /* ─── Gallery Section with View All ─── */
-const GALLERY_INITIAL_COUNT = 6;
-
 const GallerySection = () => {
-  const visible = galleryProjects.slice(0, GALLERY_INITIAL_COUNT);
-
   return (
     <section className="py-4 md:py-6">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card">
-            <div className="flex items-center justify-between mb-4">
+            <div className="mb-5">
               <h2 className="text-2xl font-bold">Gallery</h2>
-              <Link to="/gallery" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
-                View All &rsaquo;
-              </Link>
+              <p className="text-sm text-muted-foreground mt-1">Fintelligence snapshots from the public `Fintel` gallery.</p>
             </div>
 
-            <div className="divide-y divide-border">
-              {visible.map((project, index) => {
-                const Icon = project.icon;
-                return (
-                  <motion.div
-                    key={`${project.title}-${index}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2, delay: index * 0.02 }}
-                    className="flex items-center gap-4 py-3 group"
-                  >
-                    <div className={`w-10 h-10 rounded-lg ${project.color} flex items-center justify-center flex-shrink-0`}>
-                      <Icon className="w-5 h-5 text-muted-foreground/40" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-sm">{project.title}</h3>
-                      <p className="text-xs text-muted-foreground truncate">{project.description}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-1 flex-shrink-0 hidden sm:flex">
-                      {project.tech.slice(0, 2).map(tech => (
-                        <span key={tech} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">{tech}</span>
-                      ))}
-                    </div>
-                    <div className="flex gap-1.5 flex-shrink-0">
-                      {project.live && (
-                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                      {project.github && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                          <Github className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
+            <Carousel
+              opts={{
+                align: "start",
+                loop: false,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {fintelGalleryImages.map((image, index) => (
+                  <CarouselItem key={image.src} className="basis-[88%] sm:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.04 }}
+                      className="group"
+                    >
+                      <div className="overflow-hidden rounded-[28px] bg-secondary aspect-[4/5]">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                          loading="lazy"
+                        />
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-auto right-12 top-[-3.25rem] h-9 w-9 translate-y-0 border-border bg-background/90" />
+              <CarouselNext className="right-0 top-[-3.25rem] h-9 w-9 translate-y-0 border-border bg-background/90" />
+            </Carousel>
           </motion.div>
         </div>
       </div>
