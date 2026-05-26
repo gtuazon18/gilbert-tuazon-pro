@@ -10,13 +10,6 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import BadgeVerifiedIcon from "@/components/BadgeVerifiedIcon";
 import QRCode from "react-qr-code";
 
@@ -67,14 +60,14 @@ const projects: Project[] = [
 ];
 
 const fintelGalleryImages = [
-  { src: "/Fintel/download.jpeg", alt: "Fintelligence gallery image 1" },
-  { src: "/Fintel/download (1).jpeg", alt: "Fintelligence gallery image 2" },
-  { src: "/Fintel/download (2).jpeg", alt: "Fintelligence gallery image 3" },
-  { src: "/Fintel/download (3).jpeg", alt: "Fintelligence gallery image 4" },
-  { src: "/Fintel/download (4).jpeg", alt: "Fintelligence gallery image 5" },
-  { src: "/Fintel/download (5).jpeg", alt: "Fintelligence gallery image 6" },
-  { src: "/Fintel/download (6).jpeg", alt: "Fintelligence gallery image 7" },
-  { src: "/Fintel/download (7).jpeg", alt: "Fintelligence gallery image 8" },
+  "/Fintel/download.jpeg",
+  "/Fintel/download (1).jpeg",
+  "/Fintel/download (2).jpeg",
+  "/Fintel/download (3).jpeg",
+  "/Fintel/download (4).jpeg",
+  "/Fintel/download (5).jpeg",
+  "/Fintel/download (6).jpeg",
+  "/Fintel/download (7).jpeg",
 ];
 
 const recommendations = [
@@ -139,57 +132,6 @@ const RecommendationsCarousel = () => {
         ))}
       </div>
     </div>
-  );
-};
-
-/* ─── Gallery Section with View All ─── */
-const GallerySection = () => {
-  return (
-    <section className="py-4 md:py-6">
-      <div className="container px-6">
-        <div className="max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card">
-            <div className="mb-5">
-              <h2 className="text-2xl font-bold">Gallery</h2>
-              <p className="text-sm text-muted-foreground mt-1">Fintelligence snapshots from the public `Fintel` gallery.</p>
-            </div>
-
-            <Carousel
-              opts={{
-                align: "start",
-                loop: false,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {fintelGalleryImages.map((image, index) => (
-                  <CarouselItem key={image.src} className="basis-[88%] sm:basis-1/2 lg:basis-1/3">
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.04 }}
-                      className="group"
-                    >
-                      <div className="overflow-hidden rounded-[28px] bg-secondary aspect-[4/5]">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                          loading="lazy"
-                        />
-                      </div>
-                    </motion.div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-auto right-12 top-[-3.25rem] h-9 w-9 translate-y-0 border-border bg-background/90" />
-              <CarouselNext className="right-0 top-[-3.25rem] h-9 w-9 translate-y-0 border-border bg-background/90" />
-            </Carousel>
-          </motion.div>
-        </div>
-      </div>
-    </section>
   );
 };
 
@@ -750,9 +692,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ═══ GALLERY (list) ═══ */}
-        <GallerySection />
-
         {/* ═══ RECOMMENDATIONS ═══ */}
         <section className="py-4 md:py-6">
           <div className="container px-6">
@@ -813,17 +752,25 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ═══ IMAGE GALLERY ═══ */}
+        {/* ═══ GALLERY ═══ */}
         <section className="py-4 md:py-6">
           <div className="container px-6">
             <div className="max-w-4xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
                 <h2 className="text-2xl font-bold mb-4">Gallery</h2>
-                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide">
-                  {/* Placeholder slots — replace src with real images */}
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="w-48 h-48 md:w-56 md:h-56 rounded-xl bg-secondary flex items-center justify-center overflow-hidden flex-shrink-0 snap-start">
-                      <span className="text-xs text-muted-foreground">Image {i + 1}</span>
+                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none">
+                  {fintelGalleryImages.map((image, index) => (
+                    <div
+                      key={image}
+                      className="w-48 h-48 md:w-56 md:h-56 rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group"
+                    >
+                      <img
+                        src={image}
+                        alt={`Fintelligence gallery image ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
+                        loading="lazy"
+                        draggable={false}
+                      />
                     </div>
                   ))}
                 </div>

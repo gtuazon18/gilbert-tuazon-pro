@@ -1,30 +1,25 @@
-# Homepage Mixed Gallery Design
+# Homepage Fintel Gallery Design
 
 ## Goal
-Keep a single image gallery experience on the homepage bottom section and make it easy to expand with images from multiple projects over time.
+Add a simple homepage gallery section above the footer using the images from `public/Fintel`.
 
 ## Current State
-- `src/pages/Index.tsx` now renders a homepage image carousel using only `public/Fintel` assets.
-- `src/pages/Gallery.tsx` is a separate project-list page, which creates naming overlap with the homepage `Gallery` section.
+- `src/pages/Index.tsx` currently has no homepage gallery section.
+- `public/Fintel` contains eight gallery images ready to use.
 
 ## Desired Behavior
-- The homepage bottom `Gallery` section should remain the only visible image gallery experience.
-- The homepage gallery should use a mixed image data source so more projects can be added later.
-- The Fintelligence-only helper copy should be removed.
-- The `/gallery` page should remain a normal project-list page and not compete visually with the homepage image gallery.
+- Add a homepage `Gallery` section above the footer.
+- Use only the images in `public/Fintel`.
+- Make the gallery horizontally scrollable without left/right arrow buttons.
+- Add a subtle image zoom on hover.
 
 ## Design
 ### Homepage
-- Keep the homepage `Gallery` section as a horizontal image carousel.
-- Use the existing carousel UI component from `src/components/ui/carousel.tsx`.
-- Replace the Fintel-only array with a generic image collection structure that can include images from different projects.
-- Continue rendering cards with rounded corners and cover cropping.
-- Keep the section in the same homepage location near the bottom.
-- Remove the extra descriptive sentence so the heading stands on its own.
-
-### Project Gallery Page
-- Keep `/gallery` as a text-first project-list page.
-- Do not add a second image-gallery treatment there.
+- Add a `Gallery` section back to `src/pages/Index.tsx`.
+- Define a small `fintelGalleryImages` array using the eight files in `public/Fintel`.
+- Render the images as a horizontal scroll row with `overflow-x-auto`.
+- Use rounded cards, cover cropping, and a slightly stronger hover zoom.
+- Place the section directly above the footer.
 
 ## Verification
-- Run `npm run build` to confirm the updated homepage and gallery page compile successfully.
+- Run `npm run build` to confirm the homepage compiles successfully.

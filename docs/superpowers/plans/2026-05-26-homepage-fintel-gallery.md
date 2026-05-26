@@ -2,35 +2,25 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Move the Fintelligence image gallery from the project gallery page into the homepage bottom gallery section.
+**Goal:** Add a simple homepage gallery section above the footer using only the `public/Fintel` images.
 
-**Architecture:** Update the homepage gallery section to use a dedicated list of `Fintel` image assets and render them through the existing carousel UI. Simplify the `/gallery` page so it stays a project list without the Fintelligence image-gallery variants.
+**Architecture:** Define a small local array of `public/Fintel` assets in `src/pages/Index.tsx` and render them in a horizontal scroll row with hover zoom. Keep the rest of the homepage structure unchanged.
 
 **Tech Stack:** React, TypeScript, Framer Motion, existing Embla carousel wrapper, Vite
 
 ---
 
-### Task 1: Replace homepage list gallery with Fintel image carousel
+### Task 1: Add homepage Fintel gallery section
 
 **Files:**
 - Modify: `src/pages/Index.tsx`
 - Verify: `npm run build`
 
-- [ ] **Step 1: Add a dedicated Fintel image list and carousel imports**
-- [ ] **Step 2: Replace the list-style `GallerySection` markup with image slides**
-- [ ] **Step 3: Keep the section in the homepage bottom slot and preserve current section-card styling**
+- [ ] **Step 1: Add a `fintelGalleryImages` array using the eight `public/Fintel` files**
+- [ ] **Step 2: Render a `Gallery` section above the footer with horizontal scrolling**
+- [ ] **Step 3: Add hover zoom and keep arrow buttons out of the UI**
 
-### Task 2: Remove Fintel image-gallery entries from the project gallery page
-
-**Files:**
-- Modify: `src/pages/Gallery.tsx`
-- Verify: `npm run build`
-
-- [ ] **Step 1: Remove the Fintelligence image-gallery variants from the page data**
-- [ ] **Step 2: Keep one standard `Fintelligence` project entry in the project gallery list**
-- [ ] **Step 3: Ensure the page still renders as a text-first project gallery**
-
-### Task 3: Verify the change
+### Task 2: Verify the change
 
 **Files:**
 - Verify only

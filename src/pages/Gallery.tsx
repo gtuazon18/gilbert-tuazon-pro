@@ -57,8 +57,8 @@ const Gallery = () => {
             Back to Home
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Project Gallery</h1>
-          <p className="text-muted-foreground mb-8">A complete collection of diverse projects across different domains</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Projects</h1>
+          <p className="text-muted-foreground mb-8">A complete collection of projects across different domains</p>
 
           <div className="divide-y divide-border bg-card rounded-2xl border border-border p-6">
             {galleryProjects.map((project, index) => {
