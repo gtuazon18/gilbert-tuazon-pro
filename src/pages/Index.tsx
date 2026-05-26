@@ -767,7 +767,7 @@ const Index = () => {
                       <img
                         src={image}
                         alt={`Fintelligence gallery image ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.14] group-active:scale-[1.1]"
                         loading="lazy"
                         draggable={false}
                       />
