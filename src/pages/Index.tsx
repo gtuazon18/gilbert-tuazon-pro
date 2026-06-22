@@ -752,6 +752,35 @@ const Index = () => {
           </div>
         </section>
 
+        {/* ═══ TIKTOK PREVIEW ═══ */}
+        <section className="py-4 md:py-6">
+          <div className="container px-6">
+            <div className="max-w-4xl mx-auto">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-2xl font-bold">TikTok</h2>
+                  <Link to="/tiktok" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">View All &rsaquo;</Link>
+                </div>
+                <div className="flex flex-col items-center gap-4">
+                  <div className="rounded-2xl overflow-hidden border border-border w-full max-w-xs mx-auto">
+                    <iframe
+                      src="https://www.tiktok.com/embed/v2/7646806939032112405"
+                      className="w-full"
+                      style={{ height: "560px", border: "none" }}
+                      allowFullScreen
+                      allow="encrypted-media"
+                      title="TikTok preview"
+                    />
+                  </div>
+                  <Link to="/tiktok" className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors">
+                    See all TikTok videos &rsaquo;
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* ═══ GALLERY ═══ */}
         <section className="py-4 md:py-6">
           <div className="container px-6">

@@ -10,6 +10,7 @@ import TechStack from "./pages/TechStack";
 import Community from "./pages/Community";
 import BlogPost from "./pages/BlogPost";
 import CV from "./pages/CV";
+import TikTok from "./pages/TikTok";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/tech-stack" element={<TechStack />} />
           <Route path="/community" element={<Community />} />
           <Route path="/cv" element={<CV />} />
+          <Route path="/tiktok" element={<TikTok />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
