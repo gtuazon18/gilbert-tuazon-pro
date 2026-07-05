@@ -6,6 +6,7 @@ import {
   Cpu, Palette, Code2, AudioLines, FileText, Bot, Activity, Video,
   Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle,
   Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer, TrendingUp, Wallet, Tag,
+  Smartphone, Facebook,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -44,6 +45,7 @@ interface Project {
 }
 
 const projects: Project[] = [
+  { title: "Sabsi", description: "My first mobile app — an AI-powered subscription manager that tracks renewals, spending, and lets you add subscriptions by chat or voice.", tech: ["React Native", "AI Chat", "iOS"], icon: Smartphone, live: "https://www.sabsi.sbs/", featured: true },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Serenite", description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.", tech: ["React", "E-commerce", "Vercel"], icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/", featured: true },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], icon: Bot, live: "https://www.agentco.cloud/", featured: true },
@@ -57,6 +59,16 @@ const projects: Project[] = [
   { title: "Code Canvas", description: "Beautiful code snippet generator with syntax highlighting and export to image.", tech: ["React", "Prism.js", "html2canvas"], icon: Code2, github: "https://github.com", live: "https://example.com" },
   { title: "Voice Transcription Service", description: "Real-time audio transcription service using OpenAI Whisper with multi-language support and speaker diarization.", tech: ["Whisper", "Python", "FastAPI", "WebSocket"], icon: FileText, github: "https://github.com" },
   { title: "AI Voice Clone Platform", description: "Platform for creating and managing AI voice clones using ElevenLabs API with custom voice training and synthesis.", tech: ["ElevenLabs", "React", "Node.js", "PostgreSQL"], icon: AudioLines, github: "https://github.com", live: "https://example.com" },
+];
+
+const sabsiGalleryImages = [
+  "/Sabsi/onboarding-welcome.png",
+  "/Sabsi/onboarding-insights.png",
+  "/Sabsi/onboarding-voice.png",
+  "/Sabsi/onboarding-renewal.png",
+  "/Sabsi/onboarding-notifications.png",
+  "/Sabsi/dashboard.png",
+  "/Sabsi/lockscreen.png",
 ];
 
 const fintelGalleryImages = [
@@ -684,6 +696,55 @@ const Index = () => {
                           </motion.div>
                         );
                       })}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ SABSI SHOWCASE ═══ */}
+        <section className="py-4 md:py-6">
+          <div className="container px-6">
+            <div className="max-w-4xl mx-auto">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
+                <div className="flex items-center gap-3 mb-2">
+                  <img src="/Sabsi/logo.png" alt="Sabsi mascot" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
+                  <div>
+                    <h2 className="text-2xl font-bold leading-tight">Sabsi</h2>
+                    <p className="text-xs text-muted-foreground">My first mobile app</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Sabsi is an AI-powered subscription manager for iOS — track every subscription, get renewal reminders before you're charged, and add new subscriptions just by chatting or talking to Subby, your personal bear assistant.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <a href="https://www.sabsi.sbs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity">
+                    <ExternalLink className="w-4 h-4" />Visit Website
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61591250772206" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors">
+                    <Facebook className="w-4 h-4" />Follow for Updates
+                  </a>
+                  <a href="https://www.facebook.com/groups/996074226655819" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors">
+                    <UsersRound className="w-4 h-4" />Join the Community
+                  </a>
+                </div>
+
+                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none">
+                  {sabsiGalleryImages.map((image, index) => (
+                    <div
+                      key={image}
+                      className="w-40 md:w-48 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
+                    >
+                      <img
+                        src={image}
+                        alt={`Sabsi app screenshot ${index + 1}`}
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-active:scale-[1.05]"
+                        loading="lazy"
+                        draggable={false}
+                      />
                     </div>
                   ))}
                 </div>

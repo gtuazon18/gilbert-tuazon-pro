@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical, TrendingUp, Target } from "lucide-react";
+import { ExternalLink, Github, ShoppingBag, Mic, BarChart2, Terminal, Paintbrush, Cpu, Palette, Code2, AudioLines, FileText, Search, Home, Users, Bot, Wind, Trophy, FlaskConical, TrendingUp, Target, Smartphone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Project {
@@ -13,6 +13,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "Sabsi",
+    description: "My first mobile app — an AI-powered subscription manager that tracks renewals, spending, and lets you add subscriptions by chat or voice.",
+    tech: ["React Native", "AI Chat", "iOS"],
+    icon: Smartphone,
+    live: "https://www.sabsi.sbs/",
+    featured: true,
+  },
   {
     title: "BestLeadPH",
     description: "AI agents that find your next customers automatically. Discover, qualify, and organize local business leads using autonomous AI agents and a built-in CRM.",
