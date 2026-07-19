@@ -253,8 +253,11 @@ const CV = () => {
             <div className="mb-8 pb-6 border-b border-border">
               <div className="flex items-start gap-5">
                 <img
-                  src="/gt-pic.png"
+                  src="/gt-pic.webp"
                   alt="Gilbert Tuazon"
+                  width="700"
+                  height="991"
+                  decoding="async"
                   className="w-20 h-20 rounded-full object-cover border-2 border-border print:w-16 print:h-16"
                 />
                 <div className="flex-1">

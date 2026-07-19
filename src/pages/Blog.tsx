@@ -16,7 +16,7 @@ const posts = [
     readTime: "8 min read",
     tags: ["AI", "VAPI", "ElevenLabs", "Voice"],
     featured: true,
-    image: "/blog/voice-ai.jpg",
+    image: "/blog/voice-ai.webp",
   },
   {
     slug: "next-js-app-router-patterns",
@@ -27,7 +27,7 @@ const posts = [
     readTime: "6 min read",
     tags: ["Next.js", "React", "TypeScript"],
     featured: false,
-    image: "/blog/nextjs.jpg",
+    image: "/blog/nextjs.webp",
   },
   {
     slug: "langchain-rag-production",
@@ -38,7 +38,7 @@ const posts = [
     readTime: "10 min read",
     tags: ["LangChain", "AI", "RAG", "Pinecone"],
     featured: false,
-    image: "/blog/rag.jpg",
+    image: "/blog/rag.webp",
   },
   {
     slug: "postgres-performance",
@@ -49,7 +49,7 @@ const posts = [
     readTime: "7 min read",
     tags: ["PostgreSQL", "Database", "Performance"],
     featured: false,
-    image: "/blog/postgres.jpg",
+    image: "/blog/postgres.webp",
   },
   {
     slug: "react-native-ai",
@@ -60,7 +60,7 @@ const posts = [
     readTime: "9 min read",
     tags: ["React Native", "AI", "Mobile"],
     featured: false,
-    image: "/blog/react-native.jpg",
+    image: "/blog/react-native.webp",
   },
   {
     slug: "docker-monorepo",
@@ -71,7 +71,7 @@ const posts = [
     readTime: "5 min read",
     tags: ["Docker", "DevOps", "Monorepo"],
     featured: false,
-    image: "/blog/docker.jpg",
+    image: "/blog/docker.webp",
   },
 ];
 
@@ -169,7 +169,7 @@ const Blog = () => {
                   >
                     {/* Cover image */}
                     <div className="h-48 md:h-64 overflow-hidden">
-                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src={post.image} alt={post.title} width="1200" height="600" fetchPriority="high" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className="p-8 md:p-10">
                       <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -214,7 +214,7 @@ const Blog = () => {
                 >
                   {/* Cover image */}
                   <div className="h-36 overflow-hidden">
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={post.image} alt={post.title} width="1200" height="600" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
                     <div className="flex flex-wrap gap-1.5 mb-3">

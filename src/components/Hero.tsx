@@ -68,8 +68,12 @@ const Hero = () => {
             >
               <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
                 <img
-                  src="/gt-pic.png"
+                  src="/gt-pic.webp"
                   alt="Gilbert Tuazon"
+                  width="700"
+                  height="991"
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -62,24 +62,24 @@ const projects: Project[] = [
 ];
 
 const sabsiGalleryImages = [
-  "/Sabsi/onboarding-welcome.png",
-  "/Sabsi/onboarding-insights.png",
-  "/Sabsi/onboarding-voice.png",
-  "/Sabsi/onboarding-renewal.png",
-  "/Sabsi/onboarding-notifications.png",
-  "/Sabsi/dashboard.png",
-  "/Sabsi/lockscreen.png",
+  "/Sabsi/onboarding-welcome.webp",
+  "/Sabsi/onboarding-insights.webp",
+  "/Sabsi/onboarding-voice.webp",
+  "/Sabsi/onboarding-renewal.webp",
+  "/Sabsi/onboarding-notifications.webp",
+  "/Sabsi/dashboard.webp",
+  "/Sabsi/lockscreen.webp",
 ];
 
 const fintelGalleryImages = [
-  "/Fintel/download.jpeg",
-  "/Fintel/download (1).jpeg",
-  "/Fintel/download (2).jpeg",
-  "/Fintel/download (3).jpeg",
-  "/Fintel/download (4).jpeg",
-  "/Fintel/download (5).jpeg",
-  "/Fintel/download (6).jpeg",
-  "/Fintel/download (7).jpeg",
+  "/Fintel/download.webp",
+  "/Fintel/download (1).webp",
+  "/Fintel/download (2).webp",
+  "/Fintel/download (3).webp",
+  "/Fintel/download (4).webp",
+  "/Fintel/download (5).webp",
+  "/Fintel/download (6).webp",
+  "/Fintel/download (7).webp",
 ];
 
 const recommendations = [
@@ -433,8 +433,8 @@ const Index = () => {
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
                   <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="flex-shrink-0">
                     <div className="w-44 h-56 md:w-52 md:h-64 rounded-2xl overflow-hidden border-4 border-card shadow-lg relative">
-                      <img src="/gt-pic.png" alt="Gilbert Tuazon" className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out ${isDark ? "opacity-0" : "opacity-100"}`} />
-                      <img src="/nightscene.png" alt="Gilbert Tuazon" className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out ${isDark ? "opacity-100" : "opacity-0"}`} />
+                      <img src="/gt-pic.webp" alt="Gilbert Tuazon" width="700" height="991" fetchPriority="high" decoding="async" className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out ${isDark ? "opacity-0" : "opacity-100"}`} />
+                      <img src="/nightscene.webp" alt="Gilbert Tuazon" width="700" height="991" decoding="async" className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ease-in-out ${isDark ? "opacity-100" : "opacity-0"}`} />
                     </div>
                   </motion.div>
 
@@ -710,7 +710,7 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
                 <div className="flex items-center gap-3 mb-2">
-                  <img src="/Sabsi/logo.png" alt="Sabsi mascot" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
+                  <img src="/Sabsi/logo.webp" alt="Sabsi mascot" width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
                   <div>
                     <h2 className="text-2xl font-bold leading-tight">Sabsi</h2>
                     <p className="text-xs text-muted-foreground">My first mobile app</p>
@@ -743,6 +743,9 @@ const Index = () => {
                         alt={`Sabsi app screenshot ${index + 1}`}
                         className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-active:scale-[1.05]"
                         loading="lazy"
+                        decoding="async"
+                        width="630"
+                        height="1368"
                         draggable={false}
                       />
                     </div>
@@ -859,6 +862,7 @@ const Index = () => {
                         alt={`Fintelligence gallery image ${index + 1}`}
                         className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.14] group-active:scale-[1.1]"
                         loading="lazy"
+                        decoding="async"
                         draggable={false}
                       />
                     </div>

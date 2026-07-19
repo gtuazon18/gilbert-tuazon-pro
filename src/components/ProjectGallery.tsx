@@ -21,7 +21,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download.jpeg",
+    image: "/Fintel/download.webp",
   },
   {
     title: "Fintelligence — Dashboard",
@@ -30,7 +30,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (1).jpeg",
+    image: "/Fintel/download (1).webp",
   },
   {
     title: "Fintelligence — Advisory",
@@ -39,7 +39,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (2).jpeg",
+    image: "/Fintel/download (2).webp",
   },
   {
     title: "Fintelligence — Portfolio",
@@ -48,7 +48,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (3).jpeg",
+    image: "/Fintel/download (3).webp",
   },
   {
     title: "Fintelligence — Market Insights",
@@ -57,7 +57,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (4).jpeg",
+    image: "/Fintel/download (4).webp",
   },
   {
     title: "Fintelligence — Reports",
@@ -66,7 +66,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (5).jpeg",
+    image: "/Fintel/download (5).webp",
   },
   {
     title: "Fintelligence — CRM",
@@ -75,7 +75,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (6).jpeg",
+    image: "/Fintel/download (6).webp",
   },
   {
     title: "Fintelligence — Analytics",
@@ -84,7 +84,7 @@ const galleryProjects: GalleryProject[] = [
     color: "bg-green-50",
     icon: TrendingUp,
     live: "https://fintelligence.com.au/",
-    image: "/Fintel/download (7).jpeg",
+    image: "/Fintel/download (7).webp",
   },
   {
     title: "Zafari Booking",
@@ -280,7 +280,7 @@ const ProjectCard = ({ project }: { project: GalleryProject }) => {
       {/* Image or icon area */}
       <div className={`h-36 ${project.image ? "" : project.color} flex items-center justify-center relative overflow-hidden`}>
         {project.image ? (
-          <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+          <img src={project.image} alt={project.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
         ) : (
           <Icon className="w-12 h-12 text-muted-foreground/40" strokeWidth={1.2} />
         )}

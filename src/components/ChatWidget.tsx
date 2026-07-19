@@ -129,7 +129,7 @@ const ChatWidget = () => {
               onClick={() => setIsOpen(true)}
               className="w-14 h-14 rounded-full shadow-lg overflow-hidden ring-2 ring-foreground/10 hover:ring-foreground/30 transition-all"
             >
-              <img src="/starai.png" alt="AI Assistant" className="w-full h-full object-cover" />
+              <img src="/starai.webp" alt="AI Assistant" width="320" height="340" decoding="async" className="w-full h-full object-cover" />
             </motion.button>
           </div>
         )}
@@ -149,7 +149,7 @@ const ChatWidget = () => {
             <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-card">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
-                  <img src="/starai.png" alt="AI Assistant" className="w-full h-full object-cover" />
+                  <img src="/starai.webp" alt="AI Assistant" width="320" height="340" decoding="async" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold">Gilbert's AI Assistant</p>
@@ -169,7 +169,7 @@ const ChatWidget = () => {
                 <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   {msg.role === "assistant" && (
                     <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 mt-0.5">
-                      <img src="/starai.png" alt="AI" className="w-full h-full object-cover" />
+                      <img src="/starai.webp" alt="AI" width="320" height="340" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div
@@ -214,7 +214,7 @@ const ChatWidget = () => {
               {isLoading && (
                 <div className="flex gap-2 justify-start">
                   <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 mt-0.5">
-                    <img src="/starai.png" alt="AI" className="w-full h-full object-cover" />
+                    <img src="/starai.webp" alt="AI" width="320" height="340" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-secondary px-3 py-2 rounded-2xl rounded-bl-md">
                     <div className="flex gap-1">
