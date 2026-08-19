@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BadgeVerifiedIcon from "@/components/BadgeVerifiedIcon";
 import QRCode from "react-qr-code";
+import { useDragScroll } from "@/hooks/use-drag-scroll";
 
 /* ─── Data ─── */
 const skillCategories = [
@@ -455,6 +456,8 @@ const Index = () => {
     return saved ? parseInt(saved, 10) : 4;
   });
   const theme = cardThemes[cardThemeIndex];
+  const sabsiDragScroll = useDragScroll<HTMLDivElement>();
+  const galleryDragScrolls = [useDragScroll<HTMLDivElement>(), useDragScroll<HTMLDivElement>()];
 
   const cycleTheme = (index: number) => {
     setCardThemeIndex(index);
@@ -778,7 +781,14 @@ const Index = () => {
                   </a>
                 </div>
 
-                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none">
+                <div
+                  ref={sabsiDragScroll.ref}
+                  onMouseDown={sabsiDragScroll.onMouseDown}
+                  onMouseUp={sabsiDragScroll.onMouseUp}
+                  onMouseLeave={sabsiDragScroll.onMouseLeave}
+                  onMouseMove={sabsiDragScroll.onMouseMove}
+                  className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+                >
                   {sabsiGalleryImages.map((image, index) => (
                     <div
                       key={image}
@@ -898,10 +908,17 @@ const Index = () => {
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
                 <h2 className="text-2xl font-bold mb-4">Gallery</h2>
                 <div className="space-y-6">
-                  {galleryAlbums.map((album) => (
+                  {galleryAlbums.map((album, albumIndex) => (
                     <div key={album.name}>
                       <h3 className="text-sm font-semibold text-muted-foreground mb-2">{album.name}</h3>
-                      <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none">
+                      <div
+                        ref={galleryDragScrolls[albumIndex].ref}
+                        onMouseDown={galleryDragScrolls[albumIndex].onMouseDown}
+                        onMouseUp={galleryDragScrolls[albumIndex].onMouseUp}
+                        onMouseLeave={galleryDragScrolls[albumIndex].onMouseLeave}
+                        onMouseMove={galleryDragScrolls[albumIndex].onMouseMove}
+                        className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+                      >
                         {album.images.map((image, index) => (
                           <div
                             key={image}
