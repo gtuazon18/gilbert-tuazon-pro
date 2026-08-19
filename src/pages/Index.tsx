@@ -6,7 +6,7 @@ import {
   Cpu, Palette, Code2, AudioLines, FileText, Bot, Activity, Video,
   Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle,
   Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer, TrendingUp, Wallet, Tag,
-  Smartphone, Facebook,
+  Smartphone, Facebook, PiggyBank, ChevronDown,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -47,6 +47,7 @@ interface Project {
 
 const projects: Project[] = [
   { title: "Sabsi", description: "My first mobile app — an AI-powered subscription manager that tracks renewals, spending, and lets you add subscriptions by chat or voice.", tech: ["React Native", "AI Chat", "iOS"], icon: Smartphone, live: "https://www.sabsi.sbs/", featured: true },
+  { title: "Pocket Piggy", description: "A local-first iOS app that turns practical saving habits into small, playful actions — set goals, track progress, and build momentum without connecting a bank.", tech: ["SwiftUI", "SwiftData", "iOS"], icon: PiggyBank, live: "https://pocket-piggy.sabsi.sbs/", featured: true },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Serenite", description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.", tech: ["React", "E-commerce", "Vercel"], icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/", featured: true },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], icon: Bot, live: "https://www.agentco.cloud/", featured: true },
@@ -83,6 +84,19 @@ const sabsiGalleryImages = [
   "/Sabsi-new-appscreen/18-settings-overview.png",
   "/Sabsi-new-appscreen/19-settings-data-privacy.png",
   "/Sabsi-new-appscreen/20-privacy-policy.png",
+];
+
+const pocketPiggyGalleryImages = [
+  "/PocketPiggy-appscreen/screenshot-01.webp",
+  "/PocketPiggy-appscreen/screenshot-02.webp",
+  "/PocketPiggy-appscreen/screenshot-03.webp",
+  "/PocketPiggy-appscreen/screenshot-04.webp",
+  "/PocketPiggy-appscreen/screenshot-05.webp",
+  "/PocketPiggy-appscreen/screenshot-06.webp",
+  "/PocketPiggy-appscreen/screenshot-07.webp",
+  "/PocketPiggy-appscreen/screenshot-08.webp",
+  "/PocketPiggy-appscreen/screenshot-09.webp",
+  "/PocketPiggy-appscreen/screenshot-10.webp",
 ];
 
 const galleryAlbums = [
@@ -151,6 +165,77 @@ const recommendations = [
     role: "AI Product Lead at Multisys Technologies",
   },
 ];
+
+/* ─── Pocket Piggy Gallery (icon grid on mobile, expands on tap) ─── */
+const PocketPiggyGallery = ({ images }: { images: string[] }) => {
+  const [expanded, setExpanded] = useState(false);
+  const dragScroll = useDragScroll<HTMLDivElement>();
+
+  if (images.length === 0) return null;
+
+  return (
+    <>
+      {/* Mobile: collapsed icon grid until tapped */}
+      {!expanded && (
+        <div className="md:hidden">
+          <div className="grid grid-cols-5 gap-2">
+            {images.slice(0, 10).map((image, index) => (
+              <button
+                key={image}
+                onClick={() => setExpanded(true)}
+                className="aspect-[9/19.5] rounded-lg bg-secondary overflow-hidden border border-border"
+              >
+                <img
+                  src={image}
+                  alt={`Pocket Piggy app screenshot ${index + 1}`}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="295"
+                  height="640"
+                />
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => setExpanded(true)}
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ChevronDown className="w-4 h-4" />View all screenshots
+          </button>
+        </div>
+      )}
+
+      {/* Desktop: always the scroll row. Mobile: only after expanding */}
+      <div
+        ref={dragScroll.ref}
+        onMouseDown={dragScroll.onMouseDown}
+        onMouseUp={dragScroll.onMouseUp}
+        onMouseLeave={dragScroll.onMouseLeave}
+        onMouseMove={dragScroll.onMouseMove}
+        className={`${expanded ? "flex" : "hidden md:flex"} gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none`}
+      >
+        {images.map((image, index) => (
+          <div
+            key={image}
+            className="w-40 md:w-48 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
+          >
+            <img
+              src={image}
+              alt={`Pocket Piggy app screenshot ${index + 1}`}
+              className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-active:scale-[1.05]"
+              loading="lazy"
+              decoding="async"
+              width="295"
+              height="640"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
 
 /* ─── Recommendations Carousel ─── */
 const RecommendationsCarousel = () => {
@@ -807,6 +892,34 @@ const Index = () => {
                     </div>
                   ))}
                 </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ POCKET PIGGY SHOWCASE ═══ */}
+        <section className="py-4 md:py-6">
+          <div className="container px-6">
+            <div className="max-w-4xl mx-auto">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
+                <div className="flex items-center gap-3 mb-2">
+                  <img src="/PocketPiggy/logo.webp" alt="Pocket Piggy mascot" width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
+                  <div>
+                    <h2 className="text-2xl font-bold leading-tight">Pocket Piggy</h2>
+                    <p className="text-xs text-muted-foreground">Savings, made playful</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Pocket Piggy is a local-first iOS app that turns practical saving habits into small, playful actions. Set goals, track progress, and build momentum — all on-device, with no bank connection required.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <a href="https://pocket-piggy.sabsi.sbs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity">
+                    <ExternalLink className="w-4 h-4" />Visit Website
+                  </a>
+                </div>
+
+                <PocketPiggyGallery images={pocketPiggyGalleryImages} />
               </motion.div>
             </div>
           </div>
