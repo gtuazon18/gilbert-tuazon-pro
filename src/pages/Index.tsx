@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
   MapPin, Calendar, Mail, Github, Linkedin, ExternalLink, BookOpen,
@@ -166,8 +166,8 @@ const recommendations = [
   },
 ];
 
-/* ─── Pocket Piggy Gallery (icon grid on mobile, expands on tap) ─── */
-const PocketPiggyGallery = ({ images }: { images: string[] }) => {
+/* ─── App Screenshot Gallery (icon grid on mobile, expands on tap) ─── */
+const AppScreenshotGallery = ({ appName, images }: { appName: string; images: string[] }) => {
   const [expanded, setExpanded] = useState(false);
   const dragScroll = useDragScroll<HTMLDivElement>();
 
@@ -187,7 +187,7 @@ const PocketPiggyGallery = ({ images }: { images: string[] }) => {
               >
                 <img
                   src={image}
-                  alt={`Pocket Piggy app screenshot ${index + 1}`}
+                  alt={`${appName} app screenshot ${index + 1}`}
                   className="h-full w-full object-cover"
                   loading="lazy"
                   decoding="async"
@@ -222,7 +222,7 @@ const PocketPiggyGallery = ({ images }: { images: string[] }) => {
           >
             <img
               src={image}
-              alt={`Pocket Piggy app screenshot ${index + 1}`}
+              alt={`${appName} app screenshot ${index + 1}`}
               className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-active:scale-[1.05]"
               loading="lazy"
               decoding="async"
@@ -234,6 +234,77 @@ const PocketPiggyGallery = ({ images }: { images: string[] }) => {
         ))}
       </div>
     </>
+  );
+};
+
+interface AppShowcaseData {
+  id: string;
+  name: string;
+  tagline: string;
+  logo: string;
+  description: string;
+  links: { label: string; href: string; icon: LucideIcon; primary?: boolean }[];
+  images: string[];
+}
+
+/* ─── Apps Showcase (tabbed switcher for Sabsi / Pocket Piggy) ─── */
+const AppsShowcase = ({ apps }: { apps: AppShowcaseData[] }) => {
+  const [activeId, setActiveId] = useState(apps[0].id);
+  const active = apps.find(app => app.id === activeId) ?? apps[0];
+
+  return (
+    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
+      <div className="flex gap-1.5 mb-4 p-1 rounded-full bg-secondary w-fit">
+        {apps.map(app => (
+          <button
+            key={app.id}
+            onClick={() => setActiveId(app.id)}
+            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              app.id === activeId ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <img src={app.logo} alt="" width="64" height="64" loading="lazy" decoding="async" className="w-5 h-5 rounded-md object-cover" />
+            {app.name}
+          </button>
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.div key={active.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
+          <div className="flex items-center gap-3 mb-2">
+            <img src={active.logo} alt={`${active.name} mascot`} width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
+            <div>
+              <h2 className="text-2xl font-bold leading-tight">{active.name}</h2>
+              <p className="text-xs text-muted-foreground">{active.tagline}</p>
+            </div>
+          </div>
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4">{active.description}</p>
+
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            {active.links.map(link => {
+              const LinkIcon = link.icon;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    link.primary
+                      ? "inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+                      : "inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors"
+                  }
+                >
+                  <LinkIcon className="w-4 h-4" />{link.label}
+                </a>
+              );
+            })}
+          </div>
+
+          <AppScreenshotGallery appName={active.name} images={active.images} />
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
@@ -541,7 +612,6 @@ const Index = () => {
     return saved ? parseInt(saved, 10) : 4;
   });
   const theme = cardThemes[cardThemeIndex];
-  const sabsiDragScroll = useDragScroll<HTMLDivElement>();
   const galleryDragScrolls = [useDragScroll<HTMLDivElement>(), useDragScroll<HTMLDivElement>()];
 
   const cycleTheme = (index: number) => {
@@ -838,89 +908,38 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ═══ SABSI SHOWCASE ═══ */}
+        {/* ═══ APPS SHOWCASE (Sabsi / Pocket Piggy) ═══ */}
         <section className="py-4 md:py-6">
           <div className="container px-6">
             <div className="max-w-4xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
-                <div className="flex items-center gap-3 mb-2">
-                  <img src="/Sabsi/logo.webp" alt="Sabsi mascot" width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
-                  <div>
-                    <h2 className="text-2xl font-bold leading-tight">Sabsi</h2>
-                    <p className="text-xs text-muted-foreground">My first mobile app</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  Sabsi is an AI-powered subscription manager for iOS — track every subscription, get renewal reminders before you're charged, and add new subscriptions just by chatting or talking to Subby, your personal bear assistant.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <a href="https://www.sabsi.sbs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity">
-                    <ExternalLink className="w-4 h-4" />Visit Website
-                  </a>
-                  <a href="https://www.facebook.com/profile.php?id=61591250772206" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors">
-                    <Facebook className="w-4 h-4" />Follow for Updates
-                  </a>
-                  <a href="https://www.facebook.com/groups/996074226655819" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors">
-                    <UsersRound className="w-4 h-4" />Join the Community
-                  </a>
-                </div>
-
-                <div
-                  ref={sabsiDragScroll.ref}
-                  onMouseDown={sabsiDragScroll.onMouseDown}
-                  onMouseUp={sabsiDragScroll.onMouseUp}
-                  onMouseLeave={sabsiDragScroll.onMouseLeave}
-                  onMouseMove={sabsiDragScroll.onMouseMove}
-                  className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none"
-                >
-                  {sabsiGalleryImages.map((image, index) => (
-                    <div
-                      key={image}
-                      className="w-40 md:w-48 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
-                    >
-                      <img
-                        src={image}
-                        alt={`Sabsi app screenshot ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08] group-active:scale-[1.05]"
-                        loading="lazy"
-                        decoding="async"
-                        width="630"
-                        height="1368"
-                        draggable={false}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ POCKET PIGGY SHOWCASE ═══ */}
-        <section className="py-4 md:py-6">
-          <div className="container px-6">
-            <div className="max-w-4xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
-                <div className="flex items-center gap-3 mb-2">
-                  <img src="/PocketPiggy/logo.webp" alt="Pocket Piggy mascot" width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
-                  <div>
-                    <h2 className="text-2xl font-bold leading-tight">Pocket Piggy</h2>
-                    <p className="text-xs text-muted-foreground">Savings, made playful</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  Pocket Piggy is a local-first iOS app that turns practical saving habits into small, playful actions. Set goals, track progress, and build momentum — all on-device, with no bank connection required.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <a href="https://pocket-piggy.sabsi.sbs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity">
-                    <ExternalLink className="w-4 h-4" />Visit Website
-                  </a>
-                </div>
-
-                <PocketPiggyGallery images={pocketPiggyGalleryImages} />
-              </motion.div>
+              <AppsShowcase
+                apps={[
+                  {
+                    id: "sabsi",
+                    name: "Sabsi",
+                    tagline: "My first mobile app",
+                    logo: "/Sabsi/logo.webp",
+                    description: "Sabsi is an AI-powered subscription manager for iOS — track every subscription, get renewal reminders before you're charged, and add new subscriptions just by chatting or talking to Subby, your personal bear assistant.",
+                    links: [
+                      { label: "Visit Website", href: "https://www.sabsi.sbs/", icon: ExternalLink, primary: true },
+                      { label: "Follow for Updates", href: "https://www.facebook.com/profile.php?id=61591250772206", icon: Facebook },
+                      { label: "Join the Community", href: "https://www.facebook.com/groups/996074226655819", icon: UsersRound },
+                    ],
+                    images: sabsiGalleryImages,
+                  },
+                  {
+                    id: "pocket-piggy",
+                    name: "Pocket Piggy",
+                    tagline: "Savings, made playful",
+                    logo: "/PocketPiggy/logo.webp",
+                    description: "Pocket Piggy is a local-first iOS app that turns practical saving habits into small, playful actions. Set goals, track progress, and build momentum — all on-device, with no bank connection required.",
+                    links: [
+                      { label: "Visit Website", href: "https://pocket-piggy.sabsi.sbs/", icon: ExternalLink, primary: true },
+                    ],
+                    images: pocketPiggyGalleryImages,
+                  },
+                ]}
+              />
             </div>
           </div>
         </section>
