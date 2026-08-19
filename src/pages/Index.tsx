@@ -218,7 +218,7 @@ const AppScreenshotGallery = ({ appName, images }: { appName: string; images: st
         {images.map((image, index) => (
           <div
             key={image}
-            className="w-40 md:w-48 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
+            className="w-48 md:w-64 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
           >
             <img
               src={image}
