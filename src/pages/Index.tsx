@@ -62,24 +62,70 @@ const projects: Project[] = [
 ];
 
 const sabsiGalleryImages = [
-  "/Sabsi/onboarding-welcome.webp",
-  "/Sabsi/onboarding-insights.webp",
-  "/Sabsi/onboarding-voice.webp",
-  "/Sabsi/onboarding-renewal.webp",
-  "/Sabsi/onboarding-notifications.webp",
-  "/Sabsi/dashboard.webp",
-  "/Sabsi/lockscreen.webp",
+  "/Sabsi-new-appscreen/01-onboarding-welcome.png",
+  "/Sabsi-new-appscreen/02-onboarding-overview.png",
+  "/Sabsi-new-appscreen/03-onboarding-assistant.png",
+  "/Sabsi-new-appscreen/04-onboarding-reminders.png",
+  "/Sabsi-new-appscreen/05-dashboard-welcome.png",
+  "/Sabsi-new-appscreen/06-dashboard-populated.png",
+  "/Sabsi-new-appscreen/07-subscriptions-list.png",
+  "/Sabsi-new-appscreen/08-company-picker.png",
+  "/Sabsi-new-appscreen/09-subscription-form.png",
+  "/Sabsi-new-appscreen/10-subscription-detail.png",
+  "/Sabsi-new-appscreen/11-renewals-upcoming.png",
+  "/Sabsi-new-appscreen/12-renewals-calendar.png",
+  "/Sabsi-new-appscreen/13-renewals-history.png",
+  "/Sabsi-new-appscreen/14-renewals-insights.png",
+  "/Sabsi-new-appscreen/15-analytics-monthly.png",
+  "/Sabsi-new-appscreen/16-analytics-annual.png",
+  "/Sabsi-new-appscreen/17-chat-reply.png",
+  "/Sabsi-new-appscreen/18-settings-overview.png",
+  "/Sabsi-new-appscreen/19-settings-data-privacy.png",
+  "/Sabsi-new-appscreen/20-privacy-policy.png",
 ];
 
-const fintelGalleryImages = [
-  "/Fintel/download.webp",
-  "/Fintel/download (1).webp",
-  "/Fintel/download (2).webp",
-  "/Fintel/download (3).webp",
-  "/Fintel/download (4).webp",
-  "/Fintel/download (5).webp",
-  "/Fintel/download (6).webp",
-  "/Fintel/download (7).webp",
+const galleryAlbums = [
+  {
+    name: "Fintelligence",
+    images: [
+      "/Fintel/download.webp",
+      "/Fintel/download (1).webp",
+      "/Fintel/download (2).webp",
+      "/Fintel/download (3).webp",
+      "/Fintel/download (4).webp",
+      "/Fintel/download (5).webp",
+      "/Fintel/download (6).webp",
+      "/Fintel/download (7).webp",
+    ],
+  },
+  {
+    name: "Show and Tell Meetup",
+    images: [
+      "/ShowAndTellMeetup/758793846_4315085988755472_2795391048776258519_n.jpg",
+      "/ShowAndTellMeetup/758808207_4315388135391924_3846014836730762286_n.jpg",
+      "/ShowAndTellMeetup/758830764_4315388712058533_1064489697211592163_n.jpg",
+      "/ShowAndTellMeetup/758964495_4315087688755302_6816806289809123513_n.jpg",
+      "/ShowAndTellMeetup/759078277_4315384948725576_6876633286424895788_n.jpg",
+      "/ShowAndTellMeetup/759149941_4315385068725564_976878914120001966_n.jpg",
+      "/ShowAndTellMeetup/759253896_4315087658755305_8936999965965153643_n.jpg",
+      "/ShowAndTellMeetup/759281161_1871762020885952_7637921786439707800_n.jpg",
+      "/ShowAndTellMeetup/759281192_4315384888725582_487988789909491940_n.jpg",
+      "/ShowAndTellMeetup/759330298_4315388672058537_6482736134556077266_n.jpg",
+      "/ShowAndTellMeetup/759514106_4315388482058556_1931182602320534424_n.jpg",
+      "/ShowAndTellMeetup/759688354_4315385298725541_3695658921159317742_n.jpg",
+      "/ShowAndTellMeetup/759777603_4315385205392217_8579611201661433976_n.jpg",
+      "/ShowAndTellMeetup/759823643_4315388242058580_6623473828014392724_n.jpg",
+      "/ShowAndTellMeetup/760105509_4315384995392238_3256530276125740711_n.jpg",
+      "/ShowAndTellMeetup/760105629_4315388745391863_7474142024846392399_n.jpg",
+      "/ShowAndTellMeetup/760392335_4315388565391881_5848141359851229674_n.jpg",
+      "/ShowAndTellMeetup/760455069_4315087675421970_7872955206334374653_n.jpg",
+      "/ShowAndTellMeetup/760536871_4315384765392261_1017546568593055179_n.jpg",
+      "/ShowAndTellMeetup/760545507_4315388212058583_4350425073637641055_n.jpg",
+      "/ShowAndTellMeetup/760654785_4315388612058543_1701754457635222711_n.jpg",
+      "/ShowAndTellMeetup/761306970_4315905898673481_2367562961335501410_n.jpg",
+      "/ShowAndTellMeetup/761596640_4315388052058599_1095360538125788732_n.jpg",
+    ],
+  },
 ];
 
 const recommendations = [
@@ -851,20 +897,27 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
                 <h2 className="text-2xl font-bold mb-4">Gallery</h2>
-                <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none">
-                  {fintelGalleryImages.map((image, index) => (
-                    <div
-                      key={image}
-                      className="w-48 h-48 md:w-56 md:h-56 rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group"
-                    >
-                      <img
-                        src={image}
-                        alt={`Fintelligence gallery image ${index + 1}`}
-                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.14] group-active:scale-[1.1]"
-                        loading="lazy"
-                        decoding="async"
-                        draggable={false}
-                      />
+                <div className="space-y-6">
+                  {galleryAlbums.map((album) => (
+                    <div key={album.name}>
+                      <h3 className="text-sm font-semibold text-muted-foreground mb-2">{album.name}</h3>
+                      <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide cursor-grab active:cursor-grabbing select-none">
+                        {album.images.map((image, index) => (
+                          <div
+                            key={image}
+                            className="w-48 h-48 md:w-56 md:h-56 rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group"
+                          >
+                            <img
+                              src={image}
+                              alt={`${album.name} gallery image ${index + 1}`}
+                              className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.14] group-active:scale-[1.1]"
+                              loading="lazy"
+                              decoding="async"
+                              draggable={false}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
