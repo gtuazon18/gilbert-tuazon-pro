@@ -420,33 +420,26 @@ interface WeatherData {
 }
 
 const getWeatherIcon = (iconCode: string) => {
-  if (iconCode.startsWith("09") || iconCode.startsWith("10")) return <CloudRain className="w-8 h-8 text-blue-400" />;
-  if (iconCode.startsWith("11")) return <CloudLightning className="w-8 h-8 text-yellow-400" />;
-  if (iconCode.startsWith("13")) return <Snowflake className="w-8 h-8 text-sky-300" />;
-  if (iconCode.startsWith("50")) return <Cloud className="w-8 h-8 text-zinc-400" />;
-  if (iconCode === "01d") return <Sun className="w-8 h-8 text-yellow-400" />;
-  if (iconCode === "01n") return <Moon className="w-8 h-8 text-blue-300" />;
-  if (iconCode.startsWith("02")) return <CloudSun className="w-8 h-8 text-amber-400" />;
-  return <Cloud className="w-8 h-8 text-zinc-400" />;
+  if (iconCode.startsWith("09") || iconCode.startsWith("10")) return <CloudRain className="w-8 h-8 text-blue-400 animate-weather-rain" />;
+  if (iconCode.startsWith("11")) return <CloudLightning className="w-8 h-8 text-yellow-400 animate-weather-lightning" />;
+  if (iconCode.startsWith("13")) return <Snowflake className="w-8 h-8 text-sky-300 animate-weather-spin" />;
+  if (iconCode.startsWith("50")) return <Cloud className="w-8 h-8 text-zinc-400 animate-weather-drift" />;
+  if (iconCode === "01d") return <Sun className="w-8 h-8 text-yellow-400 animate-weather-sun" />;
+  if (iconCode === "01n") return <Moon className="w-8 h-8 text-blue-300 animate-weather-drift" />;
+  if (iconCode.startsWith("02")) return <CloudSun className="w-8 h-8 text-amber-400 animate-weather-drift" />;
+  return <Cloud className="w-8 h-8 text-zinc-400 animate-weather-drift" />;
 };
+
+const WEATHER_REFRESH_MS = 15 * 60 * 1000;
+const WEATHER_CACHE_MS = 15 * 60 * 1000;
 
 const WeatherWidget = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const cached = localStorage.getItem("weather-data");
-    if (cached) {
-      try {
-        const parsed = JSON.parse(cached);
-        const age = Date.now() - parsed.timestamp;
-        if (age < 30 * 60 * 1000) {
-          setWeather(parsed.data);
-          setLoading(false);
-          return;
-        }
-      } catch { /* ignore */ }
-    }
+    let cancelled = false;
+    let knownLocation: { city: string; country: string } | null = null;
 
     const getWeatherDescription = (code: number): { description: string; icon: string } => {
       if (code === 0) return { description: "clear sky", icon: "01d" };
@@ -475,10 +468,8 @@ const WeatherWidget = () => {
 
     const fetchWeather = async (lat: number, lon: number) => {
       try {
-        const [weatherRes, location] = await Promise.all([
-          fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m`),
-          getCityName(lat, lon),
-        ]);
+        if (!knownLocation) knownLocation = await getCityName(lat, lon);
+        const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m`);
         const data = await weatherRes.json();
         const current = data.current;
         const { description, icon } = getWeatherDescription(current.weather_code);
@@ -488,14 +479,16 @@ const WeatherWidget = () => {
           humidity: current.relative_humidity_2m,
           description,
           icon,
-          city: location.city,
-          country: location.country,
+          city: knownLocation.city,
+          country: knownLocation.country,
           windSpeed: Math.round(current.wind_speed_10m),
         };
+        if (cancelled) return;
         setWeather(w);
         localStorage.setItem("weather-data", JSON.stringify({ data: w, timestamp: Date.now() }));
       } catch {
-        setWeather({
+        if (cancelled) return;
+        setWeather(prev => prev ?? {
           temp: 32,
           feelsLike: 35,
           humidity: 72,
@@ -506,19 +499,44 @@ const WeatherWidget = () => {
           windSpeed: 12,
         });
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
+    const startPolling = (lat: number, lon: number) => {
+      fetchWeather(lat, lon);
+      const interval = setInterval(() => fetchWeather(lat, lon), WEATHER_REFRESH_MS);
+      return () => clearInterval(interval);
+    };
+
+    const cached = localStorage.getItem("weather-data");
+    let cleanup: (() => void) | undefined;
+
+    if (cached) {
+      try {
+        const parsed = JSON.parse(cached);
+        const age = Date.now() - parsed.timestamp;
+        if (age < WEATHER_CACHE_MS) {
+          setWeather(parsed.data);
+          setLoading(false);
+        }
+      } catch { /* ignore */ }
+    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        pos => fetchWeather(pos.coords.latitude, pos.coords.longitude),
-        () => fetchWeather(14.4791, 120.8970),
+        pos => { cleanup = startPolling(pos.coords.latitude, pos.coords.longitude); },
+        () => { cleanup = startPolling(14.4791, 120.8970); },
         { timeout: 5000 }
       );
     } else {
-      fetchWeather(14.4791, 120.8970);
+      cleanup = startPolling(14.4791, 120.8970);
     }
+
+    return () => {
+      cancelled = true;
+      cleanup?.();
+    };
   }, []);
 
   return (

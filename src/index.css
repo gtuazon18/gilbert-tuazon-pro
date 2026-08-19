@@ -152,6 +152,55 @@
   background: hsl(var(--muted-foreground));
 }
 
+/* Weather widget icon animations */
+@keyframes weather-sun-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.08) rotate(10deg); }
+}
+@keyframes weather-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+@keyframes weather-rain-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+@keyframes weather-lightning-flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 1; }
+  50% { opacity: 0.4; }
+  55% { opacity: 1; }
+}
+@keyframes weather-snow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-weather-sun {
+  animation: weather-sun-pulse 3s ease-in-out infinite;
+}
+.animate-weather-drift {
+  animation: weather-drift 2.5s ease-in-out infinite;
+}
+.animate-weather-rain {
+  animation: weather-rain-bounce 1s ease-in-out infinite;
+}
+.animate-weather-lightning {
+  animation: weather-lightning-flicker 2s ease-in-out infinite;
+}
+.animate-weather-spin {
+  animation: weather-snow-spin 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-weather-sun,
+  .animate-weather-drift,
+  .animate-weather-rain,
+  .animate-weather-lightning,
+  .animate-weather-spin {
+    animation: none;
+  }
+}
+
 /* Print styles for CV */
 @media print {
   body {
