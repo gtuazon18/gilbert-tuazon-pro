@@ -218,7 +218,7 @@ const AppScreenshotGallery = ({ appName, images }: { appName: string; images: st
         {images.map((image, index) => (
           <div
             key={image}
-            className="w-48 md:w-64 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
+            className="w-48 md:w-52 aspect-[9/19.5] rounded-2xl bg-secondary overflow-hidden flex-shrink-0 snap-start group border border-border"
           >
             <img
               src={image}
@@ -254,51 +254,55 @@ const AppsShowcase = ({ apps }: { apps: AppShowcaseData[] }) => {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="section-card overflow-hidden">
-      <div className="flex gap-1.5 mb-4 p-1 rounded-full bg-secondary w-fit">
-        {apps.map(app => (
-          <button
-            key={app.id}
-            onClick={() => setActiveId(app.id)}
-            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              app.id === activeId ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            <img src={app.logo} alt="" width="64" height="64" loading="lazy" decoding="async" className="w-5 h-5 rounded-md object-cover" />
-            {app.name}
-          </button>
-        ))}
+      <div className="max-w-4xl">
+        <div className="flex gap-1.5 mb-4 p-1 rounded-full bg-secondary w-fit">
+          {apps.map(app => (
+            <button
+              key={app.id}
+              onClick={() => setActiveId(app.id)}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                app.id === activeId ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <img src={app.logo} alt="" width="64" height="64" loading="lazy" decoding="async" className="w-5 h-5 rounded-md object-cover" />
+              {app.name}
+            </button>
+          ))}
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
         <motion.div key={active.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
-          <div className="flex items-center gap-3 mb-2">
-            <img src={active.logo} alt={`${active.name} mascot`} width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
-            <div>
-              <h2 className="text-2xl font-bold leading-tight">{active.name}</h2>
-              <p className="text-xs text-muted-foreground">{active.tagline}</p>
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 mb-2">
+              <img src={active.logo} alt={`${active.name} mascot`} width="256" height="256" loading="lazy" decoding="async" className="w-10 h-10 rounded-xl object-cover flex-shrink-0" />
+              <div>
+                <h2 className="text-2xl font-bold leading-tight">{active.name}</h2>
+                <p className="text-xs text-muted-foreground">{active.tagline}</p>
+              </div>
             </div>
-          </div>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4">{active.description}</p>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4">{active.description}</p>
 
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            {active.links.map(link => {
-              const LinkIcon = link.icon;
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={
-                    link.primary
-                      ? "inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
-                      : "inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors"
-                  }
-                >
-                  <LinkIcon className="w-4 h-4" />{link.label}
-                </a>
-              );
-            })}
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              {active.links.map(link => {
+                const LinkIcon = link.icon;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={
+                      link.primary
+                        ? "inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+                        : "inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-border text-sm font-medium hover:bg-secondary transition-colors"
+                    }
+                  >
+                    <LinkIcon className="w-4 h-4" />{link.label}
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <AppScreenshotGallery appName={active.name} images={active.images} />
@@ -911,7 +915,7 @@ const Index = () => {
         {/* ═══ APPS SHOWCASE (Sabsi / Pocket Piggy) ═══ */}
         <section className="py-4 md:py-6">
           <div className="container px-6">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-none mx-auto">
               <AppsShowcase
                 apps={[
                   {
