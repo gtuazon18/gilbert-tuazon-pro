@@ -6,7 +6,7 @@ import {
   Cpu, Palette, Code2, AudioLines, FileText, Bot, Activity, Video,
   Plane, Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle,
   Users, FlaskConical, Moon, Sun, Lightbulb, UsersRound, CloudRain, CloudSun, Cloud, Snowflake, CloudLightning, Droplets, Thermometer, TrendingUp, Wallet, Tag,
-  Smartphone, Facebook, PiggyBank, ChevronDown,
+  Smartphone, Facebook, PiggyBank, ChevronDown, ImageIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -48,6 +48,7 @@ interface Project {
 const projects: Project[] = [
   { title: "Sabsi", description: "My first mobile app — an AI-powered subscription manager that tracks renewals, spending, and lets you add subscriptions by chat or voice.", tech: ["React Native", "AI Chat", "iOS"], icon: Smartphone, live: "https://www.sabsi.sbs/", featured: true },
   { title: "Pocket Piggy", description: "A local-first iOS app that turns practical saving habits into small, playful actions — set goals, track progress, and build momentum without connecting a bank.", tech: ["SwiftUI", "SwiftData", "iOS"], icon: PiggyBank, live: "https://pocket-piggy.sabsi.sbs/", featured: true },
+  { title: "PreviewMyApp", description: "Web app for creating App Store and Google Play screenshots, phone mockups, and preview videos from a single editor workspace.", tech: ["React", "TanStack", "Remotion", "Supabase"], icon: ImageIcon, live: "https://previewmyapp.sabsi.sbs/", featured: true },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Serenite", description: "Luxury spa & beauty e-commerce. Discover our curated collection of luxury spa, manicure & pedicure products — crafted with botanical ingredients for radiant results.", tech: ["React", "E-commerce", "Vercel"], icon: ShoppingBag, live: "https://bloom-glow-boutique.vercel.app/", featured: true },
   { title: "AgentCo AI Agent", description: "Intelligent AI agent platform with LangChain and LangGraph for building custom AI agents across various industries.", tech: ["Python", "LangChain", "LangGraph", "LLaMA"], icon: Bot, live: "https://www.agentco.cloud/", featured: true },
