@@ -15,16 +15,18 @@ const Footer = () => {
       fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`)
         .then((res) => res.json())
         .then((data) => {
-          setViews(data.count);
+          const count = typeof data.count === "number" ? data.count : null;
+          setViews(count);
           sessionStorage.setItem("counted", "true");
-          sessionStorage.setItem("view-count", String(data.count));
+          if (count !== null) sessionStorage.setItem("view-count", String(count));
         })
         .catch(() => setViews(null));
     } else {
       // Already counted this session, show cached count
       const cached = sessionStorage.getItem("view-count");
       if (cached) {
-        setViews(parseInt(cached, 10));
+        const count = Number.parseInt(cached, 10);
+        setViews(Number.isFinite(count) ? count : null);
       }
     }
   }, []);

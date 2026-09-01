@@ -19,6 +19,9 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
+  { title: "Juan AI", description: "Personalized developer mentor for choosing a path, completing focused tasks, and building practical evidence.", tech: ["Next.js", "React", "TypeScript"], color: "bg-orange-50", icon: BookOpen, github: "https://github.com/gtuazon18/juan-ai-site" },
+  { title: "Tarantula AI", description: "SwiftUI creator recording assistant for turning ideas into camera-ready scripts and natural teleprompter takes.", tech: ["SwiftUI", "AI", "Teleprompter"], color: "bg-amber-50", icon: Video, github: "https://github.com/gtuazon18/TaraPrompter", live: "https://tarantulaai.sabsi.sbs/" },
+  { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, github: "https://github.com/gtuazon18/bree-ios" },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Zafari Booking", description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.", tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"], color: "bg-stone-50", icon: MapPin, live: "https://zafari-booking.vercel.app/" },
   { title: "OneKita PH", description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.", tech: ["React", "TypeScript", "Laravel", "Fintech"], color: "bg-orange-50", icon: Wallet, live: "https://onekitaph.vercel.app/" },
@@ -47,57 +50,98 @@ const galleryProjects: GalleryProject[] = [
   { title: "Real-time Transcription", description: "Live audio transcription service powered by Whisper", tech: ["Whisper", "Python", "FastAPI", "WebSocket"], color: "bg-cyan-50", icon: FileText },
 ];
 
+const projectColumns = [
+  {
+    title: "Current products",
+    accent: "bg-orange-500",
+    projects: ["Juan AI", "Tarantula AI", "Bree"],
+  },
+  {
+    title: "AI & Intelligence",
+    accent: "bg-violet-500",
+    projects: ["Fintelligence", "Listify", "Waal", "AgentCo AI Agent", "Remarkable Vid AI", "Landing Page Builder", "Voice AI Assistant", "AI Voice Clone Platform", "Real-time Transcription"],
+  },
+  {
+    title: "Platforms & SaaS",
+    accent: "bg-emerald-500",
+    projects: ["OneKita PH", "MyMoovz", "Health Fitness App", "FootBaller Life", "Accounting System", "Earn-Books", "IntelHouse", "LMS Lab Management"],
+  },
+  {
+    title: "Commerce & Booking",
+    accent: "bg-amber-500",
+    projects: ["Zafari Booking", "GigaKnows E-Commerce", "Serenite", "Health Booking System", "Flight Booking System", "Teko Aircon Booking", "Staycation Booking"],
+  },
+  {
+    title: "Experiments",
+    accent: "bg-sky-500",
+    projects: ["Game of Thrones Chess", "Earthquake Tracker"],
+  },
+].map(column => ({
+  ...column,
+  projects: column.projects.map(title => galleryProjects.find(project => project.title === title)).filter(Boolean) as GalleryProject[],
+}));
+
 const Gallery = () => {
   return (
     <div className="min-h-screen bg-background">
-      <main className="container px-6 pt-12 pb-16">
-        <div className="max-w-4xl mx-auto">
+      <main className="px-5 pt-12 pb-16 md:px-8">
+        <div className="max-w-[1500px] mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-2">Projects</h1>
-          <p className="text-muted-foreground mb-8">A complete collection of projects across different domains</p>
+          <p className="text-muted-foreground mb-10">A complete collection of projects, organized by the kind of problem they solve.</p>
 
-          <div className="divide-y divide-border bg-card rounded-2xl border border-border p-6">
-            {galleryProjects.map((project, index) => {
-              const Icon = project.icon;
-              return (
-                <motion.div
-                  key={`${project.title}-${index}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className="flex items-start gap-4 py-4 first:pt-0 last:pb-0"
-                >
-                  <div className={`w-12 h-12 rounded-xl ${project.color} flex items-center justify-center flex-shrink-0 overflow-hidden`}>
-                    <Icon className="w-6 h-6 text-muted-foreground/40" strokeWidth={1.5} />
+          <div className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {projectColumns.map((column, columnIndex) => (
+              <motion.section
+                key={column.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: columnIndex * 0.08 }}
+                className="rounded-2xl border border-border bg-secondary/40 p-3"
+              >
+                <div className="flex items-center justify-between px-2 py-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <span className={`h-2.5 w-2.5 rounded-full ${column.accent}`} />
+                    <h2 className="text-sm font-semibold">{column.title}</h2>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-sm mb-0.5">{project.title}</h3>
-                    <p className="text-xs text-muted-foreground mb-2">{project.description}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tech.map(tech => (
-                        <span key={tech} className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex gap-2 flex-shrink-0 pt-1">
-                    {project.live && (
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
+                  <span className="rounded-full bg-background px-2 py-0.5 font-mono text-[10px] text-muted-foreground">{column.projects.length}</span>
+                </div>
+
+                <div className="mt-2 space-y-3">
+                  {column.projects.map((project, projectIndex) => {
+                    const Icon = project.icon;
+                    return (
+                      <motion.article
+                        key={project.title}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: columnIndex * 0.08 + projectIndex * 0.03 }}
+                        className="group rounded-xl border border-border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-md"
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div className={`grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl ${project.color}`}>
+                            <Icon className="h-5 w-5 text-neutral-500" strokeWidth={1.5} />
+                          </div>
+                          <div className="flex items-center gap-2">
+                            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} source code`} className="text-muted-foreground hover:text-foreground"><Github className="h-3.5 w-3.5" /></a>}
+                            {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`} className="text-muted-foreground hover:text-foreground"><ExternalLink className="h-3.5 w-3.5" /></a>}
+                          </div>
+                        </div>
+                        <h3 className="mt-4 text-sm font-semibold">{project.title}</h3>
+                        <p className="mt-1.5 text-xs leading-5 text-muted-foreground">{project.description}</p>
+                        <div className="mt-4 flex flex-wrap gap-1.5">
+                          {project.tech.slice(0, 4).map(tech => <span key={tech} className="rounded-full bg-secondary px-2 py-1 text-[9px] font-medium text-muted-foreground">{tech}</span>)}
+                        </div>
+                      </motion.article>
+                    );
+                  })}
+                </div>
+              </motion.section>
+            ))}
           </div>
         </div>
       </main>
