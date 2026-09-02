@@ -21,7 +21,7 @@ interface GalleryProject {
 const galleryProjects: GalleryProject[] = [
   { title: "Juan AI", description: "Personalized developer mentor for choosing a path, completing focused tasks, and building practical evidence.", tech: ["Next.js", "React", "TypeScript"], color: "bg-orange-50", icon: BookOpen, live: "https://juan-ai.sabsi.sbs/" },
   { title: "Tarantula AI", description: "SwiftUI creator recording assistant for turning ideas into camera-ready scripts and natural teleprompter takes.", tech: ["SwiftUI", "AI", "Teleprompter"], color: "bg-amber-50", icon: Video, github: "https://github.com/gtuazon18/TaraPrompter", live: "https://tarantulaai.sabsi.sbs/" },
-  { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, github: "https://github.com/gtuazon18/bree-ios" },
+  { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, live: "http://bree.sabsi.sbs/" },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Zafari Booking", description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.", tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"], color: "bg-stone-50", icon: MapPin, live: "https://zafari-booking.vercel.app/" },
   { title: "OneKita PH", description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.", tech: ["React", "TypeScript", "Laravel", "Fintech"], color: "bg-orange-50", icon: Wallet, live: "https://onekitaph.vercel.app/" },
@@ -126,16 +126,18 @@ const Gallery = () => {
                           <div className={`grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl ${project.color}`}>
                             <Icon className="h-5 w-5 text-neutral-500" strokeWidth={1.5} />
                           </div>
-                          <div className="flex items-center gap-2">
-                            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} source code`} className="text-muted-foreground hover:text-foreground"><Github className="h-3.5 w-3.5" /></a>}
-                            {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`} className="text-muted-foreground hover:text-foreground"><ExternalLink className="h-3.5 w-3.5" /></a>}
-                          </div>
                         </div>
                         <h3 className="mt-4 text-sm font-semibold">{project.title}</h3>
                         <p className="mt-1.5 text-xs leading-5 text-muted-foreground">{project.description}</p>
                         <div className="mt-4 flex flex-wrap gap-1.5">
                           {project.tech.slice(0, 4).map(tech => <span key={tech} className="rounded-full bg-secondary px-2 py-1 text-[9px] font-medium text-muted-foreground">{tech}</span>)}
                         </div>
+                        {(project.live || project.github) && (
+                          <div className="mt-5 flex items-center gap-4 border-t border-border pt-4">
+                            {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline">Visit site <ExternalLink className="h-3.5 w-3.5" /></a>}
+                            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">Source <Github className="h-3.5 w-3.5" /></a>}
+                          </div>
+                        )}
                       </motion.article>
                     );
                   })}
