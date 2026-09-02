@@ -19,7 +19,7 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
-  { title: "Juan AI", description: "Personalized developer mentor for choosing a path, completing focused tasks, and building practical evidence.", tech: ["Next.js", "React", "TypeScript"], color: "bg-orange-50", icon: BookOpen, github: "https://github.com/gtuazon18/juan-ai-site" },
+  { title: "Juan AI", description: "Personalized developer mentor for choosing a path, completing focused tasks, and building practical evidence.", tech: ["Next.js", "React", "TypeScript"], color: "bg-orange-50", icon: BookOpen, live: "https://juan-ai.sabsi.sbs/" },
   { title: "Tarantula AI", description: "SwiftUI creator recording assistant for turning ideas into camera-ready scripts and natural teleprompter takes.", tech: ["SwiftUI", "AI", "Teleprompter"], color: "bg-amber-50", icon: Video, github: "https://github.com/gtuazon18/TaraPrompter", live: "https://tarantulaai.sabsi.sbs/" },
   { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, github: "https://github.com/gtuazon18/bree-ios" },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
