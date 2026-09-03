@@ -4,7 +4,7 @@ import { Eye } from "lucide-react";
 const NAMESPACE = "gilbert-tuazon-pro";
 const KEY = "portfolio-views";
 
-const Footer = () => {
+export const VisitorCount = ({ className = "" }: { className?: string }) => {
   const [views, setViews] = useState<number | null>(null);
 
   useEffect(() => {
@@ -31,16 +31,23 @@ const Footer = () => {
     }
   }, []);
 
+  if (views === null) return null;
+
+  return (
+    <div className={`flex items-center gap-1.5 text-sm text-muted-foreground ${className}`}>
+      <Eye className="w-4 h-4" aria-hidden="true" />
+      <span>{views.toLocaleString()} views</span>
+    </div>
+  );
+};
+
+const Footer = () => {
+
   return (
     <footer className="py-8 border-t border-border">
       <div className="container px-6">
         <div className="max-w-4xl mx-auto text-center space-y-2">
-          {views !== null && (
-            <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground">
-              <Eye className="w-4 h-4" />
-              <span>{views.toLocaleString()} views</span>
-            </div>
-          )}
+          <VisitorCount className="justify-center" />
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Gilbert Tuazon. All rights reserved.
           </p>
