@@ -3,32 +3,26 @@ import { Eye } from "lucide-react";
 
 const NAMESPACE = "gilbert-tuazon-pro";
 const KEY = "portfolio-views";
+const COUNTER_API = `https://abacus.jasoncameron.dev`;
 
 export const VisitorCount = ({ className = "" }: { className?: string }) => {
   const [views, setViews] = useState<number | null>(null);
 
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem("counted");
+    const hasVisited = sessionStorage.getItem("visitor-counted-v2") === "true";
+    const endpoint = hasVisited ? "get" : "hit";
 
-    if (!hasVisited) {
-      // Increment and get count for new session
-      fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`)
-        .then((res) => res.json())
-        .then((data) => {
-          const count = typeof data.count === "number" ? data.count : null;
-          setViews(count);
-          sessionStorage.setItem("counted", "true");
-          if (count !== null) sessionStorage.setItem("view-count", String(count));
-        })
-        .catch(() => setViews(null));
-    } else {
-      // Already counted this session, show cached count
-      const cached = sessionStorage.getItem("view-count");
-      if (cached) {
-        const count = Number.parseInt(cached, 10);
-        setViews(Number.isFinite(count) ? count : null);
-      }
-    }
+    fetch(`${COUNTER_API}/${endpoint}/${NAMESPACE}/${KEY}`)
+      .then((response) => {
+        if (!response.ok) throw new Error("Visitor counter unavailable");
+        return response.json();
+      })
+      .then((data) => {
+        const count = typeof data.value === "number" ? data.value : null;
+        setViews(count);
+        if (!hasVisited && count !== null) sessionStorage.setItem("visitor-counted-v2", "true");
+      })
+      .catch(() => setViews(null));
   }, []);
 
   if (views === null) return null;
