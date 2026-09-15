@@ -81,6 +81,39 @@ const projectColumns = [
   projects: column.projects.map(title => galleryProjects.find(project => project.title === title)).filter(Boolean) as GalleryProject[],
 }));
 
+const personalAppMoments = [
+  {
+    src: "/ShowAndTellMeetup/personal-apps/portfolio-show-and-tell.webp",
+    alt: "Gilbert Tuazon presenting his personal app portfolio at AppBuildersPH Show and Tell",
+    caption: "Sharing a portfolio of personal apps",
+  },
+  {
+    src: "/ShowAndTellMeetup/personal-apps/tarantula-ai-demo.webp",
+    alt: "Tarantula AI product demo on screen during the presentation",
+    caption: "Tarantula AI in the spotlight",
+  },
+  {
+    src: "/ShowAndTellMeetup/personal-apps/tarantula-ai-teleprompter.webp",
+    alt: "Tarantula AI teleprompter workflow slide during the presentation",
+    caption: "Showing the creator workflow",
+  },
+  {
+    src: "/ShowAndTellMeetup/personal-apps/creator-workflow.webp",
+    alt: "Creator workflow slide from the Tarantula AI presentation",
+    caption: "From idea to camera-ready take",
+  },
+  {
+    src: "/ShowAndTellMeetup/personal-apps/huawei-visit.webp",
+    alt: "Gilbert Tuazon at the Huawei venue during the meetup",
+    caption: "A day for sharing and learning",
+  },
+  {
+    src: "/ShowAndTellMeetup/personal-apps/meetup-room.webp",
+    alt: "Audience gathered at the AppBuildersPH Show and Tell meetup",
+    caption: "The room behind the conversation",
+  },
+] as const;
+
 const Gallery = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -145,6 +178,42 @@ const Gallery = () => {
               </motion.section>
             ))}
           </div>
+
+          <section className="mt-16 border-t border-border pt-16" aria-labelledby="personal-apps-heading">
+            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.45 }}
+                className="max-w-xl"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Personal apps in the room</p>
+                <h2 id="personal-apps-heading" className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">From side projects to a live conversation.</h2>
+                <p className="mt-6 leading-7 text-muted-foreground">I shared the products I build for myself—Bree, Juan AI, Tarantula AI, Sabsi, Pocket Piggy, and Moontales—with fellow app builders at AppBuildersPH Show &amp; Tell.</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["Bree", "Juan AI", "Tarantula AI", "Sabsi", "Pocket Piggy", "Moontales"].map(app => <span key={app} className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">{app}</span>)}
+                </div>
+                <a href="https://appbuildersph.com/blog/appbuildersph-holds-its-first-ever-show-tell" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold hover:underline">Read the event recap <ExternalLink className="h-4 w-4" /></a>
+              </motion.div>
+
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                {personalAppMoments.map((moment, index) => (
+                  <motion.figure
+                    key={moment.src}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className={index === 0 ? "group relative col-span-2 overflow-hidden rounded-2xl border border-border bg-secondary md:col-span-4" : "group relative aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-secondary"}
+                  >
+                    <img src={moment.src} alt={moment.alt} className={index === 0 ? "aspect-[16/8] h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" : "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"} loading="lazy" />
+                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-3 pb-3 pt-8 text-xs font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">{moment.caption}</figcaption>
+                  </motion.figure>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
       </main>
       <Footer />
