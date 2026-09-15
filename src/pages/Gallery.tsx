@@ -16,12 +16,13 @@ interface GalleryProject {
   icon: LucideIcon;
   github?: string;
   live?: string;
+  appStoreHref?: string;
 }
 
 const galleryProjects: GalleryProject[] = [
   { title: "Juan AI", description: "Personalized developer mentor for choosing a path, completing focused tasks, and building practical evidence.", tech: ["Next.js", "React", "TypeScript"], color: "bg-orange-50", icon: BookOpen, live: "https://juan-ai.sabsi.sbs/" },
-  { title: "Tarantula AI", description: "SwiftUI creator recording assistant for turning ideas into camera-ready scripts and natural teleprompter takes.", tech: ["SwiftUI", "AI", "Teleprompter"], color: "bg-amber-50", icon: Video, github: "https://github.com/gtuazon18/TaraPrompter", live: "https://tarantulaai.sabsi.sbs/" },
-  { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, live: "http://bree.sabsi.sbs/" },
+  { title: "Telezi AI", description: "SwiftUI creator recording assistant for turning ideas into camera-ready scripts and natural teleprompter takes.", tech: ["SwiftUI", "AI", "Teleprompter"], color: "bg-amber-50", icon: Video, github: "https://github.com/gtuazon18/TaraPrompter", live: "https://tarantulaai.sabsi.sbs/", appStoreHref: "https://apps.apple.com/ph/app/telezi-teleprompter-no-ads/id6804414952" },
+  { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, live: "http://bree.sabsi.sbs/", appStoreHref: "https://apps.apple.com/ph/app/bree-sleep-meditation/id6806787179" },
   { title: "Fintelligence", description: "AI-powered fintech platform for broker management, financial advisory, and AI-driven financial analysis.", tech: ["React", "Python", "LangChain", "AI/ML"], color: "bg-green-50", icon: TrendingUp, live: "https://fintelligence.com.au/" },
   { title: "Zafari Booking", description: "Premium safari park booking platform with AI chat support, experience packages, ticketing, and adventure reservations.", tech: ["React", "TypeScript", "Tailwind CSS", "AI Chat"], color: "bg-stone-50", icon: MapPin, live: "https://zafari-booking.vercel.app/" },
   { title: "OneKita PH", description: "Smart finance platform for Filipino professionals — income tracking, expense management, and tax filing in one place.", tech: ["React", "TypeScript", "Laravel", "Fintech"], color: "bg-orange-50", icon: Wallet, live: "https://onekitaph.vercel.app/" },
@@ -54,7 +55,7 @@ const projectColumns = [
   {
     title: "Current products",
     accent: "bg-orange-500",
-    projects: ["Juan AI", "Tarantula AI", "Bree"],
+    projects: ["Juan AI", "Telezi AI", "Bree"],
   },
   {
     title: "AI & Intelligence",
@@ -88,18 +89,18 @@ const personalAppMoments = [
     caption: "Sharing a portfolio of personal apps",
   },
   {
-    src: "/ShowAndTellMeetup/personal-apps/tarantula-ai-demo.webp",
-    alt: "Tarantula AI product demo on screen during the presentation",
-    caption: "Tarantula AI in the spotlight",
+    src: "/ShowAndTellMeetup/personal-apps/telezi-ai-demo.webp",
+    alt: "Telezi AI product demo on screen during the presentation",
+    caption: "Telezi AI in the spotlight",
   },
   {
-    src: "/ShowAndTellMeetup/personal-apps/tarantula-ai-teleprompter.webp",
-    alt: "Tarantula AI teleprompter workflow slide during the presentation",
+    src: "/ShowAndTellMeetup/personal-apps/telezi-ai-teleprompter.webp",
+    alt: "Telezi AI teleprompter workflow slide during the presentation",
     caption: "Showing the creator workflow",
   },
   {
-    src: "/ShowAndTellMeetup/personal-apps/creator-workflow.webp",
-    alt: "Creator workflow slide from the Tarantula AI presentation",
+    src: "/ShowAndTellMeetup/personal-apps/telezi-ai-creator-workflow.webp",
+    alt: "Creator workflow slide from the Telezi AI presentation",
     caption: "From idea to camera-ready take",
   },
   {
@@ -165,9 +166,10 @@ const Gallery = () => {
                         <div className="mt-4 flex flex-wrap gap-1.5">
                           {project.tech.slice(0, 4).map(tech => <span key={tech} className="rounded-full bg-secondary px-2 py-1 text-[9px] font-medium text-muted-foreground">{tech}</span>)}
                         </div>
-                        {(project.live || project.github) && (
+                        {(project.live || project.github || project.appStoreHref) && (
                           <div className="mt-5 flex items-center gap-4 border-t border-border pt-4">
                             {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline">Visit site <ExternalLink className="h-3.5 w-3.5" /></a>}
+                            {project.appStoreHref && <a href={project.appStoreHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline">App Store <ExternalLink className="h-3.5 w-3.5" /></a>}
                             {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground hover:underline">Source <Github className="h-3.5 w-3.5" /></a>}
                           </div>
                         )}
@@ -190,9 +192,9 @@ const Gallery = () => {
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Personal apps in the room</p>
                 <h2 id="personal-apps-heading" className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">From side projects to a live conversation.</h2>
-                <p className="mt-6 leading-7 text-muted-foreground">I shared the products I build for myself—Bree, Juan AI, Tarantula AI, Sabsi, Pocket Piggy, and Moontales—with fellow app builders at AppBuildersPH Show &amp; Tell.</p>
+                <p className="mt-6 leading-7 text-muted-foreground">I shared the products I build for myself—Bree, Juan AI, Telezi AI, Sabsi, Pocket Piggy, and Moontales—with fellow app builders at AppBuildersPH Show &amp; Tell.</p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {["Bree", "Juan AI", "Tarantula AI", "Sabsi", "Pocket Piggy", "Moontales"].map(app => <span key={app} className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">{app}</span>)}
+                  {["Bree", "Juan AI", "Telezi AI", "Sabsi", "Pocket Piggy", "Moontales"].map(app => <span key={app} className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">{app}</span>)}
                 </div>
                 <a href="https://appbuildersph.com/blog/appbuildersph-holds-its-first-ever-show-tell" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold hover:underline">Read the event recap <ExternalLink className="h-4 w-4" /></a>
               </motion.div>
