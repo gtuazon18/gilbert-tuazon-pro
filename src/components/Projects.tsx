@@ -14,6 +14,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Lollibong PH",
+    description: "Philippine ecommerce store for Korean-inspired honey-and-herb candies and lollipops, with bundle pricing and COD/GCash checkout.",
+    tech: ["Next.js", "TypeScript", "Ecommerce"],
+    icon: ShoppingBag,
+    live: "https://www.lollibongph.com/",
+    featured: true,
+  },
+  {
     title: "Sabsi",
     description: "My first mobile app — an AI-powered subscription manager that tracks renewals, spending, and lets you add subscriptions by chat or voice.",
     tech: ["React Native", "AI Chat", "iOS"],

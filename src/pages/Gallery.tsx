@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ExternalLink, Github, ShoppingBag, Bot, Activity, Video, Calendar, Plane,
   Trophy, Calculator, Layout, Wind, Hotel, Sword, AlertTriangle, Users,
-  FlaskConical, Mic, AudioLines, FileText, ArrowLeft, Search, Home, TrendingUp, BookOpen, Wallet, Tag, MapPin,
+  FlaskConical, Mic, AudioLines, FileText, ArrowLeft, Search, Home, TrendingUp, BookOpen, Wallet, Tag, MapPin, Heart,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -20,6 +20,7 @@ interface GalleryProject {
 }
 
 const galleryProjects: GalleryProject[] = [
+  { title: "Lollibong PH", description: "Philippine ecommerce store for Korean-inspired honey-and-herb candies and lollipops, with bundle pricing and COD/GCash checkout.", tech: ["Next.js", "TypeScript", "Ecommerce"], color: "bg-amber-50", icon: Heart, live: "https://www.lollibongph.com/" },
   { title: "Juan AI", description: "Personalized developer mentor for choosing a path, completing focused tasks, and building practical evidence.", tech: ["Next.js", "React", "TypeScript"], color: "bg-orange-50", icon: BookOpen, live: "https://juan-ai.sabsi.sbs/" },
   { title: "Telezi AI", description: "SwiftUI creator recording assistant for turning ideas into camera-ready scripts and natural teleprompter takes.", tech: ["SwiftUI", "AI", "Teleprompter"], color: "bg-amber-50", icon: Video, github: "https://github.com/gtuazon18/TaraPrompter", live: "https://tarantulaai.sabsi.sbs/", appStoreHref: "https://apps.apple.com/ph/app/telezi-teleprompter-no-ads/id6804414952" },
   { title: "Bree", description: "Private, offline-first breathing companion with gentle exercises, local reflections, and soundscapes.", tech: ["SwiftUI", "Offline-first", "StoreKit"], color: "bg-yellow-50", icon: Activity, live: "http://bree.sabsi.sbs/", appStoreHref: "https://apps.apple.com/ph/app/bree-sleep-meditation/id6806787179" },
@@ -55,7 +56,7 @@ const projectColumns = [
   {
     title: "Current products",
     accent: "bg-orange-500",
-    projects: ["Juan AI", "Telezi AI", "Bree"],
+    projects: ["Lollibong PH", "Juan AI", "Telezi AI", "Bree"],
   },
   {
     title: "AI & Intelligence",

@@ -11,6 +11,7 @@ const featuredWork = [
   { number: "04", name: "Juan AI", eyebrow: "Developer mentor · Web", description: "A personalized developer mentor that turns a broad career goal into one clear task, useful help, and real evidence of progress.", role: "Product design, web engineering, learning systems", tech: ["Next.js", "React", "TypeScript"], href: "https://juan-ai.sabsi.sbs/", linkLabel: "Visit product", image: "/JuanAI/logo.png", tone: "from-[#f4512c] to-[#ff9a78]" },
   { number: "05", name: "Telezi AI", eyebrow: "Creator assistant · iOS", description: "A SwiftUI creator recording assistant that turns an idea into a camera-ready script and helps creators deliver it naturally with an intelligent teleprompter.", role: "Product strategy, SwiftUI development, AI workflow design", tech: ["SwiftUI", "AI", "Teleprompter"], href: "https://tarantulaai.sabsi.sbs/", linkLabel: "Visit product", appStoreHref: "https://apps.apple.com/ph/app/telezi-teleprompter-no-ads/id6804414952", image: "/TeleziAI/logo.png", tone: "from-[#111111] to-[#737373]" },
   { number: "06", name: "Bree", eyebrow: "Wellbeing companion · iOS", description: "A private, offline-first breathing companion that helps people pause, try one small practice, and find a gentler next step.", role: "Product design, SwiftUI development, local-first architecture", tech: ["SwiftUI", "Offline-first", "StoreKit"], href: "http://bree.sabsi.sbs/", linkLabel: "Visit product", appStoreHref: "https://apps.apple.com/ph/app/bree-sleep-meditation/id6806787179", image: "/Bree/logo.png", tone: "from-[#ffd122] to-[#fff1a6]" },
+  { number: "07", name: "Lollibong PH", eyebrow: "Ecommerce · Web", description: "A Philippine storefront for Korean-inspired honey-and-herb candies and lollipops, with bundle pricing, COD and GCash checkout, and a direct-order flow.", role: "Product engineering, storefront design, checkout and payments", tech: ["Next.js", "TypeScript", "Ecommerce"], href: "https://www.lollibongph.com/", linkLabel: "Visit store", image: "/Lollibong/logo.jpg", tone: "from-[#e8a03a] to-[#f7d9a0]" },
 ];
 
 const capabilities = [
@@ -34,6 +35,9 @@ const galleryHighlights = [
   { src: "/ShowAndTellMeetup/personal-apps/telezi-ai-creator-workflow.webp", alt: "Telezi AI creator workflow" },
   { src: "/ShowAndTellMeetup/personal-apps/huawei-visit.webp", alt: "Gilbert Tuazon at the Huawei venue" },
   { src: "/ShowAndTellMeetup/personal-apps/meetup-room.webp", alt: "AppBuildersPH Show and Tell meetup room" },
+  { src: "/Lollibong/products.jpg", alt: "Lollibong PH canister and honey-and-herb candy pouches" },
+  { src: "/Lollibong/packaging.jpg", alt: "Lollibong PH candy box and individually packed treats" },
+  { src: "/Lollibong/logo.jpg", alt: "Lollibong PH amber heart-shaped lollipops" },
   { src: "/Fintel/download.webp", alt: "Fintelligence product interface" },
   { src: "/Fintel/download (1).webp", alt: "Fintelligence platform screen" },
   { src: "/Fintel/download (2).webp", alt: "Fintelligence dashboard" },

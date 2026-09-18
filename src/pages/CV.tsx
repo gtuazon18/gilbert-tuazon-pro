@@ -193,6 +193,7 @@ const skills = {
 };
 
 const projects = [
+  { name: "Lollibong PH", desc: "Philippine ecommerce store for Korean-inspired honey-and-herb candies and lollipops, with bundle pricing and COD/GCash checkout", tech: "Next.js, TypeScript, Ecommerce", url: "lollibongph.com" },
   { name: "BestLeadPH", desc: "Autonomous AI agents that discover, qualify, and organize local business leads with a built-in CRM — the quiet sales workspace for modern teams", tech: "AI Agents, CRM, Lead Generation, N8n, OpenAI", url: "bestleadph.com" },
   { name: "Fintelligence", desc: "AI-powered fintech platform for broker management and financial advisory", tech: "React, TypeScript, Python, LangChain, AI/ML", url: "fintelligence.com.au" },
   { name: "AgentCo AI Agent", desc: "AI agent platform with LangChain & LangGraph", tech: "Python, LangChain, LangGraph, LLaMA", url: "agentco.cloud" },

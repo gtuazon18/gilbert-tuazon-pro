@@ -15,6 +15,15 @@ interface GalleryProject {
 
 const galleryProjects: GalleryProject[] = [
   {
+    title: "Lollibong PH",
+    description: "Philippine ecommerce store for Korean-inspired honey-and-herb candies and lollipops, with bundle pricing and COD/GCash checkout.",
+    tech: ["Next.js", "TypeScript", "Ecommerce"],
+    color: "bg-amber-50",
+    icon: ShoppingBag,
+    live: "https://www.lollibongph.com/",
+    image: "/Lollibong/products.jpg",
+  },
+  {
     title: "Fintelligence",
     description: "AI-powered fintech platform for broker management and financial advisory.",
     tech: ["React", "Python", "LangChain", "AI/ML"],
