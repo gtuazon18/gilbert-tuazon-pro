@@ -19,7 +19,7 @@ const Contact = () => {
                 <h3 className="font-semibold text-sm mb-4">Social Links</h3>
                 <div className="space-y-3">
                   <a
-                    href="https://www.linkedin.com/in/gilbert-t-20a96213a/"
+                    href="https://www.linkedin.com/in/gilbert-tuazon/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"

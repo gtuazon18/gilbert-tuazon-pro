@@ -286,7 +286,7 @@ const CV = () => {
                     </span>
                     <span className="inline-flex items-center gap-1.5">
                       <Linkedin className="w-3.5 h-3.5" />
-                      linkedin.com/in/gilbert-tuazon-20a96213a
+                      linkedin.com/in/gilbert-tuazon
                     </span>
                   </div>
                 </div>

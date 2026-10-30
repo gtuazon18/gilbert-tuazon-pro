@@ -178,7 +178,7 @@ const Hero = () => {
               >
                 {[
                   { icon: Github, href: "https://github.com/gtuazon18/gtuazon18", label: "GitHub" },
-                  { icon: Linkedin, href: "https://www.linkedin.com/in/gilbert-t-20a96213a/", label: "LinkedIn" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/gilbert-tuazon/", label: "LinkedIn" },
                   { icon: Mail, href: "mailto:tuazon548@gmail.com", label: "Email" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
