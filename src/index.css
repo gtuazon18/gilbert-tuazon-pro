@@ -230,3 +230,22 @@
     display: none !important;
   }
 }
+
+/* Client logo marquee */
+@keyframes logo-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.logo-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.logo-marquee-track {
+  animation: logo-marquee 40s linear infinite;
+}
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track { animation: none; }
+}
